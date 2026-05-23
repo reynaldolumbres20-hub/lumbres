@@ -71,7 +71,7 @@ const revealObserver = new IntersectionObserver((entries) => {
     });
 }, { threshold: 0.1 });
 
-document.querySelectorAll('.glass-card, .project-card, .achievement-card').forEach(el => {
+document.querySelectorAll('.info-block, .project-item, .achievement-item').forEach(el => {
     el.style.opacity = '0';
     el.style.transform = 'translateY(30px)';
     el.style.transition = 'all 0.5s ease';
