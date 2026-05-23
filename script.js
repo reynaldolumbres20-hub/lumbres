@@ -1,40 +1,50 @@
-// Image Upload
-const uploadInput = document.getElementById('uploadInput');
-const profileImg = document.getElementById('profileImg');
-const uploadMsg = document.getElementById('uploadMsg');
+// ========== TWO GATES ENTRANCE SYSTEM ==========
+const gatesContainer = document.getElementById('gatesContainer');
+const mainContent = document.getElementById('mainContentWrapper');
+const openGatesBtn = document.getElementById('openGatesBtn');
+const leftGate = document.querySelector('.gate-left');
+const rightGate = document.querySelector('.gate-right');
 
-const savedImg = localStorage.getItem('savedProfileImg');
-if (savedImg && profileImg) {
-    profileImg.src = savedImg;
+function openGates() {
+    leftGate.classList.add('swing-open');
+    rightGate.classList.add('swing-open');
+    
+    setTimeout(() => {
+        gatesContainer.classList.add('hide-gates');
+        setTimeout(() => {
+            gatesContainer.style.display = 'none';
+        }, 500);
+    }, 800);
+    
+    setTimeout(() => {
+        mainContent.classList.add('reveal-main');
+        startTypingAnimation();
+        startScrollReveal();
+    }, 900);
 }
 
-if (uploadInput) {
-    uploadInput.addEventListener('change', function(e) {
-        const file = e.target.files[0];
-        if (file) {
-            if (file.size > 2 * 1024 * 1024) {
-                uploadMsg.innerHTML = '❌ Max 2MB';
-                uploadMsg.style.color = '#ff6b6b';
-                setTimeout(() => uploadMsg.innerHTML = '', 3000);
-                return;
-            }
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                profileImg.src = e.target.result;
-                localStorage.setItem('savedProfileImg', e.target.result);
-                uploadMsg.innerHTML = '✅ Updated!';
-                uploadMsg.style.color = '#4ecdc4';
-                setTimeout(() => uploadMsg.innerHTML = '', 3000);
-            };
-            reader.readAsDataURL(file);
-        }
+if (openGatesBtn) {
+    openGatesBtn.addEventListener('click', openGates);
+}
+
+document.querySelectorAll('.gate-handle').forEach(handle => {
+    handle.addEventListener('click', function(e) {
+        e.stopPropagation();
+        openGates();
     });
-}
+});
 
-// Typing Animation
+// ========== TYPING ANIMATION ==========
 const roles = ['Web Developer', 'Graphic Designer', 'IT Graduate'];
 let roleIdx = 0, charIdx = 0, deleting = false;
-const roleText = document.getElementById('roleText');
+let roleText = null;
+let typingTimeout = null;
+
+function startTypingAnimation() {
+    roleText = document.getElementById('roleText');
+    if (!roleText) return;
+    typeRole();
+}
 
 function typeRole() {
     if (!roleText) return;
@@ -48,32 +58,43 @@ function typeRole() {
     }
     if (!deleting && charIdx === current.length) {
         deleting = true;
-        setTimeout(typeRole, 2000);
+        typingTimeout = setTimeout(typeRole, 2000);
         return;
     }
     if (deleting && charIdx === 0) {
         deleting = false;
         roleIdx = (roleIdx + 1) % roles.length;
-        setTimeout(typeRole, 500);
+        typingTimeout = setTimeout(typeRole, 500);
         return;
     }
-    setTimeout(typeRole, deleting ? 80 : 120);
+    typingTimeout = setTimeout(typeRole, deleting ? 80 : 120);
 }
-setTimeout(typeRole, 500);
 
-// Scroll Reveal
-const reveal = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-        }
+// ========== SCROLL REVEAL ==========
+function startScrollReveal() {
+    const revealElements = document.querySelectorAll('.info-card, .project, .achievement');
+    
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+                revealObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 });
+    
+    revealElements.forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(30px)';
+        el.style.transition = 'all 0.5s ease';
+        revealObserver.observe(el);
     });
-}, { threshold: 0.1 });
+}
 
-document.querySelectorAll('.info-card, .project, .achievement').forEach(el => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(30px)';
-    el.style.transition = 'all 0.5s ease';
-    reveal.observe(el);
+window.addEventListener('load', function() {
+    if (gatesContainer.style.display === 'none') {
+        startTypingAnimation();
+        startScrollReveal();
+    }
 });
