@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reynaldo B. Lumbres | Portfolio</title>
+    <title>Reynaldo B. Lumbres | Professional Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -17,37 +17,50 @@
     </div>
 
     <div class="wrapper">
-        <!-- Hero Section - CENTERED AT COMPACT -->
+        <!-- Hero Section - PROFESSIONAL REDESIGN -->
         <div class="hero">
-            <div class="hero-content">
-                <div class="avatar-frame">
-                    <div class="avatar-glow"></div>
-                    <img id="profileImg" src="images/profile.jpg" alt="Profile" onerror="this.src='https://ui-avatars.com/api/?background=7c3aed&color=fff&name=Reynaldo+Lumbres&bold=true&size=200'">
-                    <div class="camera-overlay">
-                        <label for="uploadInput"><i class="fas fa-camera"></i></label>
-                        <input type="file" id="uploadInput" accept="image/*" hidden>
+            <div class="hero-grid">
+                <!-- Left: Avatar -->
+                <div class="hero-left">
+                    <div class="avatar-frame">
+                        <div class="avatar-glow"></div>
+                        <img id="profileImg" src="images/profile.jpg" alt="Profile" onerror="this.src='https://ui-avatars.com/api/?background=7c3aed&color=fff&name=Reynaldo+Lumbres&bold=true&size=200'">
+                        <div class="camera-overlay">
+                            <label for="uploadInput"><i class="fas fa-camera"></i></label>
+                            <input type="file" id="uploadInput" accept="image/*" hidden>
+                        </div>
                     </div>
-                </div>
-                <div class="upload-msg" id="uploadMsg"></div>
-                
-                <h1 class="name-title">Reynaldo B. Lumbres</h1>
-                
-                <!-- Tagline -->
-                <p class="tagline">"Code. Create. Innovate. — Turning ideas into stunning digital realities"</p>
-                
-                <!-- Typing Animation -->
-                <div class="role-wrap">
-                    <span class="role-text" id="roleText"></span>
-                    <span class="role-cursor">|</span>
+                    <div class="upload-msg" id="uploadMsg"></div>
                 </div>
                 
-                <!-- ISANG STRAIGHT LINE LAHAT: badges + buttons magkakasunod -->
-                <div class="action-row">
-                    <span class="action-item"><i class="fas fa-code"></i> Web Developer</span>
-                    <span class="action-item"><i class="fas fa-palette"></i> Graphic Designer</span>
-                    <span class="action-item"><i class="fas fa-graduation-cap"></i> IT Graduate</span>
-                    <a href="#contact" class="action-btn btn-contact"><i class="fas fa-paper-plane"></i> Contact Me</a>
-                    <a href="#projects" class="action-btn btn-view"><i class="fas fa-eye"></i> View Work</a>
+                <!-- Right: Info -->
+                <div class="hero-right">
+                    <div class="name-badge">
+                        <span class="initial-badge">RL</span>
+                        <h1 class="name-title">Reynaldo B. Lumbres</h1>
+                    </div>
+                    
+                    <div class="tagline-box">
+                        <i class="fas fa-quote-left"></i>
+                        <p>Code. Create. Innovate. — Turning ideas into stunning digital realities</p>
+                        <i class="fas fa-quote-right"></i>
+                    </div>
+                    
+                    <!-- Typing Animation -->
+                    <div class="role-typing">
+                        <span class="role-label">I'm a</span>
+                        <span class="role-text" id="roleText"></span>
+                        <span class="role-cursor">|</span>
+                    </div>
+                    
+                    <!-- Action Row - Isang Straight Line -->
+                    <div class="action-row">
+                        <span class="pill"><i class="fas fa-code"></i> Web Dev</span>
+                        <span class="pill"><i class="fas fa-palette"></i> Designer</span>
+                        <span class="pill highlight"><i class="fas fa-graduation-cap"></i> IT Grad</span>
+                        <a href="#contact" class="btn-pill btn-primary">Contact Me <i class="fas fa-arrow-right"></i></a>
+                        <a href="#projects" class="btn-pill btn-secondary">View Work <i class="fas fa-eye"></i></a>
+                    </div>
                 </div>
             </div>
         </div>
