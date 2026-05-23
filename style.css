@@ -741,4 +741,104 @@ body {
 }
 
 .achievement i {
-    font-size: 1
+    font-size: 1.1rem;
+    color: #ec4899;
+}
+
+.achievement h4 {
+    font-size: 0.8rem;
+    margin-bottom: 2px;
+}
+
+.achievement p {
+    font-size: 0.65rem;
+    color: #999;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    color: #777;
+    font-size: 0.7rem;
+}
+
+footer i {
+    color: #ec4899;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .hero-grid {
+        flex-direction: column;
+        text-align: center;
+        padding: 30px;
+    }
+    
+    .name-badge {
+        justify-content: center;
+    }
+    
+    .tagline-box {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .role-typing {
+        justify-content: center;
+    }
+    
+    .action-row {
+        justify-content: center;
+    }
+    
+    .main-card {
+        grid-template-columns: 1fr;
+    }
+    
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .achievements-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .wrapper {
+        padding: 20px;
+    }
+    
+    .lightning.bolt1, .lightning.bolt2 {
+        display: none;
+    }
+}
+
+@media (max-width: 600px) {
+    .info-two-col {
+        grid-template-columns: 1fr;
+    }
+    
+    .name-title {
+        font-size: 1.3rem;
+    }
+    
+    .initial-badge {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background: #111;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #7c3aed;
+    border-radius: 10px;
+}
