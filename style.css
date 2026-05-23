@@ -53,23 +53,23 @@ body {
     z-index: 1;
 }
 
-/* ========== HERO SECTION ========== */
+/* ========== HERO SECTION - COMPACT ========== */
 .hero {
     display: flex;
     align-items: center;
-    gap: 60px;
+    gap: 50px;
     background: rgba(12, 12, 20, 0.5);
     backdrop-filter: blur(16px);
-    border-radius: 56px;
-    padding: 48px;
+    border-radius: 48px;
+    padding: 40px 48px;
     margin-bottom: 40px;
     border: 1px solid rgba(255,255,255,0.06);
 }
 
 .avatar-frame {
     position: relative;
-    width: 180px;
-    height: 180px;
+    width: 160px;
+    height: 160px;
 }
 
 .avatar-glow {
@@ -97,11 +97,11 @@ body {
 
 .camera-overlay {
     position: absolute;
-    bottom: 8px;
-    right: 8px;
+    bottom: 5px;
+    right: 5px;
     background: #1a1a2e;
-    width: 36px;
-    height: 36px;
+    width: 34px;
+    height: 34px;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -118,18 +118,18 @@ body {
 
 .upload-msg {
     text-align: center;
-    margin-top: 10px;
-    font-size: 11px;
+    margin-top: 8px;
+    font-size: 10px;
     color: #888;
 }
 
 .hero-right h1 {
-    font-size: 3.2rem;
+    font-size: 2.8rem;
     font-weight: 800;
     background: linear-gradient(135deg, #fff, #b8b8ff);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    margin-bottom: 12px;
+    margin-bottom: 10px;
     letter-spacing: -0.02em;
 }
 
@@ -137,9 +137,9 @@ body {
     display: flex;
     align-items: center;
     gap: 5px;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     color: #a5a5ff;
-    margin-bottom: 22px;
+    margin-bottom: 18px;
 }
 
 .role-text {
@@ -157,17 +157,17 @@ body {
 
 .badge-group {
     display: flex;
-    gap: 12px;
-    margin-bottom: 28px;
+    gap: 10px;
+    margin-bottom: 24px;
     flex-wrap: wrap;
 }
 
 .badge {
     background: rgba(255,255,255,0.04);
     border: 1px solid rgba(255,255,255,0.08);
-    padding: 8px 18px;
+    padding: 6px 16px;
     border-radius: 40px;
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     font-weight: 500;
     transition: all 0.3s;
 }
@@ -179,17 +179,18 @@ body {
 
 .btn-group {
     display: flex;
-    gap: 15px;
+    gap: 12px;
     flex-wrap: wrap;
 }
 
 .btn-grad {
     background: linear-gradient(135deg, #7c3aed, #ec4899);
-    padding: 12px 28px;
+    padding: 10px 24px;
     border-radius: 40px;
     text-decoration: none;
     color: white;
     font-weight: 600;
+    font-size: 0.9rem;
     transition: all 0.3s;
     display: inline-flex;
     align-items: center;
@@ -204,11 +205,12 @@ body {
 .btn-out {
     background: transparent;
     border: 1px solid rgba(255,255,255,0.15);
-    padding: 12px 28px;
+    padding: 10px 24px;
     border-radius: 40px;
     text-decoration: none;
     color: white;
     font-weight: 600;
+    font-size: 0.9rem;
     transition: all 0.3s;
     display: inline-flex;
     align-items: center;
@@ -237,7 +239,7 @@ body {
 .info-card {
     background: rgba(0, 0, 0, 0.35);
     border-radius: 24px;
-    margin-bottom: 24px;
+    margin-bottom: 20px;
     overflow: hidden;
     transition: all 0.3s;
 }
@@ -253,37 +255,37 @@ body {
 .info-header {
     display: flex;
     align-items: center;
-    gap: 12px;
-    padding: 16px 22px;
+    gap: 10px;
+    padding: 14px 20px;
     border-bottom: 1px solid rgba(255,255,255,0.05);
 }
 
 .info-header i {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     color: #7c3aed;
 }
 
 .info-header h3 {
-    font-size: 1rem;
+    font-size: 0.95rem;
     font-weight: 600;
 }
 
 .info-body {
-    padding: 18px 22px;
+    padding: 16px 20px;
 }
 
 /* Contact Lines */
 .info-line {
-    margin-bottom: 12px;
+    margin-bottom: 10px;
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 10px;
     color: #ccc;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
 }
 
 .info-line i {
-    width: 24px;
+    width: 22px;
     color: #7c3aed;
 }
 
@@ -291,39 +293,40 @@ body {
 .info-two-col {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
+    gap: 10px;
 }
 
 .info-two-col div {
     display: flex;
     justify-content: space-between;
-    padding-bottom: 8px;
+    padding-bottom: 6px;
     border-bottom: 1px solid rgba(255,255,255,0.05);
 }
 
 .info-two-col span {
     color: #aaa;
-    font-size: 0.85rem;
+    font-size: 0.8rem;
 }
 
 .info-two-col strong {
     font-weight: 600;
+    font-size: 0.85rem;
 }
 
 /* Language Progress */
 .lang-progress {
-    margin-bottom: 15px;
+    margin-bottom: 12px;
 }
 
 .lang-progress span {
     display: block;
-    margin-bottom: 5px;
-    font-size: 0.85rem;
+    margin-bottom: 4px;
+    font-size: 0.8rem;
 }
 
 .lang-progress .progress {
     background: rgba(255,255,255,0.08);
-    height: 5px;
+    height: 4px;
     border-radius: 10px;
     overflow: hidden;
 }
@@ -338,18 +341,18 @@ body {
 .skill-wrap {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 8px;
 }
 
 .skill {
     background: rgba(124,58,237,0.12);
     border: 1px solid rgba(124,58,237,0.25);
-    padding: 6px 14px;
+    padding: 5px 12px;
     border-radius: 30px;
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     display: inline-flex;
     align-items: center;
-    gap: 6px;
+    gap: 5px;
     transition: all 0.3s;
 }
 
@@ -360,71 +363,45 @@ body {
 
 .skill i {
     color: #7c3aed;
-}
-
-/* Social Media */
-.social-wrap {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-}
-
-.social-wrap a {
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(255,255,255,0.08);
-    padding: 8px 16px;
-    border-radius: 30px;
-    text-decoration: none;
-    color: #ccc;
-    font-size: 0.8rem;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    transition: all 0.3s;
-}
-
-.social-wrap a:hover {
-    background: #7c3aed;
-    color: white;
-    transform: translateY(-2px);
+    font-size: 0.75rem;
 }
 
 /* Timeline */
 .timeline-item {
     display: flex;
-    gap: 15px;
-    margin-bottom: 20px;
+    gap: 12px;
+    margin-bottom: 16px;
 }
 
 .timeline-dot {
-    width: 8px;
-    height: 8px;
+    width: 7px;
+    height: 7px;
     background: #7c3aed;
     border-radius: 50%;
-    margin-top: 6px;
+    margin-top: 5px;
 }
 
 .timeline-item h4 {
-    font-size: 0.9rem;
-    margin-bottom: 3px;
+    font-size: 0.85rem;
+    margin-bottom: 2px;
 }
 
 .timeline-item span {
-    font-size: 0.7rem;
+    font-size: 0.65rem;
     color: #888;
     display: block;
-    margin-bottom: 5px;
+    margin-bottom: 4px;
 }
 
 .timeline-item p {
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     color: #bbb;
 }
 
 /* Education List */
 .edu-list div {
-    margin-bottom: 15px;
-    padding-bottom: 12px;
+    margin-bottom: 12px;
+    padding-bottom: 10px;
     border-bottom: 1px solid rgba(255,255,255,0.05);
 }
 
@@ -435,12 +412,12 @@ body {
 }
 
 .edu-list h4 {
-    font-size: 0.9rem;
-    margin-bottom: 3px;
+    font-size: 0.85rem;
+    margin-bottom: 2px;
 }
 
 .edu-list span {
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     color: #888;
 }
 
@@ -457,17 +434,17 @@ body {
 .section-title {
     display: flex;
     align-items: center;
-    gap: 15px;
-    margin-bottom: 25px;
+    gap: 12px;
+    margin-bottom: 22px;
 }
 
 .section-title i {
-    font-size: 1.4rem;
+    font-size: 1.3rem;
     color: #7c3aed;
 }
 
 .section-title h2 {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     font-weight: 600;
 }
 
@@ -481,17 +458,17 @@ body {
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+    gap: 18px;
 }
 
 .project {
     background: rgba(0, 0, 0, 0.35);
     border: 1px solid rgba(255,255,255,0.05);
-    border-radius: 20px;
-    padding: 18px;
+    border-radius: 18px;
+    padding: 15px;
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 12px;
     transition: all 0.3s;
 }
 
@@ -501,17 +478,17 @@ body {
 }
 
 .project i {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     color: #7c3aed;
 }
 
 .project h4 {
-    font-size: 0.9rem;
-    margin-bottom: 4px;
+    font-size: 0.85rem;
+    margin-bottom: 3px;
 }
 
 .project p {
-    font-size: 0.7rem;
+    font-size: 0.65rem;
     color: #999;
 }
 
@@ -519,17 +496,17 @@ body {
 .achievements-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+    gap: 18px;
 }
 
 .achievement {
     background: rgba(0, 0, 0, 0.35);
     border: 1px solid rgba(255,255,255,0.05);
-    border-radius: 20px;
-    padding: 18px;
+    border-radius: 18px;
+    padding: 15px;
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 12px;
     transition: all 0.3s;
 }
 
@@ -539,27 +516,27 @@ body {
 }
 
 .achievement i {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     color: #ec4899;
 }
 
 .achievement h4 {
-    font-size: 0.85rem;
-    margin-bottom: 4px;
+    font-size: 0.8rem;
+    margin-bottom: 3px;
 }
 
 .achievement p {
-    font-size: 0.7rem;
+    font-size: 0.65rem;
     color: #999;
 }
 
 /* Footer */
 footer {
     text-align: center;
-    padding: 25px;
+    padding: 20px;
     border-top: 1px solid rgba(255,255,255,0.05);
     color: #777;
-    font-size: 0.8rem;
+    font-size: 0.75rem;
 }
 
 footer i {
@@ -571,6 +548,8 @@ footer i {
     .hero {
         flex-direction: column;
         text-align: center;
+        gap: 25px;
+        padding: 30px;
     }
     
     .main-card {
@@ -586,7 +565,7 @@ footer i {
     }
     
     .hero-right h1 {
-        font-size: 2.2rem;
+        font-size: 2rem;
     }
     
     .badge-group, .btn-group {
@@ -595,10 +574,6 @@ footer i {
     
     .wrapper {
         padding: 20px;
-    }
-    
-    .hero {
-        padding: 30px;
     }
 }
 
