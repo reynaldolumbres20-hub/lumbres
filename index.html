@@ -8,69 +8,63 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Animated Gradient Background -->
-    <div class="animated-bg">
-        <div class="gradient-1"></div>
-        <div class="gradient-2"></div>
-        <div class="gradient-3"></div>
-        <div class="gradient-4"></div>
+    <!-- Animated Background -->
+    <div class="bg-animation">
+        <div class="bg-blur b1"></div>
+        <div class="bg-blur b2"></div>
+        <div class="bg-blur b3"></div>
+        <div class="bg-blur b4"></div>
     </div>
 
-    <div class="container">
-        <!-- Hero Section -->
-        <div class="hero-section">
+    <div class="wrapper">
+        <!-- Hero -->
+        <div class="hero">
             <div class="hero-left">
-                <div class="profile-wrapper">
-                    <div class="profile-glow"></div>
-                    <img id="profileImage" src="images/profile.jpg" alt="Profile" onerror="this.src='https://ui-avatars.com/api/?background=6366f1&color=fff&name=Reynaldo+Lumbres'">
-                    <div class="upload-btn">
-                        <label for="imageUpload"><i class="fas fa-camera"></i></label>
-                        <input type="file" id="imageUpload" accept="image/*" style="display: none;">
+                <div class="avatar-frame">
+                    <div class="avatar-glow"></div>
+                    <img id="profileImg" src="images/profile.jpg" alt="Profile" onerror="this.src='https://ui-avatars.com/api/?background=7c3aed&color=fff&name=Reynaldo+Lumbres&bold=true&size=200'">
+                    <div class="camera-overlay">
+                        <label for="uploadInput"><i class="fas fa-camera"></i></label>
+                        <input type="file" id="uploadInput" accept="image/*" hidden>
                     </div>
                 </div>
-                <div id="uploadStatus" class="upload-status"></div>
+                <div class="upload-msg" id="uploadMsg"></div>
             </div>
             <div class="hero-right">
-                <h1>Reynaldo B. Lumbres</h1>
-                <div class="typing-wrapper">
-                    <span class="typed-text"></span>
-                    <span class="cursor">|</span>
+                <h1 class="name-title">Reynaldo B. Lumbres</h1>
+                <div class="role-wrap">
+                    <span class="role-text" id="roleText"></span>
+                    <span class="role-cursor">|</span>
                 </div>
-                <div class="badges">
-                    <span><i class="fas fa-code"></i> Web Developer</span>
-                    <span><i class="fas fa-palette"></i> Graphic Designer</span>
-                    <span><i class="fas fa-graduation-cap"></i> IT Graduate</span>
+                <div class="badge-group">
+                    <span class="badge"><i class="fas fa-code"></i> Web Dev</span>
+                    <span class="badge"><i class="fas fa-palette"></i> Designer</span>
+                    <span class="badge"><i class="fas fa-graduation-cap"></i> IT Grad</span>
                 </div>
-                <div class="hero-btns">
-                    <a href="#contact" class="btn-primary">Contact Me <i class="fas fa-arrow-right"></i></a>
-                    <a href="#projects" class="btn-outline">View Work <i class="fas fa-eye"></i></a>
+                <div class="btn-group">
+                    <a href="#contact" class="btn-grad">Contact Me <i class="fas fa-arrow-right"></i></a>
+                    <a href="#projects" class="btn-out">View Work <i class="fas fa-eye"></i></a>
                 </div>
             </div>
         </div>
 
-        <!-- ========== MAIN BOX - ISA LANG PARA SA LAHAT ========== -->
-        <div class="main-box">
-            <!-- LEFT SIDE -->
-            <div class="box-left">
-                <div class="info-block">
-                    <div class="block-header">
-                        <i class="fas fa-address-card"></i>
-                        <h3>Contact</h3>
-                    </div>
-                    <div class="block-body">
-                        <div class="contact-line"><i class="fas fa-phone"></i> 0970-550-8581</div>
-                        <div class="contact-line"><i class="fas fa-envelope"></i> reynaldolumbres20@gmail.com</div>
-                        <div class="contact-line"><i class="fab fa-facebook"></i> Reynaldo_Lumbres@yahoo.com</div>
-                        <div class="contact-line"><i class="fas fa-map-marker-alt"></i> Santa Rosa, Laguna</div>
+        <!-- Main Card - Isang Box Lang -->
+        <div class="main-card">
+            <!-- Left Side -->
+            <div class="card-left">
+                <div class="info-card">
+                    <div class="info-header"><i class="fas fa-address-card"></i><h3>Contact</h3></div>
+                    <div class="info-body">
+                        <div class="info-line"><i class="fas fa-phone-alt"></i> +63 970 550 8581</div>
+                        <div class="info-line"><i class="fas fa-envelope"></i> reynaldolumbres20@gmail.com</div>
+                        <div class="info-line"><i class="fab fa-facebook-f"></i> Reynaldo_Lumbres@yahoo.com</div>
+                        <div class="info-line"><i class="fas fa-map-marker-alt"></i> Santa Rosa, Laguna</div>
                     </div>
                 </div>
 
-                <div class="info-block">
-                    <div class="block-header">
-                        <i class="fas fa-user"></i>
-                        <h3>Personal Info</h3>
-                    </div>
-                    <div class="block-body personal-grid">
+                <div class="info-card">
+                    <div class="info-header"><i class="fas fa-user-circle"></i><h3>Personal Info</h3></div>
+                    <div class="info-body info-two-col">
                         <div><span>Age</span><strong>26</strong></div>
                         <div><span>Birthday</span><strong>Jan 20, 2000</strong></div>
                         <div><span>Status</span><strong>Single</strong></div>
@@ -78,71 +72,61 @@
                     </div>
                 </div>
 
-                <div class="info-block">
-                    <div class="block-header">
-                        <i class="fas fa-language"></i>
-                        <h3>Languages</h3>
-                    </div>
-                    <div class="block-body">
-                        <div class="lang-item"><span>Filipino</span><div class="bar"><div style="width:100%"></div></div></div>
-                        <div class="lang-item"><span>English</span><div class="bar"><div style="width:85%"></div></div></div>
+                <div class="info-card">
+                    <div class="info-header"><i class="fas fa-language"></i><h3>Languages</h3></div>
+                    <div class="info-body">
+                        <div class="lang-progress"><span>Filipino</span><div class="progress"><div style="width:100%"></div></div></div>
+                        <div class="lang-progress"><span>English</span><div class="progress"><div style="width:85%"></div></div></div>
                     </div>
                 </div>
 
-                <div class="info-block">
-                    <div class="block-header">
-                        <i class="fas fa-laptop-code"></i>
-                        <h3>Technical Skills</h3>
+                <div class="info-card">
+                    <div class="info-header"><i class="fas fa-laptop-code"></i><h3>Tech Skills</h3></div>
+                    <div class="info-body skill-wrap">
+                        <span class="skill"><i class="fab fa-html5"></i> HTML5</span>
+                        <span class="skill"><i class="fab fa-css3-alt"></i> CSS3</span>
+                        <span class="skill"><i class="fab fa-js"></i> JavaScript</span>
+                        <span class="skill"><i class="fab fa-react"></i> React</span>
+                        <span class="skill"><i class="fab fa-php"></i> PHP</span>
+                        <span class="skill"><i class="fab fa-github"></i> GitHub</span>
+                        <span class="skill"><i class="fas fa-database"></i> MySQL</span>
+                        <span class="skill"><i class="fas fa-code"></i> C#</span>
+                        <span class="skill"><i class="fab fa-microsoft"></i> VB.NET</span>
                     </div>
-                    <div class="block-body skills-wrap">
-                        <span class="skill-badge"><i class="fab fa-html5"></i> HTML5</span>
-                        <span class="skill-badge"><i class="fab fa-css3-alt"></i> CSS3</span>
-                        <span class="skill-badge"><i class="fab fa-js"></i> JavaScript</span>
-                        <span class="skill-badge"><i class="fab fa-react"></i> React</span>
-                        <span class="skill-badge"><i class="fab fa-php"></i> PHP</span>
-                        <span class="skill-badge"><i class="fab fa-github"></i> GitHub</span>
-                        <span class="skill-badge"><i class="fas fa-database"></i> MySQL</span>
-                        <span class="skill-badge"><i class="fas fa-code"></i> C#</span>
-                        <span class="skill-badge"><i class="fab fa-microsoft"></i> VB.NET</span>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-header"><i class="fas fa-link"></i><h3>Social Media</h3></div>
+                    <div class="info-body social-wrap">
+                        <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+                        <a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook-f"></i> Facebook</a>
+                        <a href="https://twitter.com/" target="_blank"><i class="fab fa-twitter"></i> Twitter</a>
+                        <a href="https://www.linkedin.com/" target="_blank"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
+                        <a href="https://www.youtube.com/" target="_blank"><i class="fab fa-youtube"></i> YouTube</a>
                     </div>
                 </div>
             </div>
 
-            <!-- RIGHT SIDE -->
-            <div class="box-right">
-                <div class="info-block">
-                    <div class="block-header">
-                        <i class="fas fa-bullseye"></i>
-                        <h3>Objective</h3>
-                    </div>
-                    <div class="block-body">
-                        <p>Motivated IT graduate seeking entry-level role in Web Development & Graphic Design. Eager to apply front-end development, UI/UX, and visual design skills with strong work ethic.</p>
+            <!-- Right Side -->
+            <div class="card-right">
+                <div class="info-card">
+                    <div class="info-header"><i class="fas fa-bullseye"></i><h3>Objective</h3></div>
+                    <div class="info-body">
+                        <p>Motivated IT graduate and aspiring Web Developer & Graphic Designer seeking an entry-level role to apply front-end development, UI/UX, and visual design skills. Eager to contribute creativity, technical knowledge, and a strong work ethic.</p>
                     </div>
                 </div>
 
-                <div class="info-block">
-                    <div class="block-header">
-                        <i class="fas fa-briefcase"></i>
-                        <h3>Work Experience</h3>
-                    </div>
-                    <div class="block-body timeline">
-                        <div class="timeline-item">
-                            <div class="dot"></div>
-                            <div><h4>Jollibee Commercial Complex</h4><span class="date">2022 - 2023</span><p>Service Crew - Customer service, food prep, inventory</p></div>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="dot"></div>
-                            <div><h4>Chick N' Juicy</h4><span class="date">2023 - 2024</span><p>Service Crew - Dine-in, take-out, quality control</p></div>
-                        </div>
+                <div class="info-card">
+                    <div class="info-header"><i class="fas fa-briefcase"></i><h3>Work Experience</h3></div>
+                    <div class="info-body timeline">
+                        <div class="timeline-item"><div class="timeline-dot"></div><div><h4>Jollibee Commercial Complex</h4><span>2022 - 2023</span><p>Service Crew - Customer service, food prep, inventory</p></div></div>
+                        <div class="timeline-item"><div class="timeline-dot"></div><div><h4>Chick N' Juicy</h4><span>2023 - 2024</span><p>Service Crew - Dine-in, take-out, quality control</p></div></div>
                     </div>
                 </div>
 
-                <div class="info-block">
-                    <div class="block-header">
-                        <i class="fas fa-graduation-cap"></i>
-                        <h3>Education</h3>
-                    </div>
-                    <div class="block-body edu-list">
+                <div class="info-card">
+                    <div class="info-header"><i class="fas fa-graduation-cap"></i><h3>Education</h3></div>
+                    <div class="info-body edu-list">
                         <div><h4>BS Information Technology</h4><span>Trimex Colleges | 2025 - 2026</span></div>
                         <div><h4>Senior High School</h4><span>Green Field Integrated School | 2019 - 2020</span></div>
                         <div><h4>Junior High School</h4><span>Pulong Sta. Cruz NHS | 2010 - 2011</span></div>
@@ -153,40 +137,40 @@
         </div>
 
         <!-- Projects Section -->
-        <div class="section-container">
-            <div class="section-header">
+        <div class="section-block">
+            <div class="section-title">
                 <i class="fas fa-star-of-life"></i>
                 <h2>Featured Projects</h2>
-                <div class="header-line"></div>
+                <div class="title-line"></div>
             </div>
-            <div class="projects-wrap">
-                <div class="project-item"><i class="fas fa-check-circle"></i><div><h4>Automated Registration System</h4><p>With Gmail Integration</p></div></div>
-                <div class="project-item"><i class="fas fa-check-circle"></i><div><h4>Web Based Payroll System</h4><p>Attendance Management</p></div></div>
-                <div class="project-item"><i class="fas fa-check-circle"></i><div><h4>Gym Management System</h4><p>Real-time with Priority Queue</p></div></div>
-                <div class="project-item"><i class="fas fa-check-circle"></i><div><h4>E-Commerce Mobile App</h4><p>React Native + Firebase</p></div></div>
-                <div class="project-item"><i class="fas fa-check-circle"></i><div><h4>Inventory Management</h4><p>Desktop App with C# & SQL</p></div></div>
-                <div class="project-item"><i class="fas fa-check-circle"></i><div><h4>Portfolio Website</h4><p>Modern Responsive Design</p></div></div>
+            <div class="projects-grid">
+                <div class="project"><i class="fas fa-check-circle"></i><div><h4>Automated Registration System</h4><p>With Gmail Integration</p></div></div>
+                <div class="project"><i class="fas fa-check-circle"></i><div><h4>Web Based Payroll System</h4><p>Attendance Management</p></div></div>
+                <div class="project"><i class="fas fa-check-circle"></i><div><h4>Gym Management System</h4><p>Real-time with Priority Queue</p></div></div>
+                <div class="project"><i class="fas fa-check-circle"></i><div><h4>E-Commerce Mobile App</h4><p>React Native + Firebase</p></div></div>
+                <div class="project"><i class="fas fa-check-circle"></i><div><h4>Inventory Management</h4><p>Desktop App with C# & SQL</p></div></div>
+                <div class="project"><i class="fas fa-check-circle"></i><div><h4>Portfolio Website</h4><p>Modern Responsive Design</p></div></div>
             </div>
         </div>
 
         <!-- Achievements Section -->
-        <div class="section-container">
-            <div class="section-header">
+        <div class="section-block">
+            <div class="section-title">
                 <i class="fas fa-trophy"></i>
                 <h2>Achievements & Certifications</h2>
-                <div class="header-line"></div>
+                <div class="title-line"></div>
             </div>
-            <div class="achievements-wrap">
-                <div class="achievement-item"><i class="fas fa-certificate"></i><div><h4>NSTP Certificate of Completion</h4><p>May 6, 2023 | Jabez Camp Site, Cavite</p></div></div>
-                <div class="achievement-item"><i class="fas fa-certificate"></i><div><h4>ISITE Conference Participation</h4><p>March 17, 2023 | Lyceum University</p></div></div>
-                <div class="achievement-item"><i class="fas fa-medal"></i><div><h4>Best Capstone Project</h4><p>2026 | Trimex Colleges</p></div></div>
-                <div class="achievement-item"><i class="fas fa-medal"></i><div><h4>Dean's Lister</h4><p>1st Sem 2025-2026</p></div></div>
+            <div class="achievements-grid">
+                <div class="achievement"><i class="fas fa-certificate"></i><div><h4>NSTP Certificate of Completion</h4><p>May 6, 2023 | Jabez Camp Site, Cavite</p></div></div>
+                <div class="achievement"><i class="fas fa-certificate"></i><div><h4>ISITE Conference Participation</h4><p>March 17, 2023 | Lyceum University</p></div></div>
+                <div class="achievement"><i class="fas fa-medal"></i><div><h4>Best Capstone Project</h4><p>2026 | Trimex Colleges</p></div></div>
+                <div class="achievement"><i class="fas fa-medal"></i><div><h4>Dean's Lister</h4><p>1st Sem 2025-2026</p></div></div>
             </div>
         </div>
 
         <!-- Footer -->
         <footer id="contact">
-            <p>© 2025 Reynaldo B. Lumbres | Built with <i class="fas fa-heart"></i> for excellence</p>
+            <p>© 2025 Reynaldo B. Lumbres | Designed with <i class="fas fa-heart"></i> for excellence</p>
         </footer>
     </div>
 
