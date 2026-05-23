@@ -8,21 +8,15 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Premium Animated Background -->
-    <div class="premium-bg">
-        <div class="bg-overlay"></div>
-        <div class="particles"></div>
-    </div>
-
     <div class="container">
         <!-- Hero Section -->
         <header class="hero-section">
             <div class="hero-content">
                 <div class="profile-wrapper">
                     <div class="profile-frame">
-                        <img id="profileImage" src="images/profile.jpg" alt="Reynaldo Lumbres" onerror="this.src='https://via.placeholder.com/200/2d3561/white?text=RBL'">
-                        <div class="upload-btn-glow">
-                            <label for="imageUpload" class="glow-icon"><i class="fas fa-camera"></i></label>
+                        <img id="profileImage" src="images/profile.jpg" alt="Reynaldo Lumbres" onerror="this.src='https://via.placeholder.com/200/d4d4d4/333?text=RBL'">
+                        <div class="upload-btn">
+                            <label for="imageUpload" class="camera-icon"><i class="fas fa-camera"></i></label>
                             <input type="file" id="imageUpload" accept="image/*" style="display: none;">
                         </div>
                     </div>
@@ -40,8 +34,8 @@
                         <span class="badge"><i class="fas fa-graduation-cap"></i> IT Graduate</span>
                     </div>
                     <div class="hero-buttons">
-                        <a href="#contact" class="btn-premier"><i class="fas fa-download"></i> Download CV</a>
-                        <a href="#projects" class="btn-outline-premier"><i class="fas fa-project-diagram"></i> View Work</a>
+                        <a href="#contact" class="btn-primary-premium"><i class="fas fa-download"></i> Download CV</a>
+                        <a href="#projects" class="btn-outline-premium"><i class="fas fa-project-diagram"></i> View Work</a>
                     </div>
                 </div>
             </div>
@@ -57,7 +51,7 @@
 
         <!-- Main Grid -->
         <div class="premium-grid">
-            <!-- Left Side -->
+            <!-- LEFT COLUMN -->
             <div class="grid-left">
                 <div class="premium-card">
                     <div class="card-header"><i class="fas fa-address-card"></i><h3>Contact</h3></div>
@@ -81,8 +75,10 @@
 
                 <div class="premium-card">
                     <div class="card-header"><i class="fas fa-language"></i><h3>Languages</h3></div>
-                    <div class="card-body"><div class="skill-progress"><span>Filipino</span><div class="progress-bar"><div class="progress-fill" style="width:100%"></div></div></div>
-                    <div class="skill-progress"><span>English</span><div class="progress-bar"><div class="progress-fill" style="width:85%"></div></div></div></div>
+                    <div class="card-body">
+                        <div class="skill-progress"><span>Filipino</span><div class="progress-bar"><div class="progress-fill" style="width:100%"></div></div></div>
+                        <div class="skill-progress"><span>English</span><div class="progress-bar"><div class="progress-fill" style="width:85%"></div></div></div>
+                    </div>
                 </div>
 
                 <div class="premium-card">
@@ -103,7 +99,7 @@
                 </div>
             </div>
 
-            <!-- Right Side -->
+            <!-- RIGHT COLUMN -->
             <div class="grid-right">
                 <div class="premium-card">
                     <div class="card-header"><i class="fas fa-bullseye"></i><h3>Objective</h3></div>
@@ -130,10 +126,14 @@
             </div>
         </div>
 
-        <!-- Projects & Achievements Row -->
+        <!-- Featured Projects Row (2 cards magkatabi) -->
+        <div class="section-title">
+            <h2><i class="fas fa-star"></i> Featured Projects</h2>
+            <div class="title-line"></div>
+        </div>
         <div class="double-row">
             <div class="premium-card full-card" id="projects">
-                <div class="card-header"><i class="fas fa-project-diagram"></i><h3>Featured Projects</h3></div>
+                <div class="card-header"><i class="fas fa-project-diagram"></i><h3>Web Development Projects</h3></div>
                 <div class="card-body projects-grid">
                     <div class="project-card-premium"><i class="fas fa-check-circle"></i><div><h4>Automated Registration System</h4><p>With Gmail Integration</p></div></div>
                     <div class="project-card-premium"><i class="fas fa-check-circle"></i><div><h4>Web Based Payroll System</h4><p>Attendance Management System</p></div></div>
@@ -142,17 +142,43 @@
             </div>
 
             <div class="premium-card full-card">
-                <div class="card-header"><i class="fas fa-trophy"></i><h3>Achievements & Certifications</h3></div>
+                <div class="card-header"><i class="fas fa-mobile-alt"></i><h3>Mobile & Desktop Projects</h3></div>
+                <div class="card-body projects-grid">
+                    <div class="project-card-premium"><i class="fas fa-check-circle"></i><div><h4>E-Commerce Mobile App</h4><p>React Native with Firebase</p></div></div>
+                    <div class="project-card-premium"><i class="fas fa-check-circle"></i><div><h4>Inventory Management System</h4><p>Desktop App using C# and SQL</p></div></div>
+                    <div class="project-card-premium"><i class="fas fa-check-circle"></i><div><h4>Portfolio Website</h4><p>Responsive with Modern Design</p></div></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Achievements & Certifications Row (2 cards magkatabi) -->
+        <div class="section-title">
+            <h2><i class="fas fa-trophy"></i> Achievements & Certifications</h2>
+            <div class="title-line"></div>
+        </div>
+        <div class="double-row">
+            <div class="premium-card full-card">
+                <div class="card-header"><i class="fas fa-award"></i><h3>Certifications</h3></div>
                 <div class="card-body achievements-list">
-                    <div class="achievement-premium"><i class="fas fa-award"></i><div><h4>NSTP Certificate of Completion</h4><p>May 6, 2023 | Jabez Camp Site, Dasmarinas, Cavite</p></div></div>
-                    <div class="achievement-premium"><i class="fas fa-award"></i><div><h4>Certificate of Participation – 3rd ISITE Conference</h4><p>March 17, 2023 | Lyceum of the Philippines University – Laguna</p><p class="achievement-desc">"Developing Industry Skills and Technological Advancement through Research"</p></div></div>
+                    <div class="achievement-premium"><i class="fas fa-certificate"></i><div><h4>NSTP Certificate of Completion</h4><p>May 6, 2023 | Jabez Camp Site, Dasmarinas, Cavite</p><p class="achievement-desc">Completed the National Service Training Program</p></div></div>
+                    <div class="achievement-premium"><i class="fas fa-certificate"></i><div><h4>Certificate of Participation – 3rd ISITE Conference</h4><p>March 17, 2023 | Lyceum of the Philippines University – Laguna</p><p class="achievement-desc">"Developing Industry Skills and Technological Advancement through Research"</p></div></div>
+                    <div class="achievement-premium"><i class="fas fa-certificate"></i><div><h4>Web Development Bootcamp</h4><p>2024 | Online Certification</p><p class="achievement-desc">Full Stack Web Development with React</p></div></div>
+                </div>
+            </div>
+
+            <div class="premium-card full-card">
+                <div class="card-header"><i class="fas fa-medal"></i><h3>Awards & Recognitions</h3></div>
+                <div class="card-body achievements-list">
+                    <div class="achievement-premium"><i class="fas fa-medal"></i><div><h4>Best Capstone Project</h4><p>2026 | Trimex Colleges</p><p class="achievement-desc">Automated Registration and Referral Management System</p></div></div>
+                    <div class="achievement-premium"><i class="fas fa-medal"></i><div><h4>Dean's Lister</h4><p>2025 - 2026 | First Semester</p><p class="achievement-desc">Academic Excellence Award</p></div></div>
+                    <div class="achievement-premium"><i class="fas fa-medal"></i><div><h4>Leadership Award</h4><p>2023 | NSTP Program</p><p class="achievement-desc">Outstanding Leadership and Service</p></div></div>
                 </div>
             </div>
         </div>
 
         <!-- Footer -->
         <footer id="contact">
-            <p>© 2025 Reynaldo B. Lumbres. All rights reserved.</p>
+            <p>© 2025 Reynaldo B. Lumbres. All rights reserved. | Built with <i class="fas fa-heart"></i> for excellence</p>
         </footer>
     </div>
 
