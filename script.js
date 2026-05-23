@@ -47,6 +47,7 @@ let isDeleting = false;
 const typedTextElement = document.querySelector('.typed-text');
 
 function typeEffect() {
+    if (!typedTextElement) return;
     const currentRole = roles[roleIndex];
     
     if (isDeleting) {
@@ -100,19 +101,18 @@ function animateNumbers() {
 }
 
 // Trigger stats when in view
-const observerOptions = { threshold: 0.5 };
-const observer = new IntersectionObserver((entries) => {
+const statsObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             animateNumbers();
-            observer.unobserve(entry.target);
+            statsObserver.unobserve(entry.target);
         }
     });
-}, observerOptions);
+}, { threshold: 0.5 });
 
 const statsRow = document.querySelector('.stats-row');
 if (statsRow) {
-    observer.observe(statsRow);
+    statsObserver.observe(statsRow);
 }
 
 // ========== SCROLL REVEAL ==========
@@ -130,14 +130,4 @@ document.querySelectorAll('.premium-card, .stat-card').forEach(el => {
     el.style.transform = 'translateY(30px)';
     el.style.transition = 'all 0.6s ease-out';
     revealObserver.observe(el);
-});
-
-// ========== PARALLAX EFFECT ==========
-document.addEventListener('mousemove', (e) => {
-    const overlay = document.querySelector('.bg-overlay');
-    if (overlay) {
-        const mouseX = e.clientX / window.innerWidth;
-        const mouseY = e.clientY / window.innerHeight;
-        overlay.style.transform = `translate(${mouseX * 20}px, ${mouseY * 20}px)`;
-    }
 });
