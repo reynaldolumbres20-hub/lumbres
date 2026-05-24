@@ -340,7 +340,7 @@
         }
         footer i { color: #ef4444; }
 
-        /* SERVICES MODAL - AYOS NA, CENTER ANG FONT, MAY ESPASYO SA BABA */
+        /* SERVICES MODAL */
         .services-overlay {
             position: fixed;
             top: 0;
@@ -400,7 +400,6 @@
             transform: translateX(-4px);
         }
         
-        /* NAKA-CENTER ANG TITLE */
         .services-title {
             font-size: 1.8rem;
             font-weight: 700;
@@ -413,7 +412,6 @@
             margin-right: 8px;
         }
         
-        /* NAKA-CENTER ANG SUBTITLE */
         .services-sub {
             font-size: 0.95rem;
             color: #b9d0ff;
@@ -430,6 +428,8 @@
             justify-items: center;
             align-items: stretch;
         }
+        
+        /* ITO LANG ANG BINAGO - CENTER AT JUSTIFY ANG MGA TEXT SA LOOB NG SERVICE CARD */
         .service-card {
             background: rgba(0, 0, 0, 0.55);
             border-radius: 28px;
@@ -439,6 +439,7 @@
             width: 100%;
             max-width: 380px;
             margin: 0 auto;
+            text-align: center;
         }
         .service-card:hover {
             transform: translateY(-6px);
@@ -459,6 +460,7 @@
             font-size: 0.85rem;
             color: #cbd5e6;
             line-height: 1.55;
+            text-align: justify;
         }
         .service-tag {
             display: inline-block;
@@ -470,7 +472,6 @@
             font-weight: 500;
         }
 
-        /* FOOTER - MAY SAGWAN, NAKA-CENTER, HINDI DIKIT */
         .services-footer-note {
             margin-top: 60px;
             padding-top: 30px;
@@ -508,6 +509,7 @@
                 max-width: 100%;
                 margin: 0 auto;
                 box-sizing: border-box;
+                text-align: center;
             }
             .services-title {
                 font-size: 1.4rem;
@@ -522,6 +524,9 @@
                 padding-top: 22px;
                 font-size: 0.82rem;
                 text-align: center;
+            }
+            .service-card p {
+                text-align: justify;
             }
         }
 
