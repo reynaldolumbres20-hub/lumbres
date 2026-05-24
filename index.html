@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, viewport-fit=cover">
     <title>Reynaldo B. Lumbres | Professional Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
- <style>
+<style>
         * {
             margin: 0;
             padding: 0;
@@ -340,7 +340,7 @@
         }
         footer i { color: #ef4444; }
 
-        /* SERVICES MODAL */
+        /* SERVICES MODAL - AYOS NA, CENTER ANG FONT, MAY ESPASYO SA BABA */
         .services-overlay {
             position: fixed;
             top: 0;
@@ -400,46 +400,27 @@
             transform: translateX(-4px);
         }
         
-        /* SERVICES TITLE - ITO ANG TITLE LANG (WALANG TEXT NA KASAMA) */
+        /* NAKA-CENTER ANG TITLE */
         .services-title {
             font-size: 1.8rem;
             font-weight: 700;
             color: #e2e8f0;
             margin-bottom: 12px;
+            text-align: center;
         }
         .services-title i {
             color: #3b82f6;
             margin-right: 8px;
         }
         
-        /* ITO ANG BAGONG FOOTER SECTION - NAKA-JUSTIFY */
-        .services-footer {
-            margin-top: 45px;
-            border-top: 1px solid rgba(59,130,246,0.3);
-            padding-top: 28px;
-        }
-        .footer-quote {
-            text-align: justify;
-            font-size: 0.9rem;
-            color: #c9dbff;
-            line-height: 1.6;
-            margin-bottom: 14px;
-        }
-        .footer-services-list {
-            text-align: justify;
-            font-size: 0.85rem;
-            color: #90a9d4;
-            letter-spacing: 0.3px;
-            font-weight: 500;
-            word-break: break-word;
-        }
-        
+        /* NAKA-CENTER ANG SUBTITLE */
         .services-sub {
             font-size: 0.95rem;
             color: #b9d0ff;
-            border-left: 3px solid #3b82f6;
-            padding-left: 16px;
+            text-align: center;
             margin-bottom: 40px;
+            border-left: none;
+            padding-left: 0;
         }
 
         .services-grid {
@@ -489,6 +470,23 @@
             font-weight: 500;
         }
 
+        /* FOOTER - MAY SAGWAN, NAKA-CENTER, HINDI DIKIT */
+        .services-footer-note {
+            margin-top: 60px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(59,130,246,0.3);
+            text-align: center;
+        }
+        .services-footer-note i {
+            color: #3b82f6;
+            margin-right: 6px;
+        }
+        .services-footer-note {
+            font-size: 0.95rem;
+            color: #c9dbff;
+            line-height: 1.6;
+        }
+
         @media (max-width: 768px) {
             .services-overlay {
                 padding: 20px 16px;
@@ -519,13 +517,11 @@
                 font-size: 0.85rem;
                 text-align: center;
             }
-            .footer-quote {
+            .services-footer-note {
+                margin-top: 45px;
+                padding-top: 22px;
                 font-size: 0.82rem;
-                text-align: justify;
-            }
-            .footer-services-list {
-                font-size: 0.75rem;
-                text-align: justify;
+                text-align: center;
             }
         }
 
@@ -575,7 +571,7 @@
     </div>
 </div>
 
-<!-- SERVICES MODAL - AYOS NA, KITA LAHAT -->
+<!-- SERVICES MODAL -->
 <div id="servicesModal" class="services-overlay">
     <div class="services-panel">
         <button id="backToPortfolioBtn" class="back-to-portfolio"><i class="fas fa-arrow-left"></i> Bumalik sa Portfolio</button>
@@ -592,7 +588,7 @@
             <div class="service-card"><div class="service-icon">📄</div><h3>Capstone Thesis / Documentation</h3><p>Kailangan mo ng kumpletong documentation? Chapter 1 hanggang 5, UML diagrams, user manuals, tutulungan kita.</p><span class="service-tag">Revise · Format · Polish</span></div>
         </div>
         <div class="services-footer-note">
-            <i class="fas fa-smile-wink"></i> "Tara na, gawan na kita ng sistema. Sabi ko sa'yo, pag ako gumawa, gagawin ko best ko ako na bahala sa system mo, ikaw na bahala sakin."
+            <i class="fas fa-smile-wink"></i> "Tara na, gawan na kita ng sistema. Sabi ko sa'yo, pag ako gumawa, gagawin ko best ko. Ako na bahala sa system mo, ikaw na bahala sa'kin."
         </div>
     </div>
 </div>
