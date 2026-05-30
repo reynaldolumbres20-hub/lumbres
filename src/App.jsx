@@ -70,6 +70,50 @@ function Home() {
   )
 }
 
+// UNIFORM MODAL STYLE - GINAMIT SA LAHAT NG COMPONENTS
+const uniformModalStyle = {
+  position: 'fixed',
+  top: '30%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  backgroundColor: '#0f1825',
+  borderRadius: '12px',
+  padding: '20px',
+  width: '90%',
+  maxWidth: '400px',
+  maxHeight: '70vh',
+  overflowY: 'auto',
+  border: '1px solid #1e90ff',
+  zIndex: 10001,
+  boxShadow: '0 10px 25px rgba(0,0,0,0.5)'
+}
+
+const uniformButtonStyle = {
+  background: 'linear-gradient(135deg, #1e90ff, #0a5f8a)',
+  color: '#000',
+  border: 'none',
+  padding: '8px 16px',
+  borderRadius: '20px',
+  cursor: 'pointer',
+  fontWeight: '600',
+  display: 'block',
+  margin: '0 auto'
+}
+
+const uniformTitleStyle = {
+  color: '#1e90ff',
+  marginBottom: '12px',
+  fontSize: '16px'
+}
+
+const uniformTextStyle = {
+  color: '#c8d0e0',
+  fontSize: '13px',
+  lineHeight: '1.5',
+  textAlign: 'justify',
+  marginBottom: '16px'
+}
+
 function Skills() {
   const [showModal, setShowModal] = useState(false)
   const [modalData, setModalData] = useState({ title: '', desc: '' })
@@ -89,23 +133,6 @@ function Skills() {
   const openModal = (title, desc) => {
     setModalData({ title, desc })
     setShowModal(true)
-  }
-  
-  const modalStyle = {
-    position: 'fixed',
-    top: '30%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    backgroundColor: '#0f1825',
-    borderRadius: '12px',
-    padding: '20px',
-    width: '90%',
-    maxWidth: '400px',
-    maxHeight: '75vh',
-    overflowY: 'auto',
-    border: '1px solid #1e90ff',
-    zIndex: 10001,
-    boxShadow: '0 10px 25px rgba(0,0,0,0.5)'
   }
   
   return (
@@ -128,20 +155,10 @@ function Skills() {
       </div>
       {showModal && (
         <div className="modal-overlay active" onClick={() => setShowModal(false)}>
-          <div style={modalStyle} onClick={(e) => e.stopPropagation()}>
-            <h3 style={{ color: '#1e90ff', marginBottom: '12px', fontSize: '16px' }}>{modalData.title}</h3>
-            <p style={{ color: '#c8d0e0', fontSize: '13px', lineHeight: '1.5', textAlign: 'justify', marginBottom: '16px' }}>{modalData.desc}</p>
-            <button onClick={() => setShowModal(false)} style={{
-              background: 'linear-gradient(135deg, #1e90ff, #0a5f8a)',
-              color: '#000',
-              border: 'none',
-              padding: '8px 16px',
-              borderRadius: '20px',
-              cursor: 'pointer',
-              fontWeight: '600',
-              display: 'block',
-              margin: '0 auto'
-            }}>Close</button>
+          <div style={uniformModalStyle} onClick={(e) => e.stopPropagation()}>
+            <h3 style={uniformTitleStyle}>{modalData.title}</h3>
+            <p style={uniformTextStyle}>{modalData.desc}</p>
+            <button onClick={() => setShowModal(false)} style={uniformButtonStyle}>Close</button>
           </div>
         </div>
       )}
@@ -167,23 +184,6 @@ function Services() {
     setShowModal(true)
   }
   
-  const modalStyle = {
-    position: 'fixed',
-    top: '30%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    backgroundColor: '#0f1825',
-    borderRadius: '12px',
-    padding: '20px',
-    width: '90%',
-    maxWidth: '400px',
-    maxHeight: '75vh',
-    overflowY: 'auto',
-    border: '1px solid #1e90ff',
-    zIndex: 10001,
-    boxShadow: '0 10px 25px rgba(0,0,0,0.5)'
-  }
-  
   return (
     <>
       <div className="services-grid">
@@ -204,20 +204,10 @@ function Services() {
       </div>
       {showModal && (
         <div className="modal-overlay active" onClick={() => setShowModal(false)}>
-          <div style={modalStyle} onClick={(e) => e.stopPropagation()}>
-            <h3 style={{ color: '#1e90ff', marginBottom: '12px', fontSize: '16px' }}>{modalData.title}</h3>
-            <p style={{ color: '#c8d0e0', fontSize: '13px', lineHeight: '1.5', textAlign: 'justify', marginBottom: '16px' }}>{modalData.desc}</p>
-            <button onClick={() => setShowModal(false)} style={{
-              background: 'linear-gradient(135deg, #1e90ff, #0a5f8a)',
-              color: '#000',
-              border: 'none',
-              padding: '8px 16px',
-              borderRadius: '20px',
-              cursor: 'pointer',
-              fontWeight: '600',
-              display: 'block',
-              margin: '0 auto'
-            }}>Close</button>
+          <div style={uniformModalStyle} onClick={(e) => e.stopPropagation()}>
+            <h3 style={uniformTitleStyle}>{modalData.title}</h3>
+            <p style={uniformTextStyle}>{modalData.desc}</p>
+            <button onClick={() => setShowModal(false)} style={uniformButtonStyle}>Close</button>
           </div>
         </div>
       )}
@@ -243,23 +233,6 @@ function Projects() {
     setShowModal(true)
   }
   
-  const modalStyle = {
-    position: 'fixed',
-    top: '30%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    backgroundColor: '#0f1825',
-    borderRadius: '12px',
-    padding: '20px',
-    width: '90%',
-    maxWidth: '400px',
-    maxHeight: '75vh',
-    overflowY: 'auto',
-    border: '1px solid #1e90ff',
-    zIndex: 10001,
-    boxShadow: '0 10px 25px rgba(0,0,0,0.5)'
-  }
-  
   return (
     <>
       <div className="projects-grid">
@@ -280,20 +253,10 @@ function Projects() {
       </div>
       {showModal && (
         <div className="modal-overlay active" onClick={() => setShowModal(false)}>
-          <div style={modalStyle} onClick={(e) => e.stopPropagation()}>
-            <h3 style={{ color: '#1e90ff', marginBottom: '12px', fontSize: '16px' }}>{modalData.title}</h3>
-            <p style={{ color: '#c8d0e0', fontSize: '13px', lineHeight: '1.5', textAlign: 'justify', marginBottom: '16px' }}>{modalData.desc}</p>
-            <button onClick={() => setShowModal(false)} style={{
-              background: 'linear-gradient(135deg, #1e90ff, #0a5f8a)',
-              color: '#000',
-              border: 'none',
-              padding: '8px 16px',
-              borderRadius: '20px',
-              cursor: 'pointer',
-              fontWeight: '600',
-              display: 'block',
-              margin: '0 auto'
-            }}>Close</button>
+          <div style={uniformModalStyle} onClick={(e) => e.stopPropagation()}>
+            <h3 style={uniformTitleStyle}>{modalData.title}</h3>
+            <p style={uniformTextStyle}>{modalData.desc}</p>
+            <button onClick={() => setShowModal(false)} style={uniformButtonStyle}>Close</button>
           </div>
         </div>
       )}
@@ -314,23 +277,6 @@ function Experience() {
   const openModal = (title, desc) => {
     setModalData({ title, desc })
     setShowModal(true)
-  }
-  
-  const modalStyle = {
-    position: 'fixed',
-    top: '30%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    backgroundColor: '#0f1825',
-    borderRadius: '12px',
-    padding: '20px',
-    width: '90%',
-    maxWidth: '400px',
-    maxHeight: '75vh',
-    overflowY: 'auto',
-    border: '1px solid #1e90ff',
-    zIndex: 10001,
-    boxShadow: '0 10px 25px rgba(0,0,0,0.5)'
   }
   
   return (
@@ -354,20 +300,10 @@ function Experience() {
       </div>
       {showModal && (
         <div className="modal-overlay active" onClick={() => setShowModal(false)}>
-          <div style={modalStyle} onClick={(e) => e.stopPropagation()}>
-            <h3 style={{ color: '#1e90ff', marginBottom: '12px', fontSize: '16px' }}>{modalData.title}</h3>
-            <p style={{ color: '#c8d0e0', fontSize: '13px', lineHeight: '1.5', textAlign: 'justify', marginBottom: '16px' }}>{modalData.desc}</p>
-            <button onClick={() => setShowModal(false)} style={{
-              background: 'linear-gradient(135deg, #1e90ff, #0a5f8a)',
-              color: '#000',
-              border: 'none',
-              padding: '8px 16px',
-              borderRadius: '20px',
-              cursor: 'pointer',
-              fontWeight: '600',
-              display: 'block',
-              margin: '0 auto'
-            }}>Close</button>
+          <div style={uniformModalStyle} onClick={(e) => e.stopPropagation()}>
+            <h3 style={uniformTitleStyle}>{modalData.title}</h3>
+            <p style={uniformTextStyle}>{modalData.desc}</p>
+            <button onClick={() => setShowModal(false)} style={uniformButtonStyle}>Close</button>
           </div>
         </div>
       )}
@@ -391,23 +327,6 @@ function Education() {
     setShowModal(true)
   }
   
-  const modalStyle = {
-    position: 'fixed',
-    top: '30%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    backgroundColor: '#0f1825',
-    borderRadius: '12px',
-    padding: '20px',
-    width: '90%',
-    maxWidth: '400px',
-    maxHeight: '75vh',
-    overflowY: 'auto',
-    border: '1px solid #1e90ff',
-    zIndex: 10001,
-    boxShadow: '0 10px 25px rgba(0,0,0,0.5)'
-  }
-  
   return (
     <>
       <div className="two-column-grid">
@@ -429,20 +348,10 @@ function Education() {
       </div>
       {showModal && (
         <div className="modal-overlay active" onClick={() => setShowModal(false)}>
-          <div style={modalStyle} onClick={(e) => e.stopPropagation()}>
-            <h3 style={{ color: '#1e90ff', marginBottom: '12px', fontSize: '16px' }}>{modalData.title}</h3>
-            <p style={{ color: '#c8d0e0', fontSize: '13px', lineHeight: '1.5', textAlign: 'justify', marginBottom: '16px' }}>{modalData.desc}</p>
-            <button onClick={() => setShowModal(false)} style={{
-              background: 'linear-gradient(135deg, #1e90ff, #0a5f8a)',
-              color: '#000',
-              border: 'none',
-              padding: '8px 16px',
-              borderRadius: '20px',
-              cursor: 'pointer',
-              fontWeight: '600',
-              display: 'block',
-              margin: '0 auto'
-            }}>Close</button>
+          <div style={uniformModalStyle} onClick={(e) => e.stopPropagation()}>
+            <h3 style={uniformTitleStyle}>{modalData.title}</h3>
+            <p style={uniformTextStyle}>{modalData.desc}</p>
+            <button onClick={() => setShowModal(false)} style={uniformButtonStyle}>Close</button>
           </div>
         </div>
       )}
@@ -466,23 +375,6 @@ function Certificates() {
     setShowModal(true)
   }
   
-  const modalStyle = {
-    position: 'fixed',
-    top: '30%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    backgroundColor: '#0f1825',
-    borderRadius: '12px',
-    padding: '20px',
-    width: '90%',
-    maxWidth: '400px',
-    maxHeight: '75vh',
-    overflowY: 'auto',
-    border: '1px solid #1e90ff',
-    zIndex: 10001,
-    boxShadow: '0 10px 25px rgba(0,0,0,0.5)'
-  }
-  
   return (
     <>
       <div className="two-column-grid">
@@ -504,20 +396,10 @@ function Certificates() {
       </div>
       {showModal && (
         <div className="modal-overlay active" onClick={() => setShowModal(false)}>
-          <div style={modalStyle} onClick={(e) => e.stopPropagation()}>
-            <h3 style={{ color: '#1e90ff', marginBottom: '12px', fontSize: '16px' }}>{modalData.title}</h3>
-            <p style={{ color: '#c8d0e0', fontSize: '13px', lineHeight: '1.5', textAlign: 'justify', marginBottom: '16px' }}>{modalData.desc}</p>
-            <button onClick={() => setShowModal(false)} style={{
-              background: 'linear-gradient(135deg, #1e90ff, #0a5f8a)',
-              color: '#000',
-              border: 'none',
-              padding: '8px 16px',
-              borderRadius: '20px',
-              cursor: 'pointer',
-              fontWeight: '600',
-              display: 'block',
-              margin: '0 auto'
-            }}>Close</button>
+          <div style={uniformModalStyle} onClick={(e) => e.stopPropagation()}>
+            <h3 style={uniformTitleStyle}>{modalData.title}</h3>
+            <p style={uniformTextStyle}>{modalData.desc}</p>
+            <button onClick={() => setShowModal(false)} style={uniformButtonStyle}>Close</button>
           </div>
         </div>
       )}
@@ -541,23 +423,6 @@ function Contact() {
     setShowModal(true)
   }
   
-  const modalStyle = {
-    position: 'fixed',
-    top: '30%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    backgroundColor: '#0f1825',
-    borderRadius: '12px',
-    padding: '20px',
-    width: '90%',
-    maxWidth: '400px',
-    maxHeight: '75vh',
-    overflowY: 'auto',
-    border: '1px solid #1e90ff',
-    zIndex: 10001,
-    boxShadow: '0 10px 25px rgba(0,0,0,0.5)'
-  }
-  
   return (
     <>
       <div className="two-column-grid">
@@ -579,20 +444,10 @@ function Contact() {
       </div>
       {showModal && (
         <div className="modal-overlay active" onClick={() => setShowModal(false)}>
-          <div style={modalStyle} onClick={(e) => e.stopPropagation()}>
-            <h3 style={{ color: '#1e90ff', marginBottom: '12px', fontSize: '16px' }}>{modalData.title}</h3>
-            <p style={{ color: '#c8d0e0', fontSize: '13px', lineHeight: '1.5', textAlign: 'justify', marginBottom: '16px' }}>{modalData.desc}</p>
-            <button onClick={() => setShowModal(false)} style={{
-              background: 'linear-gradient(135deg, #1e90ff, #0a5f8a)',
-              color: '#000',
-              border: 'none',
-              padding: '8px 16px',
-              borderRadius: '20px',
-              cursor: 'pointer',
-              fontWeight: '600',
-              display: 'block',
-              margin: '0 auto'
-            }}>Close</button>
+          <div style={uniformModalStyle} onClick={(e) => e.stopPropagation()}>
+            <h3 style={uniformTitleStyle}>{modalData.title}</h3>
+            <p style={uniformTextStyle}>{modalData.desc}</p>
+            <button onClick={() => setShowModal(false)} style={uniformButtonStyle}>Close</button>
           </div>
         </div>
       )}
