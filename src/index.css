@@ -79,40 +79,14 @@ body {
   50% { transform: translate(40px, -30px) scale(1.2); opacity: 0.08; }
 }
 
-/* ========== SMOOTH PAGE TRANSITION - SLIDE FROM BOTTOM ========== */
+/* ========== NO PAGE TRANSITION ========== */
 .page-transition {
-  transition: all 0.3s ease;
+  transition: none;
 }
 
-.page-transition.enter {
-  animation: slideBottomIn 0.35s ease-out forwards;
-}
-
+.page-transition.enter,
 .page-transition.exit {
-  animation: slideBottomOut 0.2s ease-in forwards;
-}
-
-@keyframes slideBottomIn {
-  0% { opacity: 0; transform: translateY(20px); }
-  100% { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes slideBottomOut {
-  0% { opacity: 1; transform: translateY(0); }
-  100% { opacity: 0; transform: translateY(-10px); }
-}
-
-.page-transition.enter .animate-item {
-  animation: slideUpItem 0.35s ease forwards;
-  opacity: 0;
-  transform: translateY(15px);
-}
-
-@keyframes slideUpItem {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  animation: none;
 }
 
 /* ========== TEXT JUSTIFY ========== */
@@ -775,7 +749,7 @@ body {
 .flip-card-exp-back-medium i { font-size: 1.5rem; color: white; margin-bottom: 0.3rem; }
 .flip-card-exp-back-medium p { color: white; font-size: 0.7rem; font-weight: 500; }
 
-/* ========== MODAL ========== */
+/* ========== MODAL - CENTERED SA MOBILE ========== */
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -792,7 +766,10 @@ body {
   transition: all 0.2s;
 }
 
-.modal-overlay.active { opacity: 1; visibility: visible; }
+.modal-overlay.active { 
+  opacity: 1; 
+  visibility: visible; 
+}
 
 .modal-content {
   background: var(--card-bg);
@@ -801,11 +778,36 @@ body {
   max-width: 450px;
   width: 90%;
   border: 1px solid var(--accent);
+  margin: 0 auto;
+  position: relative;
+  top: auto;
+  left: auto;
+  transform: none;
 }
 
-.modal-content h3 { color: var(--accent); margin-bottom: 0.7rem; font-size: 1rem; }
-.modal-content p { color: var(--text-muted); line-height: 1.5; font-size: 0.8rem; margin-bottom: 1rem; text-align: justify; }
-.modal-close { background: linear-gradient(135deg, var(--accent), var(--accent-dark)); color: #000; border: none; padding: 0.4rem 1.2rem; border-radius: 2rem; cursor: pointer; font-weight: 600; }
+.modal-content h3 { 
+  color: var(--accent); 
+  margin-bottom: 0.7rem; 
+  font-size: 1rem; 
+}
+
+.modal-content p { 
+  color: var(--text-muted); 
+  line-height: 1.5; 
+  font-size: 0.8rem; 
+  margin-bottom: 1rem; 
+  text-align: justify; 
+}
+
+.modal-close { 
+  background: linear-gradient(135deg, var(--accent), var(--accent-dark)); 
+  color: #000; 
+  border: none; 
+  padding: 0.4rem 1.2rem; 
+  border-radius: 2rem; 
+  cursor: pointer; 
+  font-weight: 600; 
+}
 
 /* ========== FOOTER ========== */
 .footer-3d {
@@ -817,7 +819,7 @@ body {
   font-size: 0.65rem;
 }
 
-/* ========== MOBILE RESPONSIVE DESIGN ========== */
+/* ========== MOBILE RESPONSIVE ========== */
 @media (max-width: 768px) {
   .unified-container {
     width: 100%;
@@ -929,9 +931,16 @@ body {
     font-size: 0.55rem;
   }
   
+  /* MODAL SA MOBILE - GITNA */
   .modal-content {
     padding: 1rem;
     max-width: 90%;
+    margin: 0 auto;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
   }
   
   .modal-content h3 {
@@ -999,5 +1008,10 @@ body {
   .gate-btn {
     padding: 0.5rem 1rem;
     font-size: 0.8rem;
+  }
+  
+  .modal-content {
+    width: 95%;
+    padding: 0.8rem;
   }
 }
