@@ -1,663 +1,1043 @@
-import { useState, useEffect } from 'react'
-
-function Gate({ onEnter }) {
-  return (
-    <div className="gate-overlay">
-      <div className="gate-container">
-        <h1 className="gate-title">REYNALDO <span>LUMBRES</span></h1>
-        <p className="gate-subtitle">PROVERBS 21:5</p>
-        <p className="gate-subtitle"> Code. Create. Conquer. Repeat.</p>
-        <button onClick={onEnter} className="gate-btn">ENTER PORTFOLIO</button>
-      </div>
-    </div>
-  )
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-function Navbar({ page, setPage }) {
-  const pages = ['Home', 'Services', 'Projects', 'Skills', 'Experience', 'Education', 'Certificates', 'Contact']
-  return (
-    <div className="navbar">
-      {pages.map(p => (
-        <div key={p} onClick={() => setPage(p)} className={`nav-item ${page === p ? 'active' : ''}`}>
-          {p}
-        </div>
-      ))}
-    </div>
-  )
+:root {
+  --primary: #0a1628;
+  --secondary: #0d1a2f;
+  --accent: #1e90ff;
+  --accent-dark: #0a5f8a;
+  --accent-light: #4db8ff;
+  --accent-glow: rgba(30, 144, 255, 0.2);
+  --text: #c8d0e0;
+  --text-muted: #8a9bb5;
+  --text-dark: #ffffff;
+  --border: #1a2540;
+  --card-bg: #0f1825;
+  --shadow: 0 5px 20px -5px rgba(0, 0, 0, 0.3);
+  --shadow-hover: 0 10px 30px -8px rgba(0, 0, 0, 0.4);
 }
 
-function Home() {
-  return (
-    <div className="premium-home-card animate-item animate-delay-1">
-      <div className="hero-split-container">
-        <div className="hero-left">
-          <h1 className="hero-name">Reynaldo <span className="hero-highlight"> Lumbres</span></h1>
-          <div className="hero-roles-container">
-            <span className="hero-role-item">Web Developer</span>
-            <span className="hero-role-sep">◆</span>
-            <span className="hero-role-item">Graphic Designer</span>
-            <span className="hero-role-sep">◆</span>
-            <span className="hero-role-item">IT Graduate</span>
-          </div>
-          <div className="hero-quote-split">
-            "Took a tres, why can't I resist you? Pa automate kana, ano tara!"
-          </div>
-        </div>
-        <div className="hero-right">
-          <div className="solar-system">
-            <div className="sun"></div>
-            <div className="orbit orbit-1"><div className="planet mercury"></div></div>
-            <div className="orbit orbit-2"><div className="planet venus"></div></div>
-            <div className="orbit orbit-3"><div className="planet earth"></div></div>
-            <div className="orbit orbit-4"><div className="planet mars"></div></div>
-            <div className="orbit orbit-5"><div className="planet jupiter"></div></div>
-            <div className="orbit orbit-6"><div className="planet saturn">
-              <div className="saturn-ring"></div>
-            </div></div>
-            <div className="orbit orbit-7"><div className="planet uranus"></div></div>
-            <div className="orbit orbit-8"><div className="planet neptune"></div></div>
-          </div>
-        </div>
-      </div>
-      <div className="card-divider"></div>
-      <div className="objective-inside">
-        <h3 className="objective-title">Professional Objective</h3>
-        <p className="objective-text">
-          I am an IT graduate who can create different web-based management systems like Payroll and Attendance System, Gym Management System using Mac Heap-Based Priority Queue, Food Inventory System with real-time stock monitoring, Library Management System, and E-Commerce Online Shopping System. I use PHP, MySQL, and JavaScript to build these systems. I also create complete thesis and capstone documentation from Chapter 1 to 5 including all diagrams like UML, DFD, ERD, system architecture, flowchart, algorithm, and pseudocode, with unlimited revision. In graphic design, I can create logos, posters, brochures, business cards, social media graphics, tarpaulin, menus, invitation cards, certificate templates, ID cards, and product packaging. I also create mobile apps using React Native and complete websites from start to launch. After I finish a system, I can also maintain it, I fix bugs, update, add new features, and backup the database. These are the services I can offer to your company and to my future clients.
-        </p>
-      </div>
-    </div>
-  )
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  background: #050d18;
+  color: var(--text);
+  line-height: 1.6;
+  overflow-x: hidden;
 }
 
-function Skills() {
-  const [showModal, setShowModal] = useState(false)
-  const [modalData, setModalData] = useState({ title: '', desc: '' })
-  
-  const skills = [
-    { name: 'React.js', icon: 'fab fa-react', desc: 'Frontend mastery, hooks, context API, component-driven architecture' },
-    { name: 'PHP', icon: 'fab fa-php', desc: 'Backend logic, REST APIs, MVC pattern, database integration' },
-    { name: 'MySQL', icon: 'fas fa-database', desc: 'Complex queries, indexing, optimization, data integrity' },
-    { name: 'JavaScript', icon: 'fab fa-js', desc: 'ES6+, async patterns, DOM manipulation, closures' },
-    { name: 'C# / VB.NET', icon: 'fas fa-code', desc: 'Desktop applications, WinForms, enterprise solutions' },
-    { name: 'Git/GitHub', icon: 'fab fa-github', desc: 'Version control, collaborative workflows, CI/CD basics' },
-    { name: 'UI/UX Design', icon: 'fas fa-paintbrush', desc: 'Figma, Canva, wireframing, user-centered design' },
-    { name: 'RESTful APIs', icon: 'fas fa-plug', desc: 'Integration, authentication, third-party services' },
-    { name: 'Responsive Design', icon: 'fas fa-mobile-alt', desc: 'Mobile-first, cross-browser, adaptive layouts' }
-  ]
-  
-  const openModal = (title, desc) => {
-    setModalData({ title, desc })
-    setShowModal(true)
-  }
-  
-  const modalStyle = {
-    position: 'fixed',
-    top: '30%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    backgroundColor: '#0f1825',
-    borderRadius: '12px',
-    padding: '20px',
-    width: '90%',
-    maxWidth: '400px',
-    maxHeight: '75vh',
-    overflowY: 'auto',
-    border: '1px solid #1e90ff',
-    zIndex: 10001,
-    boxShadow: '0 10px 25px rgba(0,0,0,0.5)'
-  }
-  
-  return (
-    <>
-      <div className="skills-grid">
-        {skills.map((s, i) => (
-          <div key={i} className="flip-card-3d animate-item" style={{ animationDelay: `${0.1 + i * 0.05}s` }} onClick={() => openModal(s.name, s.desc)}>
-            <div className="flip-card-inner">
-              <div className="flip-card-front">
-                <i className={s.icon}></i>
-                <h4>{s.name}</h4>
-              </div>
-              <div className="flip-card-back">
-                <i className="fas fa-mouse-pointer"></i>
-                <p>Click for Details →</p>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-      {showModal && (
-        <div className="modal-overlay active" onClick={() => setShowModal(false)}>
-          <div style={modalStyle} onClick={(e) => e.stopPropagation()}>
-            <h3 style={{ color: '#1e90ff', marginBottom: '12px', fontSize: '16px' }}>{modalData.title}</h3>
-            <p style={{ color: '#c8d0e0', fontSize: '13px', lineHeight: '1.5', textAlign: 'justify', marginBottom: '16px' }}>{modalData.desc}</p>
-            <button onClick={() => setShowModal(false)} style={{
-              background: 'linear-gradient(135deg, #1e90ff, #0a5f8a)',
-              color: '#000',
-              border: 'none',
-              padding: '8px 16px',
-              borderRadius: '20px',
-              cursor: 'pointer',
-              fontWeight: '600',
-              display: 'block',
-              margin: '0 auto'
-            }}>Close</button>
-          </div>
-        </div>
-      )}
-    </>
-  )
+/* ========== BACKGROUND ========== */
+.bg-animation-3d {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+  background: radial-gradient(ellipse at center, #0a1628 0%, #030811 100%);
 }
 
-function Services() {
-  const [showModal, setShowModal] = useState(false)
-  const [modalData, setModalData] = useState({ title: '', desc: '' })
-  
-  const services = [
-    { title: 'Web Development', icon: 'fas fa-globe', desc: 'I create different management systems for businesses like inventory system for products, car rental system for rent vehicles, shop management system with POS, office system for employees, hotel and restaurant system for booking and billing, coffee shop system for order taking and inventory of coffee and ingredients, barber shop management system for appointment booking and customer queue, and school system for enrollment and grades. I have also made Gym, Food Inventory, Library, and Payroll System.' },
-    { title: 'Thesis / Capstone Documentation', icon: 'fas fa-file-alt', desc: 'I create thesis from Chapter 1 to 5, including introduction, related literature, methodology, results with screenshots, and conclusion. I make all the diagrams you need: System Architecture Diagram, Use Case Diagram, DFD Level 0,1,2, UML Diagrams, ER Diagram, Flowchart, Algorithm and Pseudocode. I offer unlimited revision. I also make your document defense-ready with sample Q&A.' },
-    { title: 'Graphic Design', icon: 'fas fa-palette', desc: 'I create logos for businesses, posters for events, brochures and flyers for promotions, business cards, social media graphics, tarpaulin, menus for restaurants, invitation cards, certificate templates, ID cards, and product packaging. I have made many logos for small businesses, event posters, and brochures.' },
-    { title: 'Mobile App Development', icon: 'fas fa-mobile-alt', desc: 'I create mobile apps for Android using React Native. I can make e-commerce app with shopping cart and payment, booking app for hotels or services, school app for grades and announcements, business app for inventory and sales tracking, and attendance app using QR code.' },
-    { title: 'Website Design and Development', icon: 'fas fa-laptop-code', desc: 'I create complete websites from start to launch. I can make company website with about us and services, e-commerce website with online payment, portfolio website, blog website, and landing page for product launch.' },
-    { title: 'System Maintenance and Support', icon: 'fas fa-headset', desc: 'I do not disappear after I finish your system. I take care of it, I fix bugs, update it to work with new browser versions, add new features, backup the database so your data does not get lost, and answer your questions even after the project is done.' }
-  ]
-  
-  const openModal = (title, desc) => {
-    setModalData({ title, desc })
-    setShowModal(true)
-  }
-  
-  const modalStyle = {
-    position: 'fixed',
-    top: '30%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    backgroundColor: '#0f1825',
-    borderRadius: '12px',
-    padding: '20px',
-    width: '90%',
-    maxWidth: '400px',
-    maxHeight: '75vh',
-    overflowY: 'auto',
-    border: '1px solid #1e90ff',
-    zIndex: 10001,
-    boxShadow: '0 10px 25px rgba(0,0,0,0.5)'
-  }
-  
-  return (
-    <>
-      <div className="services-grid">
-        {services.map((s, i) => (
-          <div key={i} className="flip-card-3d-large animate-item" style={{ animationDelay: `${0.1 + i * 0.08}s` }} onClick={() => openModal(s.title, s.desc)}>
-            <div className="flip-card-inner-large">
-              <div className="flip-card-front-large">
-                <i className={s.icon}></i>
-                <h4>{s.title}</h4>
-              </div>
-              <div className="flip-card-back-large">
-                <i className="fas fa-mouse-pointer"></i>
-                <p>Click for Details →</p>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-      {showModal && (
-        <div className="modal-overlay active" onClick={() => setShowModal(false)}>
-          <div style={modalStyle} onClick={(e) => e.stopPropagation()}>
-            <h3 style={{ color: '#1e90ff', marginBottom: '12px', fontSize: '16px' }}>{modalData.title}</h3>
-            <p style={{ color: '#c8d0e0', fontSize: '13px', lineHeight: '1.5', textAlign: 'justify', marginBottom: '16px' }}>{modalData.desc}</p>
-            <button onClick={() => setShowModal(false)} style={{
-              background: 'linear-gradient(135deg, #1e90ff, #0a5f8a)',
-              color: '#000',
-              border: 'none',
-              padding: '8px 16px',
-              borderRadius: '20px',
-              cursor: 'pointer',
-              fontWeight: '600',
-              display: 'block',
-              margin: '0 auto'
-            }}>Close</button>
-          </div>
-        </div>
-      )}
-    </>
-  )
+.bg-animation-3d::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(1px 1px at 20% 30%, white, transparent),
+    radial-gradient(1px 1px at 60% 70%, white, transparent),
+    radial-gradient(1px 1px at 85% 15%, white, transparent),
+    radial-gradient(1px 1px at 40% 85%, white, transparent),
+    radial-gradient(1px 1px at 10% 55%, white, transparent),
+    radial-gradient(1px 1px at 75% 45%, white, transparent),
+    radial-gradient(1px 1px at 95% 80%, white, transparent),
+    radial-gradient(1px 1px at 5% 95%, white, transparent),
+    radial-gradient(1px 1px at 50% 50%, white, transparent);
+  background-size: 200px 200px;
+  background-repeat: no-repeat;
+  opacity: 0.4;
 }
 
-function Projects() {
-  const [showModal, setShowModal] = useState(false)
-  const [modalData, setModalData] = useState({ title: '', desc: '' })
-  
-  const projects = [
-    { title: 'Design and Implementation of a Web Based Payroll and Attendance Management System', icon: 'fas fa-money-bill', desc: 'I made this web-based payroll and attendance management system for companies that want automated computation of employee salary based on their attendance. I used a biometric device to capture the employee time in and time out. I enabled automatic computation of regular salary, overtime, late deductions, and other adjustments. I made an admin dashboard where the employer can see payroll history, generate payslip, and create reports. I made the whole system using PHP, MySQL, and JavaScript.' },
-    { title: 'Development of Gymmate: A Real Time Gym Management System Using Mac Heap – Based Priority Queue', icon: 'fas fa-dumbbell', desc: 'I made this web-based real time gym management system called Gymmate for gyms. I used Mac Heap – Based Priority Queue algorithm for equipment queue. I enabled the registration system for gym members where they can choose a workout plan and queue for equipment. I made the priority queue algorithm that determines who will use the equipment next. I made a real-time dashboard that shows who is currently using the equipment and who is next in line. I also added due date reminders for membership expiration. I made the system using PHP, MySQL, and JavaScript.' },
-    { title: 'An Automated Food Inventory and Ordering Management System with Real-Time Stock Monitoring', icon: 'fas fa-utensils', desc: 'I made this web-based automated food inventory and ordering management system for restaurants and food businesses. I enabled real-time stock monitoring where the owner can track all products in the kitchen or warehouse, how many arrived, how many were used, and how many are left. I added a low-stock alert that notifies when a product is about to run out. I also made automatic purchase order generation to order from the supplier the products that need to be restocked. I also added supplier management to track who is the supplier of each product. I made the system using PHP, MySQL, and JavaScript.' },
-    { title: 'A Web-Based Library Management and Book Monitoring System for Trimex Colleges', icon: 'fas fa-book', desc: 'I made this web-based library management and book monitoring system for Trimex Colleges. I enabled the online browsing system where students and teachers can browse books, see if a book is available or checked out, and borrow books online. I made digital borrowing logs where it is recorded who borrowed and when the book should be returned. I also enabled automatic fine computation for late returns. I made an admin dashboard for the librarian where they can add, edit, and delete books, and see borrowing history. I made the system using PHP, MySQL, and JavaScript.' },
-    { title: 'E-Commerce Online Shopping Web Based System', icon: 'fas fa-shopping-cart', desc: 'I made this web-based e-commerce online shopping system for businesses that want to sell online. I enabled the product catalog where customers can browse products by category. I made a shopping cart system that shows the total amount and allows adding or removing products. I integrated a payment system (GCash, Credit Card, or Bank Transfer) for online payment. I made an order tracking system so the customer can know where their order is. I also added an admin dashboard for the seller where they can manage products, manage orders, and manage customer list. I made the system using PHP, MySQL, and JavaScript.' },
-    { title: 'Automated Registration and Referral Management System with Gmail Integration', icon: 'fas fa-envelope', desc: 'The Automated Registration and Referral Management System that I made is a standalone desktop software for Trimex Colleges with Gmail Integration. In this system, students can register, manage their requirements (like PSA, Form 138, Form 137, Good Moral, etc.), and have a referral system where a person can refer a student. It has a dashboard that shows statistics using charts, how many are transferee, new student, referral, and submitted requirements. It also automatically sends email to students and referrers using Gmail API to notify them about the status of their registration and requirements. It also has a trash system where deleted records can be restored or permanently deleted, and admin password protection for sensitive actions like deleting and updating records. I made it using VB.NET for frontend, MySQL for database, and Gmail SMTP for automated email notifications.' }
-  ]
-  
-  const openModal = (title, desc) => {
-    setModalData({ title, desc })
-    setShowModal(true)
-  }
-  
-  const modalStyle = {
-    position: 'fixed',
-    top: '30%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    backgroundColor: '#0f1825',
-    borderRadius: '12px',
-    padding: '20px',
-    width: '90%',
-    maxWidth: '400px',
-    maxHeight: '75vh',
-    overflowY: 'auto',
-    border: '1px solid #1e90ff',
-    zIndex: 10001,
-    boxShadow: '0 10px 25px rgba(0,0,0,0.5)'
-  }
-  
-  return (
-    <>
-      <div className="projects-grid">
-        {projects.map((p, i) => (
-          <div key={i} className="flip-card-3d-large animate-item" style={{ animationDelay: `${0.1 + i * 0.08}s` }} onClick={() => openModal(p.title, p.desc)}>
-            <div className="flip-card-inner-large">
-              <div className="flip-card-front-large">
-                <i className={p.icon}></i>
-                <h4>{p.title}</h4>
-              </div>
-              <div className="flip-card-back-large">
-                <i className="fas fa-mouse-pointer"></i>
-                <p>Click for Details →</p>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-      {showModal && (
-        <div className="modal-overlay active" onClick={() => setShowModal(false)}>
-          <div style={modalStyle} onClick={(e) => e.stopPropagation()}>
-            <h3 style={{ color: '#1e90ff', marginBottom: '12px', fontSize: '16px' }}>{modalData.title}</h3>
-            <p style={{ color: '#c8d0e0', fontSize: '13px', lineHeight: '1.5', textAlign: 'justify', marginBottom: '16px' }}>{modalData.desc}</p>
-            <button onClick={() => setShowModal(false)} style={{
-              background: 'linear-gradient(135deg, #1e90ff, #0a5f8a)',
-              color: '#000',
-              border: 'none',
-              padding: '8px 16px',
-              borderRadius: '20px',
-              cursor: 'pointer',
-              fontWeight: '600',
-              display: 'block',
-              margin: '0 auto'
-            }}>Close</button>
-          </div>
-        </div>
-      )}
-    </>
-  )
+.particle-3d {
+  position: absolute;
+  background: var(--accent);
+  border-radius: 50%;
+  opacity: 0.05;
+  animation: floatParticle 20s infinite ease-in-out;
+  filter: blur(3px);
 }
 
-function Experience() {
-  const [showModal, setShowModal] = useState(false)
-  const [modalData, setModalData] = useState({ title: '', desc: '' })
-  
-  const experiences = [
-    { title: 'Freelance Web Developer & Graphic Designer', period: '2024 - Present', desc: 'In my freelance work, I create different systems for students like capstone and thesis projects. I also create management systems for small businesses. Aside from building systems, I also do graphic design like logos for companies, posters for events, and brochures for product or service promotion. I do this using PHP, MySQL, JavaScript for web development, and Canva or Photoshop for graphic design.' },
-    { title: 'Jollibee Commercial Complex', period: '2022 - 2023', desc: 'As a service crew at Jollibee, I was part of the dining area team. My main job was to deliver customer orders to their tables. I made sure the order was correct and the food was still hot when it arrived at the customer. Aside from delivering orders, I also maintained the cleanliness of the dining area, I wiped the tables after the customer left, made sure there was no trash on the floor, and arranged the chairs for the next customer. I learned from this job the importance of fast service, having good customer relations, and being responsible in my work.' },
-    { title: 'Chick N Juicy', period: '2023 - 2024', desc: 'At Chick N Juicy, I did many jobs. I was one of the cooks, I made sure the chicken was cooked right and tasty before serving to the customer. I also served food to customers, making sure their order was complete and the food was hot. I also became a cashier, I collected payment from customers, gave change, and balanced the money in the cash register at the end of the day. I also sold products like fried chicken and lechon manok. In this position, I learned the different aspects of running a food business, from cooking, serving, to handling money and customers.' }
-  ]
-  
-  const openModal = (title, desc) => {
-    setModalData({ title, desc })
-    setShowModal(true)
-  }
-  
-  const modalStyle = {
-    position: 'fixed',
-    top: '30%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    backgroundColor: '#0f1825',
-    borderRadius: '12px',
-    padding: '20px',
-    width: '90%',
-    maxWidth: '400px',
-    maxHeight: '75vh',
-    overflowY: 'auto',
-    border: '1px solid #1e90ff',
-    zIndex: 10001,
-    boxShadow: '0 10px 25px rgba(0,0,0,0.5)'
-  }
-  
-  return (
-    <>
-      <div className="three-column-grid">
-        {experiences.map((exp, i) => (
-          <div key={i} className="flip-card-exp-large animate-item" style={{ animationDelay: `${0.1 + i * 0.1}s` }} onClick={() => { setModalData({ title: exp.title, desc: `${exp.period}\n\n${exp.desc}` }); setShowModal(true); }}>
-            <div className="flip-card-exp-inner-large">
-              <div className="flip-card-exp-front-large">
-                <div className="card-icon-3d"><i className="fas fa-briefcase"></i></div>
-                <h4>{exp.title}</h4>
-                <span>{exp.period}</span>
-              </div>
-              <div className="flip-card-exp-back-large">
-                <i className="fas fa-mouse-pointer"></i>
-                <p>Click for Details →</p>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-      {showModal && (
-        <div className="modal-overlay active" onClick={() => setShowModal(false)}>
-          <div style={modalStyle} onClick={(e) => e.stopPropagation()}>
-            <h3 style={{ color: '#1e90ff', marginBottom: '12px', fontSize: '16px' }}>{modalData.title}</h3>
-            <p style={{ color: '#c8d0e0', fontSize: '13px', lineHeight: '1.5', textAlign: 'justify', marginBottom: '16px' }}>{modalData.desc}</p>
-            <button onClick={() => setShowModal(false)} style={{
-              background: 'linear-gradient(135deg, #1e90ff, #0a5f8a)',
-              color: '#000',
-              border: 'none',
-              padding: '8px 16px',
-              borderRadius: '20px',
-              cursor: 'pointer',
-              fontWeight: '600',
-              display: 'block',
-              margin: '0 auto'
-            }}>Close</button>
-          </div>
-        </div>
-      )}
-    </>
-  )
+.particle-1-3d { width: 150px; height: 150px; top: 10%; left: -50px; animation-duration: 25s; }
+.particle-2-3d { width: 200px; height: 200px; bottom: 10%; right: -80px; animation-duration: 30s; animation-delay: -5s; }
+.particle-3-3d { width: 100px; height: 100px; top: 40%; left: 20%; animation-duration: 20s; animation-delay: -10s; }
+.particle-4-3d { width: 250px; height: 250px; bottom: 20%; left: 10%; animation-duration: 35s; animation-delay: -3s; }
+.particle-5-3d { width: 80px; height: 80px; top: 70%; right: 15%; animation-duration: 15s; animation-delay: -7s; }
+
+@keyframes floatParticle {
+  0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.03; }
+  50% { transform: translate(40px, -30px) scale(1.2); opacity: 0.08; }
 }
 
-function Education() {
-  const [showModal, setShowModal] = useState(false)
-  const [modalData, setModalData] = useState({ title: '', desc: '' })
-  
-  const educations = [
-    { title: 'BS Information Technology', school: 'Trimex Colleges', period: '2025 - 2026', desc: 'Major in Web Development. Graduated with honors. Thesis: Automated Registration System.' },
-    { title: 'Senior High School', school: 'Green Field Integrated School', period: '2019 - 2020', desc: 'STEM Strand. Consistent honor student.' },
-    { title: 'Junior High School', school: 'Pulong Sta. Cruz National High School', period: '2015 - 2019', desc: 'With Honors. Math and Science Club Officer.' },
-    { title: 'Elementary', school: 'Bagong Tanyag Elementary', period: '2010 - 2015', desc: 'With Honors. Consistent top student.' }
-  ]
-  
-  const openModal = (title, desc) => {
-    setModalData({ title, desc })
-    setShowModal(true)
-  }
-  
-  const modalStyle = {
-    position: 'fixed',
-    top: '30%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    backgroundColor: '#0f1825',
-    borderRadius: '12px',
-    padding: '20px',
-    width: '90%',
-    maxWidth: '400px',
-    maxHeight: '75vh',
-    overflowY: 'auto',
-    border: '1px solid #1e90ff',
-    zIndex: 10001,
-    boxShadow: '0 10px 25px rgba(0,0,0,0.5)'
-  }
-  
-  return (
-    <>
-      <div className="two-column-grid">
-        {educations.map((edu, i) => (
-          <div key={i} className="flip-card-exp-medium animate-item" style={{ animationDelay: `${0.1 + i * 0.1}s` }} onClick={() => { setModalData({ title: edu.title, desc: `${edu.school}\n${edu.period}\n\n${edu.desc}` }); setShowModal(true); }}>
-            <div className="flip-card-exp-inner-medium">
-              <div className="flip-card-exp-front-medium">
-                <div className="card-icon-3d"><i className="fas fa-graduation-cap"></i></div>
-                <h4>{edu.title}</h4>
-                <span>{edu.school}</span>
-              </div>
-              <div className="flip-card-exp-back-medium">
-                <i className="fas fa-mouse-pointer"></i>
-                <p>Click for Details →</p>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-      {showModal && (
-        <div className="modal-overlay active" onClick={() => setShowModal(false)}>
-          <div style={modalStyle} onClick={(e) => e.stopPropagation()}>
-            <h3 style={{ color: '#1e90ff', marginBottom: '12px', fontSize: '16px' }}>{modalData.title}</h3>
-            <p style={{ color: '#c8d0e0', fontSize: '13px', lineHeight: '1.5', textAlign: 'justify', marginBottom: '16px' }}>{modalData.desc}</p>
-            <button onClick={() => setShowModal(false)} style={{
-              background: 'linear-gradient(135deg, #1e90ff, #0a5f8a)',
-              color: '#000',
-              border: 'none',
-              padding: '8px 16px',
-              borderRadius: '20px',
-              cursor: 'pointer',
-              fontWeight: '600',
-              display: 'block',
-              margin: '0 auto'
-            }}>Close</button>
-          </div>
-        </div>
-      )}
-    </>
-  )
+/* ========== NO PAGE TRANSITION ========== */
+.page-transition {
+  transition: none;
 }
 
-function Certificates() {
-  const [showModal, setShowModal] = useState(false)
-  const [modalData, setModalData] = useState({ title: '', desc: '' })
-  
-  const certificates = [
-    { title: 'NSTP Certificate of Completion', issuer: 'Jabez Camp Site, Cavite', desc: 'I received this certificate on May 6, 2023 at Jabez Camp Site, Dasmariñas, Cavite. I completed the National Service Training Program where I underwent leadership training, community service, and other activities that taught me discipline and responsibility as a citizen.' },
-    { title: 'ISITE Conference Participation', issuer: 'Lyceum University', desc: 'I participated as an active participant in the 3rd ISITE Conference with the theme "Developing Industry Skills and Technological Advancement through Research". It was held at Lyceum of the Philippines University – Laguna on March 17, 2023. Here I learned new technologies and how to apply research in the information technology industry.' },
-    { title: 'Freelance Web Development Certification', issuer: 'Online Course', desc: 'I took an online course for freelance web development and completed it with a certificate in 2025. Here I learned comprehensive web development using React.js, PHP, and MySQL. I was also taught how to start a freelancing career, how to communicate with clients, and how to deliver quality projects on time.' },
-    { title: 'Strategic Management Advanced', issuer: 'Online Course', desc: 'I completed this comprehensive course that covers strategic planning, business analysis, and organizational leadership. This certificate was awarded to me on April 16, 2026. Here I learned how to plan strategy for business, analyze business operations, and lead an organization, skills that I can use in handling projects and dealing with clients.' }
-  ]
-  
-  const openModal = (title, desc) => {
-    setModalData({ title, desc })
-    setShowModal(true)
-  }
-  
-  const modalStyle = {
-    position: 'fixed',
-    top: '30%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    backgroundColor: '#0f1825',
-    borderRadius: '12px',
-    padding: '20px',
-    width: '90%',
-    maxWidth: '400px',
-    maxHeight: '75vh',
-    overflowY: 'auto',
-    border: '1px solid #1e90ff',
-    zIndex: 10001,
-    boxShadow: '0 10px 25px rgba(0,0,0,0.5)'
-  }
-  
-  return (
-    <>
-      <div className="two-column-grid">
-        {certificates.map((cert, i) => (
-          <div key={i} className="flip-card-exp-medium animate-item" style={{ animationDelay: `${0.1 + i * 0.1}s` }} onClick={() => { setModalData({ title: cert.title, desc: `${cert.issuer}\n\n${cert.desc}` }); setShowModal(true); }}>
-            <div className="flip-card-exp-inner-medium">
-              <div className="flip-card-exp-front-medium">
-                <div className="card-icon-3d"><i className="fas fa-certificate"></i></div>
-                <h4>{cert.title}</h4>
-                <span>{cert.issuer}</span>
-              </div>
-              <div className="flip-card-exp-back-medium">
-                <i className="fas fa-mouse-pointer"></i>
-                <p>Click for Details →</p>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-      {showModal && (
-        <div className="modal-overlay active" onClick={() => setShowModal(false)}>
-          <div style={modalStyle} onClick={(e) => e.stopPropagation()}>
-            <h3 style={{ color: '#1e90ff', marginBottom: '12px', fontSize: '16px' }}>{modalData.title}</h3>
-            <p style={{ color: '#c8d0e0', fontSize: '13px', lineHeight: '1.5', textAlign: 'justify', marginBottom: '16px' }}>{modalData.desc}</p>
-            <button onClick={() => setShowModal(false)} style={{
-              background: 'linear-gradient(135deg, #1e90ff, #0a5f8a)',
-              color: '#000',
-              border: 'none',
-              padding: '8px 16px',
-              borderRadius: '20px',
-              cursor: 'pointer',
-              fontWeight: '600',
-              display: 'block',
-              margin: '0 auto'
-            }}>Close</button>
-          </div>
-        </div>
-      )}
-    </>
-  )
+.page-transition.enter,
+.page-transition.exit {
+  animation: none;
 }
 
-function Contact() {
-  const [showModal, setShowModal] = useState(false)
-  const [modalData, setModalData] = useState({ title: '', desc: '' })
-  
-  const contacts = [
-    { title: 'Phone', icon: 'fas fa-phone-alt', value: '+63 970 550 8581', desc: 'Available for calls from 9AM - 6PM, Monday to Saturday.' },
-    { title: 'Email', icon: 'fas fa-envelope', value: 'reynaldolumbres20@gmail.com', desc: 'Best way to reach me. I respond within 24 hours.' },
-    { title: 'Facebook', icon: 'fab fa-facebook-f', value: 'Reynaldo_Lumbres@yahoo.com', desc: 'Connect with me on Facebook for quick updates.' },
-    { title: 'Location', icon: 'fas fa-map-marker-alt', value: 'Santa Rosa, Laguna', desc: 'Available for on-site work in Laguna area.' }
-  ]
-  
-  const openModal = (title, desc) => {
-    setModalData({ title, desc })
-    setShowModal(true)
-  }
-  
-  const modalStyle = {
-    position: 'fixed',
-    top: '30%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    backgroundColor: '#0f1825',
-    borderRadius: '12px',
-    padding: '20px',
-    width: '90%',
-    maxWidth: '400px',
-    maxHeight: '75vh',
-    overflowY: 'auto',
-    border: '1px solid #1e90ff',
-    zIndex: 10001,
-    boxShadow: '0 10px 25px rgba(0,0,0,0.5)'
-  }
-  
-  return (
-    <>
-      <div className="two-column-grid">
-        {contacts.map((contact, i) => (
-          <div key={i} className="flip-card-exp-medium animate-item" style={{ animationDelay: `${0.1 + i * 0.1}s` }} onClick={() => { setModalData({ title: contact.title, desc: `${contact.value}\n\n${contact.desc}` }); setShowModal(true); }}>
-            <div className="flip-card-exp-inner-medium">
-              <div className="flip-card-exp-front-medium">
-                <div className="card-icon-3d"><i className={contact.icon}></i></div>
-                <h4>{contact.title}</h4>
-                <p className="contact-value">{contact.value}</p>
-              </div>
-              <div className="flip-card-exp-back-medium">
-                <i className="fas fa-mouse-pointer"></i>
-                <p>Click for Details →</p>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-      {showModal && (
-        <div className="modal-overlay active" onClick={() => setShowModal(false)}>
-          <div style={modalStyle} onClick={(e) => e.stopPropagation()}>
-            <h3 style={{ color: '#1e90ff', marginBottom: '12px', fontSize: '16px' }}>{modalData.title}</h3>
-            <p style={{ color: '#c8d0e0', fontSize: '13px', lineHeight: '1.5', textAlign: 'justify', marginBottom: '16px' }}>{modalData.desc}</p>
-            <button onClick={() => setShowModal(false)} style={{
-              background: 'linear-gradient(135deg, #1e90ff, #0a5f8a)',
-              color: '#000',
-              border: 'none',
-              padding: '8px 16px',
-              borderRadius: '20px',
-              cursor: 'pointer',
-              fontWeight: '600',
-              display: 'block',
-              margin: '0 auto'
-            }}>Close</button>
-          </div>
-        </div>
-      )}
-    </>
-  )
+/* ========== TEXT JUSTIFY ========== */
+.text-justify,
+.objective-text {
+  text-align: justify;
 }
 
-function App() {
-  const [showPortfolio, setShowPortfolio] = useState(false)
-  const [currentPage, setCurrentPage] = useState('Home')
-  const [isAnimating, setIsAnimating] = useState(false)
-  const [transitionDirection, setTransitionDirection] = useState('')
-
-  const handlePageChange = (page) => {
-    if (page === currentPage) return
-    setTransitionDirection('exit')
-    setIsAnimating(true)
-    setTimeout(() => {
-      setCurrentPage(page)
-      setTransitionDirection('enter')
-      setTimeout(() => {
-        setIsAnimating(false)
-        setTransitionDirection('')
-      }, 400)
-    }, 300)
-  }
-
-  if (!showPortfolio) {
-    return <Gate onEnter={() => setShowPortfolio(true)} />
-  }
-
-  const pages = {
-    'Home': <Home />,
-    'Services': <Services />,
-    'Projects': <Projects />,
-    'Skills': <Skills />,
-    'Experience': <Experience />,
-    'Education': <Education />,
-    'Certificates': <Certificates />,
-    'Contact': <Contact />
-  }
-
-  return (
-    <div>
-      <div className="bg-animation-3d">
-        <div className="particle-3d particle-1-3d"></div>
-        <div className="particle-3d particle-2-3d"></div>
-        <div className="particle-3d particle-3-3d"></div>
-        <div className="particle-3d particle-4-3d"></div>
-        <div className="particle-3d particle-5-3d"></div>
-      </div>
-      
-      <div className="unified-container">
-        <div className="main-glass-card-3d">
-          <Navbar page={currentPage} setPage={handlePageChange} />
-          <div className={`page-transition ${transitionDirection}`}>
-            <div className="content-3d">
-              {pages[currentPage]}
-              <div className="footer-3d">© 2025 Reynaldo B. Lumbres — Sa tahanan ng malakas ako ang pinakamalakas</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  )
+/* ========== GATE ANIMATION ========== */
+.gate-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #030811;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  transition: opacity 0.5s ease;
 }
 
-export default App
+.gate-overlay.hide {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.gate-container {
+  text-align: center;
+  padding: 2.5rem;
+  border: 2px solid var(--accent);
+  background: rgba(10, 22, 40, 0.9);
+  border-radius: 1rem;
+  animation: gatePulse 1.5s ease-in-out infinite, gateFloat 3s ease-in-out infinite;
+  max-width: 480px;
+  width: 90%;
+  position: relative;
+  overflow: hidden;
+}
+
+.gate-container::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(30,144,255,0.1), transparent);
+  animation: gateRotate 10s linear infinite;
+}
+
+@keyframes gateRotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes gatePulse {
+  0%, 100% { box-shadow: 0 0 20px rgba(30, 144, 255, 0.3); border-color: #1e90ff; }
+  50% { box-shadow: 0 0 50px rgba(30, 144, 255, 0.7); border-color: #4db8ff; }
+}
+
+@keyframes gateFloat {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-8px) scale(1.01); }
+}
+
+.gate-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  position: relative;
+  z-index: 1;
+}
+
+.gate-title span {
+  color: var(--accent);
+}
+
+.gate-subtitle {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin: 0.5rem 0 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.gate-btn {
+  background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+  color: #fff;
+  border: none;
+  padding: 0.7rem 1.8rem;
+  border-radius: 2rem;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s;
+  position: relative;
+  z-index: 1;
+  animation: btnPulse 2s ease-in-out infinite;
+}
+
+@keyframes btnPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.03); box-shadow: 0 0 15px var(--accent); }
+}
+
+.gate-btn:hover {
+  background: linear-gradient(135deg, var(--accent-light), var(--accent));
+  transform: scale(1.05);
+}
+
+/* ========== STAGGERED ANIMATIONS ========== */
+.animate-item {
+  opacity: 0;
+  transform: translateY(15px);
+  animation: slideUp 0.4s ease forwards;
+}
+
+@keyframes slideUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-delay-1 { animation-delay: 0.05s; }
+.animate-delay-2 { animation-delay: 0.1s; }
+.animate-delay-3 { animation-delay: 0.15s; }
+.animate-delay-4 { animation-delay: 0.2s; }
+.animate-delay-5 { animation-delay: 0.25s; }
+
+/* ========== NAVBAR ========== */
+.navbar {
+  display: flex;
+  justify-content: center;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+  padding: 0.6rem 0;
+  margin-bottom: 1.2rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-item {
+  padding: 0.35rem 0.9rem;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.7rem;
+  transition: all 0.2s;
+  color: var(--text-muted);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.nav-item:hover { color: var(--accent); }
+.nav-item.active { color: var(--accent); border-bottom: 2px solid var(--accent); }
+
+/* ========== MAIN CONTAINER ========== */
+.unified-container {
+  max-width: 1400px;
+  width: 95%;
+  margin: 0.5rem auto;
+  padding: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.main-glass-card-3d {
+  background: rgba(15, 24, 37, 0.7);
+  backdrop-filter: blur(10px);
+  border-radius: 1rem;
+  border: 1px solid var(--border);
+  padding: 1.5rem;
+  width: 100%;
+  min-height: 680px;
+  display: flex;
+  flex-direction: column;
+}
+
+.content-3d {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ========== HOME CARD ========== */
+.premium-home-card {
+  background: var(--card-bg);
+  border-radius: 0.8rem;
+  padding: 1.5rem;
+  margin: 0;
+  border: 1px solid var(--border);
+  transition: all 0.3s;
+  width: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.premium-home-card:hover {
+  border-color: var(--accent);
+  box-shadow: var(--shadow-hover);
+}
+
+/* ========== SPLIT LAYOUT ========== */
+.hero-split-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.hero-left { 
+  flex: 1; 
+  min-width: 200px;
+  text-align: center;
+}
+
+.hero-right { 
+  flex: 0.8; 
+  display: flex; 
+  justify-content: center; 
+  min-width: 180px; 
+}
+
+.hero-name { 
+  font-size: 1.6rem; 
+  font-weight: 700; 
+  color: var(--text-dark); 
+  margin-bottom: 0.5rem; 
+}
+
+.hero-highlight { 
+  color: var(--accent); 
+}
+
+.hero-roles-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.75rem;
+}
+
+.hero-role-item { 
+  font-size: 0.8rem; 
+  color: var(--text-muted); 
+}
+
+.hero-role-sep { 
+  color: var(--accent); 
+}
+
+.hero-quote-split {
+  padding: 0.6rem 0.8rem;
+  background: rgba(30, 144, 255, 0.08);
+  border-left: 3px solid var(--accent);
+  border-right: 3px solid var(--accent);
+  font-size: 0.7rem;
+  color: var(--accent);
+  font-style: italic;
+  display: inline-block;
+  margin: 0 auto;
+}
+
+.card-divider {
+  height: 1px;
+  background: var(--border);
+  margin: 1rem 0;
+}
+
+.objective-inside { 
+  padding: 0.5rem 0; 
+  width: 100%; 
+  flex: 1; 
+}
+
+.objective-icon {
+  width: 40px;
+  height: 40px;
+  background: rgba(30, 144, 255, 0.1);
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.7rem;
+}
+
+.objective-icon i { 
+  font-size: 1.2rem; 
+  color: var(--accent); 
+}
+
+.objective-title { 
+  font-size: 1rem; 
+  font-weight: 600; 
+  color: var(--text-dark); 
+  margin-bottom: 0.5rem; 
+}
+
+.objective-text { 
+  color: var(--text-muted); 
+  line-height: 1.6; 
+  font-size: 0.85rem; 
+  text-align: justify; 
+}
+
+.objective-text strong { 
+  color: var(--accent); 
+}
+
+/* ========== SOLAR SYSTEM ========== */
+.solar-system {
+  position: relative;
+  width: 280px;
+  height: 280px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.sun {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background: radial-gradient(circle, #4db8ff, #1e90ff);
+  border-radius: 50%;
+  box-shadow: 0 0 30px rgba(30, 144, 255, 0.8);
+  z-index: 10;
+  animation: sunPulse 2s ease-in-out infinite;
+}
+
+@keyframes sunPulse {
+  0%, 100% { transform: scale(1); box-shadow: 0 0 30px rgba(30, 144, 255, 0.6); }
+  50% { transform: scale(1.05); box-shadow: 0 0 50px rgba(30, 144, 255, 1); }
+}
+
+.orbit {
+  position: absolute;
+  border: 1px solid rgba(30, 144, 255, 0.2);
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.orbit-1 { width: 70px; height: 70px; animation: rotateOrbit 8s linear infinite; }
+.orbit-2 { width: 100px; height: 100px; animation: rotateOrbit 12s linear infinite; }
+.orbit-3 { width: 130px; height: 130px; animation: rotateOrbit 16s linear infinite; }
+.orbit-4 { width: 160px; height: 160px; animation: rotateOrbit 20s linear infinite; }
+.orbit-5 { width: 190px; height: 190px; animation: rotateOrbit 24s linear infinite; }
+.orbit-6 { width: 220px; height: 220px; animation: rotateOrbit 28s linear infinite; }
+.orbit-7 { width: 250px; height: 250px; animation: rotateOrbit 32s linear infinite; }
+.orbit-8 { width: 280px; height: 280px; animation: rotateOrbit 36s linear infinite; }
+
+@keyframes rotateOrbit {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+.planet {
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: #1e90ff;
+  box-shadow: 0 0 5px rgba(30, 144, 255, 0.5);
+}
+
+.mercury { width: 6px; height: 6px; background: #4db8ff; }
+.venus { width: 8px; height: 8px; background: #3a7eb0; }
+.earth { width: 9px; height: 9px; background: #1e90ff; box-shadow: 0 0 8px #1e90ff; }
+.mars { width: 7px; height: 7px; background: #2a6a9e; }
+.jupiter { width: 16px; height: 16px; background: #3a8ad4; }
+.saturn { width: 14px; height: 14px; background: #2a7abc; position: relative; }
+.uranus { width: 10px; height: 10px; background: #4a9ae4; }
+.neptune { width: 10px; height: 10px; background: #1a6ab4; }
+
+.saturn-ring {
+  position: absolute;
+  top: -4px;
+  left: -10px;
+  width: 28px;
+  height: 8px;
+  border: 1px solid #4db8ff;
+  border-radius: 50%;
+  transform: rotate(-20deg);
+  opacity: 0.7;
+}
+
+.solar-text {
+  position: absolute;
+  bottom: -35px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  font-size: 0.5rem;
+  white-space: nowrap;
+  color: var(--accent);
+  font-family: monospace;
+}
+
+.solar-text span:last-child {
+  color: var(--accent);
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  50% { opacity: 0.5; }
+}
+
+/* ========== GRIDS ========== */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  width: 100%;
+  margin-top: 0.5rem;
+}
+
+.services-grid,
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  width: 100%;
+  margin-top: 0.5rem;
+}
+
+.three-column-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  width: 100%;
+  margin-top: 0.5rem;
+}
+
+.two-column-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  width: 100%;
+  margin-top: 0.5rem;
+}
+
+/* ========== FLIP CARDS ========== */
+.flip-card-3d {
+  background-color: transparent;
+  height: 160px;
+  perspective: 600px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.5s ease;
+  transform-style: preserve-3d;
+  border-radius: 0.5rem;
+}
+
+.flip-card-3d:hover .flip-card-inner { transform: rotateY(180deg); }
+
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+}
+
+.flip-card-front i { font-size: 2rem; color: var(--accent); margin-bottom: 0.5rem; }
+.flip-card-front h4 { font-size: 0.85rem; font-weight: 600; color: var(--text-dark); }
+
+.flip-card-back {
+  background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+  transform: rotateY(180deg);
+}
+
+.flip-card-back i { font-size: 1.5rem; color: white; margin-bottom: 0.3rem; }
+.flip-card-back p { color: white; font-size: 0.7rem; font-weight: 500; }
+
+.flip-card-3d-large {
+  background-color: transparent;
+  height: 220px;
+  perspective: 600px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.flip-card-inner-large {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.5s ease;
+  transform-style: preserve-3d;
+  border-radius: 0.5rem;
+}
+
+.flip-card-3d-large:hover .flip-card-inner-large { transform: rotateY(180deg); }
+
+.flip-card-front-large,
+.flip-card-back-large {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+}
+
+.flip-card-front-large i { font-size: 2.2rem; color: var(--accent); margin-bottom: 0.5rem; }
+.flip-card-front-large h4 { font-size: 0.9rem; font-weight: 600; color: var(--text-dark); text-align: center; }
+
+.flip-card-back-large {
+  background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+  transform: rotateY(180deg);
+}
+
+.flip-card-back-large i { font-size: 1.5rem; color: white; margin-bottom: 0.3rem; }
+.flip-card-back-large p { color: white; font-size: 0.7rem; font-weight: 500; }
+
+.flip-card-exp-large {
+  background-color: transparent;
+  height: 240px;
+  perspective: 600px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.flip-card-exp-inner-large {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.5s ease;
+  transform-style: preserve-3d;
+  border-radius: 0.5rem;
+}
+
+.flip-card-exp-large:hover .flip-card-exp-inner-large { transform: rotateY(180deg); }
+
+.flip-card-exp-front-large,
+.flip-card-exp-back-large {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+}
+
+.flip-card-exp-front-large .card-icon-3d {
+  width: 50px;
+  height: 50px;
+  background: rgba(30, 144, 255, 0.1);
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.5rem;
+}
+
+.flip-card-exp-front-large .card-icon-3d i { font-size: 1.3rem; color: var(--accent); }
+.flip-card-exp-front-large h4 { font-size: 0.9rem; font-weight: 600; color: var(--text-dark); margin-bottom: 0.2rem; text-align: center; }
+.flip-card-exp-front-large span { font-size: 0.65rem; color: var(--accent); }
+
+.flip-card-exp-back-large {
+  background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+  transform: rotateY(180deg);
+}
+
+.flip-card-exp-back-large i { font-size: 1.5rem; color: white; margin-bottom: 0.3rem; }
+.flip-card-exp-back-large p { color: white; font-size: 0.7rem; font-weight: 500; }
+
+.flip-card-exp-medium {
+  background-color: transparent;
+  height: 200px;
+  perspective: 600px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.flip-card-exp-inner-medium {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.5s ease;
+  transform-style: preserve-3d;
+  border-radius: 0.5rem;
+}
+
+.flip-card-exp-medium:hover .flip-card-exp-inner-medium { transform: rotateY(180deg); }
+
+.flip-card-exp-front-medium,
+.flip-card-exp-back-medium {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+}
+
+.flip-card-exp-front-medium .card-icon-3d {
+  width: 50px;
+  height: 50px;
+  background: rgba(30, 144, 255, 0.1);
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.5rem;
+}
+
+.flip-card-exp-front-medium .card-icon-3d i { font-size: 1.3rem; color: var(--accent); }
+.flip-card-exp-front-medium h4 { font-size: 0.9rem; font-weight: 600; color: var(--text-dark); margin-bottom: 0.2rem; text-align: center; }
+.flip-card-exp-front-medium span { font-size: 0.65rem; color: var(--accent); }
+.contact-value { font-size: 0.7rem; font-weight: 600; color: var(--accent); margin: 0.2rem 0; }
+
+.flip-card-exp-back-medium {
+  background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+  transform: rotateY(180deg);
+}
+
+.flip-card-exp-back-medium i { font-size: 1.5rem; color: white; margin-bottom: 0.3rem; }
+.flip-card-exp-back-medium p { color: white; font-size: 0.7rem; font-weight: 500; }
+
+/* ========== MODAL - PERFECT CENTER SA MOBILE AT DESKTOP ========== */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.95);
+  backdrop-filter: blur(5px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.2s ease;
+}
+
+.modal-overlay.active { 
+  opacity: 1; 
+  visibility: visible; 
+}
+
+.modal-content {
+  background: var(--card-bg);
+  border-radius: 0.75rem;
+  padding: 1.2rem;
+  max-width: 450px;
+  width: 90%;
+  border: 1px solid var(--accent);
+  max-height: 80vh;
+  overflow-y: auto;
+  position: relative;
+  margin: 0 auto;
+}
+
+.modal-content h3 { 
+  color: var(--accent); 
+  margin-bottom: 0.7rem; 
+  font-size: 1rem; 
+}
+
+.modal-content p { 
+  color: var(--text-muted); 
+  line-height: 1.5; 
+  font-size: 0.75rem; 
+  margin-bottom: 1rem; 
+  text-align: justify; 
+}
+
+.modal-close { 
+  background: linear-gradient(135deg, var(--accent), var(--accent-dark)); 
+  color: #000; 
+  border: none; 
+  padding: 0.4rem 1rem; 
+  border-radius: 2rem; 
+  cursor: pointer; 
+  font-weight: 600; 
+  font-size: 0.75rem;
+  display: block;
+  margin: 0 auto;
+}
+
+/* MOBILE - SIGURADONG GITNA */
+@media (max-width: 768px) {
+  .modal-overlay,
+  .modal-overlay.active {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: rgba(0, 0, 0, 0.95) !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  
+  .modal-content {
+    position: relative !important;
+    top: 0 !important;
+    left: 0 !important;
+    transform: none !important;
+    margin: 0 auto !important;
+    width: 92% !important;
+    max-width: 400px !important;
+    padding: 1rem !important;
+    max-height: 70vh !important;
+    overflow-y: auto !important;
+  }
+  
+  .modal-content h3 {
+    font-size: 0.9rem;
+    text-align: center;
+  }
+  
+  .modal-content p {
+    font-size: 0.7rem;
+    line-height: 1.5;
+  }
+  
+  .modal-close {
+    padding: 0.3rem 0.8rem;
+    font-size: 0.7rem;
+  }
+}
+
+/* ========== FOOTER ========== */
+.footer-3d {
+  text-align: center;
+  padding: 0.8rem;
+  border-top: 1px solid var(--border);
+  margin-top: 1rem;
+  color: var(--text-muted);
+  font-size: 0.65rem;
+}
+
+/* ========== MOBILE RESPONSIVE ========== */
+@media (max-width: 768px) {
+  .unified-container {
+    width: 100%;
+    padding: 0 0.5rem;
+  }
+  
+  .main-glass-card-3d {
+    padding: 0.8rem;
+    min-height: auto;
+  }
+  
+  .premium-home-card {
+    padding: 0.8rem;
+  }
+  
+  .hero-split-container {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .hero-left {
+    width: 100%;
+  }
+  
+  .hero-right {
+    width: 100%;
+  }
+  
+  .hero-name {
+    font-size: 1.2rem;
+  }
+  
+  .hero-role-item {
+    font-size: 0.7rem;
+  }
+  
+  .hero-quote-split {
+    font-size: 0.6rem;
+    padding: 0.4rem 0.6rem;
+  }
+  
+  .solar-system {
+    transform: scale(0.65);
+    margin: -20px auto;
+  }
+  
+  .skills-grid,
+  .services-grid,
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.8rem;
+  }
+  
+  .three-column-grid,
+  .two-column-grid {
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+  }
+  
+  .flip-card-3d {
+    height: 130px;
+  }
+  
+  .flip-card-3d-large {
+    height: 180px;
+  }
+  
+  .flip-card-exp-large {
+    height: 200px;
+  }
+  
+  .flip-card-exp-medium {
+    height: 170px;
+  }
+  
+  .flip-card-front h4,
+  .flip-card-front-large h4 {
+    font-size: 0.7rem;
+  }
+  
+  .flip-card-front i,
+  .flip-card-front-large i {
+    font-size: 1.5rem;
+  }
+  
+  .navbar {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.3rem;
+    padding: 0.5rem;
+    border-radius: 0.8rem;
+  }
+  
+  .nav-item {
+    font-size: 0.55rem;
+    padding: 0.3rem 0.2rem;
+    text-align: center;
+  }
+  
+  .objective-text {
+    font-size: 0.75rem;
+  }
+  
+  .objective-title {
+    font-size: 0.9rem;
+  }
+  
+  .footer-3d {
+    font-size: 0.55rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .skills-grid,
+  .services-grid,
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .hero-name {
+    font-size: 1rem;
+  }
+  
+  .hero-role-item {
+    font-size: 0.6rem;
+  }
+  
+  .hero-quote-split {
+    font-size: 0.55rem;
+  }
+  
+  .solar-system {
+    transform: scale(0.55);
+    margin: -30px auto;
+  }
+  
+  .nav-item {
+    font-size: 0.5rem;
+    padding: 0.25rem 0.1rem;
+  }
+  
+  .flip-card-3d {
+    height: 120px;
+  }
+  
+  .flip-card-3d-large {
+    height: 160px;
+  }
+  
+  .flip-card-exp-large {
+    height: 180px;
+  }
+  
+  .flip-card-exp-medium {
+    height: 150px;
+  }
+  
+  .gate-title {
+    font-size: 1.2rem;
+  }
+  
+  .gate-container {
+    padding: 1.2rem;
+  }
+  
+  .gate-btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+  }
+}
