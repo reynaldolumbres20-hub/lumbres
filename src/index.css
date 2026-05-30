@@ -79,7 +79,7 @@ body {
   50% { transform: translate(40px, -30px) scale(1.2); opacity: 0.08; }
 }
 
-/* ========== SMOOTH PAGE TRANSITION - OPTION 5 (SLIDE FROM BOTTOM) ========== */
+/* ========== SMOOTH PAGE TRANSITION - SLIDE FROM BOTTOM ========== */
 .page-transition {
   transition: all 0.3s ease;
 }
@@ -93,28 +93,15 @@ body {
 }
 
 @keyframes slideBottomIn {
-  0% {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes slideBottomOut {
-  0% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  100% {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
+  0% { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(-10px); }
 }
 
-/* Content stagger animation when page enters */
 .page-transition.enter .animate-item {
   animation: slideUpItem 0.35s ease forwards;
   opacity: 0;
@@ -437,7 +424,7 @@ body {
   color: var(--accent); 
 }
 
-/* ========== SOLAR SYSTEM - DARK SKY BLUE THEME ========== */
+/* ========== SOLAR SYSTEM ========== */
 .solar-system {
   position: relative;
   width: 280px;
@@ -574,7 +561,7 @@ body {
   margin-top: 0.5rem;
 }
 
-/* ========== SKILLS CARDS ========== */
+/* ========== FLIP CARDS ========== */
 .flip-card-3d {
   background-color: transparent;
   height: 160px;
@@ -622,7 +609,6 @@ body {
 .flip-card-back i { font-size: 1.5rem; color: white; margin-bottom: 0.3rem; }
 .flip-card-back p { color: white; font-size: 0.7rem; font-weight: 500; }
 
-/* ========== SERVICES & PROJECTS CARDS ========== */
 .flip-card-3d-large {
   background-color: transparent;
   height: 220px;
@@ -670,7 +656,6 @@ body {
 .flip-card-back-large i { font-size: 1.5rem; color: white; margin-bottom: 0.3rem; }
 .flip-card-back-large p { color: white; font-size: 0.7rem; font-weight: 500; }
 
-/* ========== EXPERIENCE CARDS ========== */
 .flip-card-exp-large {
   background-color: transparent;
   height: 240px;
@@ -730,7 +715,6 @@ body {
 .flip-card-exp-back-large i { font-size: 1.5rem; color: white; margin-bottom: 0.3rem; }
 .flip-card-exp-back-large p { color: white; font-size: 0.7rem; font-weight: 500; }
 
-/* ========== EDUCATION, CERTIFICATES, CONTACT CARDS ========== */
 .flip-card-exp-medium {
   background-color: transparent;
   height: 200px;
@@ -833,28 +817,187 @@ body {
   font-size: 0.65rem;
 }
 
-/* ========== RESPONSIVE ========== */
-@media (max-width: 900px) {
-  .skills-grid, .services-grid, .projects-grid, .three-column-grid {
-    grid-template-columns: repeat(2, 1fr);
+/* ========== MOBILE RESPONSIVE DESIGN ========== */
+@media (max-width: 768px) {
+  .unified-container {
+    width: 100%;
+    padding: 0 0.5rem;
   }
-  .hero-name { font-size: 1.3rem; }
-  .hero-split-container { flex-direction: column; text-align: center; }
-  .hero-left { text-align: center; }
-  .hero-roles-container { justify-content: center; }
-  .solar-system { transform: scale(0.8); }
+  
+  .main-glass-card-3d {
+    padding: 0.8rem;
+    min-height: auto;
+  }
+  
+  .premium-home-card {
+    padding: 0.8rem;
+  }
+  
+  .hero-split-container {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .hero-left {
+    width: 100%;
+  }
+  
+  .hero-right {
+    width: 100%;
+  }
+  
+  .hero-name {
+    font-size: 1.2rem;
+  }
+  
+  .hero-role-item {
+    font-size: 0.7rem;
+  }
+  
+  .hero-quote-split {
+    font-size: 0.6rem;
+    padding: 0.4rem 0.6rem;
+  }
+  
+  .solar-system {
+    transform: scale(0.65);
+    margin: -20px auto;
+  }
+  
+  .skills-grid,
+  .services-grid,
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.8rem;
+  }
+  
+  .three-column-grid,
+  .two-column-grid {
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+  }
+  
+  .flip-card-3d {
+    height: 130px;
+  }
+  
+  .flip-card-3d-large {
+    height: 180px;
+  }
+  
+  .flip-card-exp-large {
+    height: 200px;
+  }
+  
+  .flip-card-exp-medium {
+    height: 170px;
+  }
+  
+  .flip-card-front h4,
+  .flip-card-front-large h4 {
+    font-size: 0.7rem;
+  }
+  
+  .flip-card-front i,
+  .flip-card-front-large i {
+    font-size: 1.5rem;
+  }
+  
+  .navbar {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.3rem;
+    padding: 0.5rem;
+    border-radius: 0.8rem;
+  }
+  
+  .nav-item {
+    font-size: 0.55rem;
+    padding: 0.3rem 0.2rem;
+    text-align: center;
+  }
+  
+  .objective-text {
+    font-size: 0.75rem;
+  }
+  
+  .objective-title {
+    font-size: 0.9rem;
+  }
+  
+  .footer-3d {
+    font-size: 0.55rem;
+  }
+  
+  .modal-content {
+    padding: 1rem;
+    max-width: 90%;
+  }
+  
+  .modal-content h3 {
+    font-size: 0.9rem;
+  }
+  
+  .modal-content p {
+    font-size: 0.7rem;
+  }
 }
 
-@media (max-width: 600px) {
-  .skills-grid, .services-grid, .projects-grid, .three-column-grid, .two-column-grid {
+@media (max-width: 480px) {
+  .skills-grid,
+  .services-grid,
+  .projects-grid {
     grid-template-columns: 1fr;
   }
-  .nav-item { font-size: 0.6rem; padding: 0.2rem 0.5rem; }
-  .main-glass-card-3d { padding: 1rem; }
-  .hero-name { font-size: 1.1rem; }
-  .flip-card-3d { height: 140px; }
-  .flip-card-3d-large { height: 200px; }
-  .flip-card-exp-large { height: 220px; }
-  .flip-card-exp-medium { height: 180px; }
-  .solar-system { transform: scale(0.6); }
+  
+  .hero-name {
+    font-size: 1rem;
+  }
+  
+  .hero-role-item {
+    font-size: 0.6rem;
+  }
+  
+  .hero-quote-split {
+    font-size: 0.55rem;
+  }
+  
+  .solar-system {
+    transform: scale(0.55);
+    margin: -30px auto;
+  }
+  
+  .nav-item {
+    font-size: 0.5rem;
+    padding: 0.25rem 0.1rem;
+  }
+  
+  .flip-card-3d {
+    height: 120px;
+  }
+  
+  .flip-card-3d-large {
+    height: 160px;
+  }
+  
+  .flip-card-exp-large {
+    height: 180px;
+  }
+  
+  .flip-card-exp-medium {
+    height: 150px;
+  }
+  
+  .gate-title {
+    font-size: 1.2rem;
+  }
+  
+  .gate-container {
+    padding: 1.2rem;
+  }
+  
+  .gate-btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+  }
 }
