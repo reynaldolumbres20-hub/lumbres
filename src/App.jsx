@@ -56,13 +56,11 @@ function Home() {
             </div></div>
             <div className="orbit orbit-7"><div className="planet uranus"></div></div>
             <div className="orbit orbit-8"><div className="planet neptune"></div></div>
-           
           </div>
         </div>
       </div>
       <div className="card-divider"></div>
       <div className="objective-inside">
-      
         <h3 className="objective-title">Professional Objective</h3>
         <p className="objective-text">
           I am an IT graduate who can create different web-based management systems like Payroll and Attendance System, Gym Management System using Mac Heap-Based Priority Queue, Food Inventory System with real-time stock monitoring, Library Management System, and E-Commerce Online Shopping System. I use PHP, MySQL, and JavaScript to build these systems. I also create complete thesis and capstone documentation from Chapter 1 to 5 including all diagrams like UML, DFD, ERD, system architecture, flowchart, algorithm, and pseudocode, with unlimited revision. In graphic design, I can create logos, posters, brochures, business cards, social media graphics, tarpaulin, menus, invitation cards, certificate templates, ID cards, and product packaging. I also create mobile apps using React Native and complete websites from start to launch. After I finish a system, I can also maintain it, I fix bugs, update, add new features, and backup the database. These are the services I can offer to your company and to my future clients.
@@ -93,6 +91,23 @@ function Skills() {
     setShowModal(true)
   }
   
+  const modalStyle = {
+    position: 'fixed',
+    top: '30%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    backgroundColor: '#0f1825',
+    borderRadius: '12px',
+    padding: '20px',
+    width: '90%',
+    maxWidth: '400px',
+    maxHeight: '75vh',
+    overflowY: 'auto',
+    border: '1px solid #1e90ff',
+    zIndex: 10001,
+    boxShadow: '0 10px 25px rgba(0,0,0,0.5)'
+  }
+  
   return (
     <>
       <div className="skills-grid">
@@ -113,10 +128,20 @@ function Skills() {
       </div>
       {showModal && (
         <div className="modal-overlay active" onClick={() => setShowModal(false)}>
-          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-            <h3>{modalData.title}</h3>
-            <p className="text-justify">{modalData.desc}</p>
-            <button className="modal-close" onClick={() => setShowModal(false)}>Close</button>
+          <div style={modalStyle} onClick={(e) => e.stopPropagation()}>
+            <h3 style={{ color: '#1e90ff', marginBottom: '12px', fontSize: '16px' }}>{modalData.title}</h3>
+            <p style={{ color: '#c8d0e0', fontSize: '13px', lineHeight: '1.5', textAlign: 'justify', marginBottom: '16px' }}>{modalData.desc}</p>
+            <button onClick={() => setShowModal(false)} style={{
+              background: 'linear-gradient(135deg, #1e90ff, #0a5f8a)',
+              color: '#000',
+              border: 'none',
+              padding: '8px 16px',
+              borderRadius: '20px',
+              cursor: 'pointer',
+              fontWeight: '600',
+              display: 'block',
+              margin: '0 auto'
+            }}>Close</button>
           </div>
         </div>
       )}
@@ -142,6 +167,23 @@ function Services() {
     setShowModal(true)
   }
   
+  const modalStyle = {
+    position: 'fixed',
+    top: '30%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    backgroundColor: '#0f1825',
+    borderRadius: '12px',
+    padding: '20px',
+    width: '90%',
+    maxWidth: '400px',
+    maxHeight: '75vh',
+    overflowY: 'auto',
+    border: '1px solid #1e90ff',
+    zIndex: 10001,
+    boxShadow: '0 10px 25px rgba(0,0,0,0.5)'
+  }
+  
   return (
     <>
       <div className="services-grid">
@@ -162,10 +204,20 @@ function Services() {
       </div>
       {showModal && (
         <div className="modal-overlay active" onClick={() => setShowModal(false)}>
-          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-            <h3>{modalData.title}</h3>
-            <p className="text-justify">{modalData.desc}</p>
-            <button className="modal-close" onClick={() => setShowModal(false)}>Close</button>
+          <div style={modalStyle} onClick={(e) => e.stopPropagation()}>
+            <h3 style={{ color: '#1e90ff', marginBottom: '12px', fontSize: '16px' }}>{modalData.title}</h3>
+            <p style={{ color: '#c8d0e0', fontSize: '13px', lineHeight: '1.5', textAlign: 'justify', marginBottom: '16px' }}>{modalData.desc}</p>
+            <button onClick={() => setShowModal(false)} style={{
+              background: 'linear-gradient(135deg, #1e90ff, #0a5f8a)',
+              color: '#000',
+              border: 'none',
+              padding: '8px 16px',
+              borderRadius: '20px',
+              cursor: 'pointer',
+              fontWeight: '600',
+              display: 'block',
+              margin: '0 auto'
+            }}>Close</button>
           </div>
         </div>
       )}
@@ -191,6 +243,23 @@ function Projects() {
     setShowModal(true)
   }
   
+  const modalStyle = {
+    position: 'fixed',
+    top: '30%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    backgroundColor: '#0f1825',
+    borderRadius: '12px',
+    padding: '20px',
+    width: '90%',
+    maxWidth: '400px',
+    maxHeight: '75vh',
+    overflowY: 'auto',
+    border: '1px solid #1e90ff',
+    zIndex: 10001,
+    boxShadow: '0 10px 25px rgba(0,0,0,0.5)'
+  }
+  
   return (
     <>
       <div className="projects-grid">
@@ -211,10 +280,20 @@ function Projects() {
       </div>
       {showModal && (
         <div className="modal-overlay active" onClick={() => setShowModal(false)}>
-          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-            <h3>{modalData.title}</h3>
-            <p className="text-justify">{modalData.desc}</p>
-            <button className="modal-close" onClick={() => setShowModal(false)}>Close</button>
+          <div style={modalStyle} onClick={(e) => e.stopPropagation()}>
+            <h3 style={{ color: '#1e90ff', marginBottom: '12px', fontSize: '16px' }}>{modalData.title}</h3>
+            <p style={{ color: '#c8d0e0', fontSize: '13px', lineHeight: '1.5', textAlign: 'justify', marginBottom: '16px' }}>{modalData.desc}</p>
+            <button onClick={() => setShowModal(false)} style={{
+              background: 'linear-gradient(135deg, #1e90ff, #0a5f8a)',
+              color: '#000',
+              border: 'none',
+              padding: '8px 16px',
+              borderRadius: '20px',
+              cursor: 'pointer',
+              fontWeight: '600',
+              display: 'block',
+              margin: '0 auto'
+            }}>Close</button>
           </div>
         </div>
       )}
@@ -235,6 +314,23 @@ function Experience() {
   const openModal = (title, desc) => {
     setModalData({ title, desc })
     setShowModal(true)
+  }
+  
+  const modalStyle = {
+    position: 'fixed',
+    top: '30%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    backgroundColor: '#0f1825',
+    borderRadius: '12px',
+    padding: '20px',
+    width: '90%',
+    maxWidth: '400px',
+    maxHeight: '75vh',
+    overflowY: 'auto',
+    border: '1px solid #1e90ff',
+    zIndex: 10001,
+    boxShadow: '0 10px 25px rgba(0,0,0,0.5)'
   }
   
   return (
@@ -258,10 +354,20 @@ function Experience() {
       </div>
       {showModal && (
         <div className="modal-overlay active" onClick={() => setShowModal(false)}>
-          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-            <h3>{modalData.title}</h3>
-            <p className="text-justify">{modalData.desc}</p>
-            <button className="modal-close" onClick={() => setShowModal(false)}>Close</button>
+          <div style={modalStyle} onClick={(e) => e.stopPropagation()}>
+            <h3 style={{ color: '#1e90ff', marginBottom: '12px', fontSize: '16px' }}>{modalData.title}</h3>
+            <p style={{ color: '#c8d0e0', fontSize: '13px', lineHeight: '1.5', textAlign: 'justify', marginBottom: '16px' }}>{modalData.desc}</p>
+            <button onClick={() => setShowModal(false)} style={{
+              background: 'linear-gradient(135deg, #1e90ff, #0a5f8a)',
+              color: '#000',
+              border: 'none',
+              padding: '8px 16px',
+              borderRadius: '20px',
+              cursor: 'pointer',
+              fontWeight: '600',
+              display: 'block',
+              margin: '0 auto'
+            }}>Close</button>
           </div>
         </div>
       )}
@@ -285,6 +391,23 @@ function Education() {
     setShowModal(true)
   }
   
+  const modalStyle = {
+    position: 'fixed',
+    top: '30%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    backgroundColor: '#0f1825',
+    borderRadius: '12px',
+    padding: '20px',
+    width: '90%',
+    maxWidth: '400px',
+    maxHeight: '75vh',
+    overflowY: 'auto',
+    border: '1px solid #1e90ff',
+    zIndex: 10001,
+    boxShadow: '0 10px 25px rgba(0,0,0,0.5)'
+  }
+  
   return (
     <>
       <div className="two-column-grid">
@@ -306,10 +429,20 @@ function Education() {
       </div>
       {showModal && (
         <div className="modal-overlay active" onClick={() => setShowModal(false)}>
-          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-            <h3>{modalData.title}</h3>
-            <p className="text-justify">{modalData.desc}</p>
-            <button className="modal-close" onClick={() => setShowModal(false)}>Close</button>
+          <div style={modalStyle} onClick={(e) => e.stopPropagation()}>
+            <h3 style={{ color: '#1e90ff', marginBottom: '12px', fontSize: '16px' }}>{modalData.title}</h3>
+            <p style={{ color: '#c8d0e0', fontSize: '13px', lineHeight: '1.5', textAlign: 'justify', marginBottom: '16px' }}>{modalData.desc}</p>
+            <button onClick={() => setShowModal(false)} style={{
+              background: 'linear-gradient(135deg, #1e90ff, #0a5f8a)',
+              color: '#000',
+              border: 'none',
+              padding: '8px 16px',
+              borderRadius: '20px',
+              cursor: 'pointer',
+              fontWeight: '600',
+              display: 'block',
+              margin: '0 auto'
+            }}>Close</button>
           </div>
         </div>
       )}
@@ -333,6 +466,23 @@ function Certificates() {
     setShowModal(true)
   }
   
+  const modalStyle = {
+    position: 'fixed',
+    top: '30%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    backgroundColor: '#0f1825',
+    borderRadius: '12px',
+    padding: '20px',
+    width: '90%',
+    maxWidth: '400px',
+    maxHeight: '75vh',
+    overflowY: 'auto',
+    border: '1px solid #1e90ff',
+    zIndex: 10001,
+    boxShadow: '0 10px 25px rgba(0,0,0,0.5)'
+  }
+  
   return (
     <>
       <div className="two-column-grid">
@@ -354,10 +504,20 @@ function Certificates() {
       </div>
       {showModal && (
         <div className="modal-overlay active" onClick={() => setShowModal(false)}>
-          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-            <h3>{modalData.title}</h3>
-            <p className="text-justify">{modalData.desc}</p>
-            <button className="modal-close" onClick={() => setShowModal(false)}>Close</button>
+          <div style={modalStyle} onClick={(e) => e.stopPropagation()}>
+            <h3 style={{ color: '#1e90ff', marginBottom: '12px', fontSize: '16px' }}>{modalData.title}</h3>
+            <p style={{ color: '#c8d0e0', fontSize: '13px', lineHeight: '1.5', textAlign: 'justify', marginBottom: '16px' }}>{modalData.desc}</p>
+            <button onClick={() => setShowModal(false)} style={{
+              background: 'linear-gradient(135deg, #1e90ff, #0a5f8a)',
+              color: '#000',
+              border: 'none',
+              padding: '8px 16px',
+              borderRadius: '20px',
+              cursor: 'pointer',
+              fontWeight: '600',
+              display: 'block',
+              margin: '0 auto'
+            }}>Close</button>
           </div>
         </div>
       )}
@@ -381,6 +541,23 @@ function Contact() {
     setShowModal(true)
   }
   
+  const modalStyle = {
+    position: 'fixed',
+    top: '30%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    backgroundColor: '#0f1825',
+    borderRadius: '12px',
+    padding: '20px',
+    width: '90%',
+    maxWidth: '400px',
+    maxHeight: '75vh',
+    overflowY: 'auto',
+    border: '1px solid #1e90ff',
+    zIndex: 10001,
+    boxShadow: '0 10px 25px rgba(0,0,0,0.5)'
+  }
+  
   return (
     <>
       <div className="two-column-grid">
@@ -402,10 +579,20 @@ function Contact() {
       </div>
       {showModal && (
         <div className="modal-overlay active" onClick={() => setShowModal(false)}>
-          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-            <h3>{modalData.title}</h3>
-            <p className="text-justify">{modalData.desc}</p>
-            <button className="modal-close" onClick={() => setShowModal(false)}>Close</button>
+          <div style={modalStyle} onClick={(e) => e.stopPropagation()}>
+            <h3 style={{ color: '#1e90ff', marginBottom: '12px', fontSize: '16px' }}>{modalData.title}</h3>
+            <p style={{ color: '#c8d0e0', fontSize: '13px', lineHeight: '1.5', textAlign: 'justify', marginBottom: '16px' }}>{modalData.desc}</p>
+            <button onClick={() => setShowModal(false)} style={{
+              background: 'linear-gradient(135deg, #1e90ff, #0a5f8a)',
+              color: '#000',
+              border: 'none',
+              padding: '8px 16px',
+              borderRadius: '20px',
+              cursor: 'pointer',
+              fontWeight: '600',
+              display: 'block',
+              margin: '0 auto'
+            }}>Close</button>
           </div>
         </div>
       )}
@@ -464,7 +651,7 @@ function App() {
           <div className={`page-transition ${transitionDirection}`}>
             <div className="content-3d">
               {pages[currentPage]}
-              <div className="footer-3d">© 2025 Reynaldo B. Lumbres — DARK SKY ELITE</div>
+              <div className="footer-3d">© 2025 Reynaldo B. Lumbres — Sa tahanan ng malalakas ako ang pinakamalakas</div>
             </div>
           </div>
         </div>
