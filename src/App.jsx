@@ -192,6 +192,12 @@ function Projects() {
   
   const projects = [
     { 
+      title: 'The Den Barbershop - Premium Booking System', 
+      desc: 'A complete barbershop appointment management system with step-by-step wizard booking, barber selection, service catalog, appointment tracking, customer management, and real-time revenue reporting. Features include gold premium theme, animated UI, glassmorphism effects, and responsive design. Built with React.js for modern barbershop operations.',
+      link: 'https://denbarbershop.vercel.app/',
+      icon: 'fas fa-cut'
+    },
+    { 
       title: 'Coffee Shop Management System', 
       desc: 'A fully functional Point of Sale (POS) system for coffee shops. Features include order taking, cart management, payment processing with change calculator, inventory tracking, sales reports, and printable receipts. Built with React.js and modern CSS.',
       link: 'https://coffeshop-h9yx.vercel.app/',
