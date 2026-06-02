@@ -27,6 +27,13 @@ function Navbar({ page, setPage }) {
 }
 
 function Home() {
+  const facebookUrl = "https://web.facebook.com/joy.ormita.96"
+  
+  // Mga sample photos - palitan mo ito ng actual image links mo
+  const myPhotos = [
+  
+  ]
+  
   return (
     <div className="page-wrapper">
       <div className="premium-home-card animate-item animate-delay-1">
@@ -45,28 +52,38 @@ function Home() {
             </div>
           </div>
           <div className="hero-right">
-            <div className="solar-system">
-              <div className="sun"></div>
-              <div className="orbit orbit-1"><div className="planet mercury"></div></div>
-              <div className="orbit orbit-2"><div className="planet venus"></div></div>
-              <div className="orbit orbit-3"><div className="planet earth"></div></div>
-              <div className="orbit orbit-4"><div className="planet mars"></div></div>
-              <div className="orbit orbit-5"><div className="planet jupiter"></div></div>
-              <div className="orbit orbit-6"><div className="planet saturn">
-                <div className="saturn-ring"></div>
-              </div></div>
-              <div className="orbit orbit-7"><div className="planet uranus"></div></div>
-              <div className="orbit orbit-8"><div className="planet neptune"></div></div>
+            {/* Facebook Profile Card - Pinalitan ang solar system */}
+            <div className="facebook-card-home" onClick={() => window.open(facebookUrl, '_blank')}>
+              <div className="facebook-card-inner-home">
+                <div className="facebook-avatar-home">
+                  <img 
+                    src="https://graph.facebook.com/100063771798194/picture?type=large&width=150&height=150" 
+                    alt="Reynaldo Lumbres" 
+                  />
+                  <div className="facebook-overlay-home">
+                    <i className="fab fa-facebook-f"></i>
+                  </div>
+                </div>
+                <h3>Reynaldo Lumbres</h3>
+                <p>Web Developer | Graphic Designer</p>
+                <div className="facebook-stats">
+                  <span><i className="fas fa-users"></i> Friends</span>
+                  <span><i className="fas fa-thumbs-up"></i> Likes</span>
+                </div>
+                <button className="visit-fb-home-btn">
+                  <i className="fab fa-facebook-f"></i> Visit My Facebook
+                </button>
+              </div>
             </div>
           </div>
         </div>
+        
         <div className="card-divider"></div>
         <div className="objective-inside">
           <h3 className="objective-title">Professional Objective</h3>
-         <p className="objective-text">
-    <strong>Web & Software Developer</strong> specializing in web-based systems (PHP, MySQL, JS) for Payroll, Gym, Inventory, Library, and E-Commerce, and standalone desktop software (C#, VB.NET, MySQL) for Registration with Gmail Integration, POS, and Inventory. Proficient in complete thesis documentation (Chapter 1-5 with all diagrams)  unlimited revision. Skilled in graphic design, mobile apps (React Native), and websites. A music enthusiast who never gives up until success is achieved. Provides post-project maintenance, bug fixes, updates, and database backup.
-  </p>
-
+          <p className="objective-text">
+            <strong>Web & Software Developer</strong> specializing in web-based systems (PHP, MySQL, JS) for Payroll, Gym, Inventory, Library, and E-Commerce, and standalone desktop software (C#, VB.NET, MySQL) for Registration with Gmail Integration, POS, and Inventory. Proficient in complete thesis documentation (Chapter 1-5 with all diagrams) unlimited revision. Skilled in graphic design, mobile apps (React Native), and websites. A music enthusiast who never gives up until success is achieved. Provides post-project maintenance, bug fixes, updates, and database backup.
+          </p>
         </div>
       </div>
     </div>
