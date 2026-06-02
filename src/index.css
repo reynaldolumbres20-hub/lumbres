@@ -276,8 +276,6 @@ body {
 }
 
 /* ========== FIXED HEIGHT PARA PANTAY LAHAT NG PAGE ========== */
-
-/* Para sa lahat ng page wrapper - pantay na height */
 .page-wrapper {
   min-height: 520px;
   height: auto;
@@ -285,7 +283,6 @@ body {
   flex-direction: column;
 }
 
-/* Para sa mga grid containers */
 .skills-grid,
 .services-grid,
 .projects-grid,
@@ -296,7 +293,6 @@ body {
   flex: 1;
 }
 
-/* Para sa Home page card */
 .premium-home-card {
   min-height: 520px;
   height: auto;
@@ -304,7 +300,6 @@ body {
   flex-direction: column;
 }
 
-/* Para sa objective section sa loob ng home */
 .objective-inside {
   flex: 1;
   display: flex;
@@ -443,85 +438,209 @@ body {
   color: var(--accent); 
 }
 
-/* ========== SOLAR SYSTEM ========== */
-.solar-system {
-  position: relative;
-  width: 280px;
-  height: 280px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+/* ========== FACEBOOK CARD HOME - PINALITAN ANG SOLAR SYSTEM ========== */
+.facebook-card-home {
+  background: linear-gradient(135deg, #0a1628, #0d1a2f);
+  border-radius: 1rem;
+  padding: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(30, 144, 255, 0.3);
+  text-align: center;
+  width: 100%;
+  max-width: 280px;
   margin: 0 auto;
 }
 
-.sun {
-  position: absolute;
-  width: 40px;
-  height: 40px;
-  background: radial-gradient(circle, #4db8ff, #1e90ff);
+.facebook-card-home:hover {
+  transform: translateY(-10px) scale(1.02);
+  border-color: #1877f2;
+  box-shadow: 0 10px 30px rgba(24, 119, 242, 0.3);
+}
+
+.facebook-card-inner-home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.facebook-avatar-home {
+  position: relative;
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
-  box-shadow: 0 0 30px rgba(30, 144, 255, 0.8);
-  z-index: 10;
-  animation: sunPulse 2s ease-in-out infinite;
+  overflow: hidden;
+  border: 3px solid #1877f2;
+  margin-bottom: 0.5rem;
 }
 
-@keyframes sunPulse {
-  0%, 100% { transform: scale(1); box-shadow: 0 0 30px rgba(30, 144, 255, 0.6); }
-  50% { transform: scale(1.05); box-shadow: 0 0 50px rgba(30, 144, 255, 1); }
+.facebook-avatar-home img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-.orbit {
+.facebook-overlay-home {
   position: absolute;
-  border: 1px solid rgba(30, 144, 255, 0.2);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.facebook-overlay-home i {
+  font-size: 2rem;
+  color: #1877f2;
+  background: white;
+  padding: 0.5rem;
   border-radius: 50%;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
 }
 
-.orbit-1 { width: 70px; height: 70px; animation: rotateOrbit 8s linear infinite; }
-.orbit-2 { width: 100px; height: 100px; animation: rotateOrbit 12s linear infinite; }
-.orbit-3 { width: 130px; height: 130px; animation: rotateOrbit 16s linear infinite; }
-.orbit-4 { width: 160px; height: 160px; animation: rotateOrbit 20s linear infinite; }
-.orbit-5 { width: 190px; height: 190px; animation: rotateOrbit 24s linear infinite; }
-.orbit-6 { width: 220px; height: 220px; animation: rotateOrbit 28s linear infinite; }
-.orbit-7 { width: 250px; height: 250px; animation: rotateOrbit 32s linear infinite; }
-.orbit-8 { width: 280px; height: 280px; animation: rotateOrbit 36s linear infinite; }
-
-@keyframes rotateOrbit {
-  from { transform: translate(-50%, -50%) rotate(0deg); }
-  to { transform: translate(-50%, -50%) rotate(360deg); }
+.facebook-avatar-home:hover .facebook-overlay-home {
+  opacity: 1;
 }
 
-.planet {
+.facebook-card-inner-home h3 {
+  font-size: 1.1rem;
+  color: var(--text-dark);
+  margin: 0;
+}
+
+.facebook-card-inner-home p {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.facebook-stats {
+  display: flex;
+  gap: 1rem;
+  margin: 0.3rem 0;
+}
+
+.facebook-stats span {
+  font-size: 0.65rem;
+  color: var(--text-muted);
+}
+
+.facebook-stats i {
+  margin-right: 0.3rem;
+  color: #1877f2;
+}
+
+.visit-fb-home-btn {
+  background: #1877f2;
+  color: white;
+  border: none;
+  padding: 0.4rem 1rem;
+  border-radius: 2rem;
+  cursor: pointer;
+  font-size: 0.7rem;
+  font-weight: 600;
+  transition: all 0.3s;
+  width: 100%;
+}
+
+.visit-fb-home-btn:hover {
+  background: #0d66d0;
+  transform: scale(1.02);
+}
+
+/* ========== PHOTO GALLERY HOME ========== */
+.photo-gallery-home {
+  margin: 1rem 0;
+}
+
+.gallery-title-home {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-bottom: 0.8rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.gallery-title-home i {
+  color: var(--accent);
+  margin-right: 0.5rem;
+}
+
+.gallery-subtitle {
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  font-weight: normal;
+  margin-top: 0.2rem;
+}
+
+.photo-grid-home {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.8rem;
+}
+
+.photo-item-home {
+  position: relative;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  cursor: pointer;
+  aspect-ratio: 1 / 1;
+  background: #0a1220;
+}
+
+.photo-item-home img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.photo-item-home:hover img {
+  transform: scale(1.05);
+}
+
+.photo-overlay-home {
   position: absolute;
-  top: -8px;
-  left: 50%;
-  transform: translateX(-50%);
-  border-radius: 50%;
-  background: #1e90ff;
-  box-shadow: 0 0 5px rgba(30, 144, 255, 0.5);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
-.mercury { width: 6px; height: 6px; background: #4db8ff; }
-.venus { width: 8px; height: 8px; background: #3a7eb0; }
-.earth { width: 9px; height: 9px; background: #1e90ff; box-shadow: 0 0 8px #1e90ff; }
-.mars { width: 7px; height: 7px; background: #2a6a9e; }
-.jupiter { width: 16px; height: 16px; background: #3a8ad4; }
-.saturn { width: 14px; height: 14px; background: #2a7abc; position: relative; }
-.uranus { width: 10px; height: 10px; background: #4a9ae4; }
-.neptune { width: 10px; height: 10px; background: #1a6ab4; }
+.photo-item-home:hover .photo-overlay-home {
+  opacity: 1;
+}
 
-.saturn-ring {
-  position: absolute;
-  top: -4px;
-  left: -10px;
-  width: 28px;
-  height: 8px;
-  border: 1px solid #4db8ff;
+.photo-overlay-home i {
+  font-size: 2rem;
+  color: #1877f2;
+  background: white;
+  padding: 0.5rem;
   border-radius: 50%;
-  transform: rotate(-20deg);
-  opacity: 0.7;
+}
+
+.photo-overlay-home span {
+  font-size: 0.7rem;
+  color: white;
+  font-weight: 500;
+  text-align: center;
+  padding: 0 0.3rem;
 }
 
 /* ========== GRIDS ========== */
@@ -824,9 +943,7 @@ body {
 .flip-card-exp-back-medium i { font-size: 1.5rem; color: white; margin-bottom: 0.3rem; }
 .flip-card-exp-back-medium p { color: white; font-size: 0.7rem; font-weight: 500; }
 
-/* ========== PREMIUM MODAL - WALANG SCROLLBAR ========== */
-
-/* Modal Overlay - full screen, walang scroll */
+/* ========== PREMIUM MODAL ========== */
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -850,7 +967,6 @@ body {
   visibility: visible; 
 }
 
-/* Modal Content - walang scrollbar, auto adjust */
 .modal-content {
   position: relative;
   background: linear-gradient(135deg, #0f1825 0%, #0a1220 100%);
@@ -866,7 +982,6 @@ body {
   max-height: 85vh;
 }
 
-/* Hide scrollbar but keep functionality */
 .modal-content::-webkit-scrollbar {
   width: 4px;
 }
@@ -884,7 +999,6 @@ body {
   background: rgba(30, 144, 255, 0.6);
 }
 
-/* Animated Border */
 .modal-content::before {
   content: '';
   position: absolute;
@@ -911,7 +1025,6 @@ body {
   100% { background-position: 0% 50%; }
 }
 
-/* Modal Header */
 .modal-content h3 {
   font-size: 1.3rem;
   font-weight: 700;
@@ -944,7 +1057,6 @@ body {
   50% { width: 100px; opacity: 1; }
 }
 
-/* Modal Text - no overflow */
 .modal-content p {
   font-size: 0.9rem;
   line-height: 1.7;
@@ -959,7 +1071,6 @@ body {
   overflow-wrap: break-word;
 }
 
-/* Close Button */
 .modal-close {
   background: linear-gradient(135deg, #1e90ff, #0a5f8a);
   color: white;
@@ -1001,7 +1112,6 @@ body {
   background: linear-gradient(135deg, #4db8ff, #1e90ff);
 }
 
-/* Modal Entrance Animation */
 .modal-overlay.active .modal-content {
   animation: modalEnter 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
@@ -1018,8 +1128,6 @@ body {
 }
 
 /* ========== PREMIUM ADDED EFFECTS ========== */
-
-/* Glowing text effect */
 .hero-name, .gate-title, .objective-title {
   text-shadow: 0 0 5px rgba(30, 144, 255, 0.3);
   transition: all 0.3s ease;
@@ -1029,7 +1137,6 @@ body {
   text-shadow: 0 0 15px #1e90ff, 0 0 25px #4db8ff;
 }
 
-/* Gradient text animation */
 .hero-highlight, .gate-title span {
   background: linear-gradient(90deg, #1e90ff, #4db8ff, #1e90ff);
   background-size: 200% auto;
@@ -1044,7 +1151,6 @@ body {
   100% { background-position: 200% center; }
 }
 
-/* Page transition fade */
 .page-wrapper {
   animation: pageFade 0.4s ease-out;
 }
@@ -1060,7 +1166,6 @@ body {
   }
 }
 
-/* Active nav pulse */
 .nav-item.active {
   position: relative;
   animation: navGlow 2s infinite;
@@ -1071,7 +1176,6 @@ body {
   50% { text-shadow: 0 0 5px #1e90ff; }
 }
 
-/* Quote hover effect */
 .hero-quote-split {
   transition: all 0.3s ease;
 }
@@ -1081,17 +1185,6 @@ body {
   transform: scale(1.02);
 }
 
-/* Sun enhanced pulse on hover */
-.solar-system:hover .sun {
-  animation: sunSuperPulse 1s ease-in-out infinite;
-}
-
-@keyframes sunSuperPulse {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.15); box-shadow: 0 0 60px #1e90ff; }
-}
-
-/* Button ripple effect */
 .gate-btn {
   position: relative;
   overflow: hidden;
@@ -1126,6 +1219,148 @@ body {
   flex-shrink: 0;
 }
 
+/* ========== FULL SCREEN MODAL PARA SA MOBILE - LAHAT NG PAGE ========== */
+@media (max-width: 768px) {
+  .modal-overlay,
+  .modal-overlay.active {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: #0a1220 !important;
+    backdrop-filter: blur(0px) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    z-index: 99999 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .modal-content {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 100% !important;
+    max-height: 100% !important;
+    border-radius: 0 !important;
+    margin: 0 !important;
+    padding: 1.5rem !important;
+    background: linear-gradient(135deg, #0a1220 0%, #050d18 100%) !important;
+    border: none !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    overflow-y: auto !important;
+    box-shadow: none !important;
+  }
+
+  .modal-content::before {
+    display: none !important;
+  }
+
+  .modal-content h3 {
+    font-size: 1.5rem !important;
+    margin-top: 2rem !important;
+    margin-bottom: 1.5rem !important;
+    color: #1e90ff !important;
+    background: none !important;
+    -webkit-background-clip: unset !important;
+    background-clip: unset !important;
+    color: #1e90ff !important;
+  }
+
+  .modal-content h3::after {
+    width: 80px !important;
+    height: 4px !important;
+    background: #1e90ff !important;
+  }
+
+  .modal-content p {
+    font-size: 0.95rem !important;
+    line-height: 1.7 !important;
+    padding: 1rem !important;
+    margin: 1rem 0 !important;
+    background: rgba(10, 22, 40, 0.8) !important;
+    border-left: 3px solid #1e90ff !important;
+    color: #c8d0e0 !important;
+  }
+
+  .modal-close {
+    position: fixed !important;
+    bottom: 30px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: calc(100% - 40px) !important;
+    max-width: 300px !important;
+    padding: 14px 20px !important;
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    border-radius: 50px !important;
+    background: linear-gradient(135deg, #1e90ff, #0a5f8a) !important;
+    color: white !important;
+    border: none !important;
+    cursor: pointer !important;
+    z-index: 100000 !important;
+    box-shadow: 0 5px 20px rgba(30, 144, 255, 0.4) !important;
+    margin: 0 !important;
+  }
+
+  .modal-close:active {
+    transform: translateX(-50%) scale(0.97) !important;
+  }
+
+  .modal-overlay.active .modal-content {
+    animation: mobileModalSlideUp 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+  }
+
+  @keyframes mobileModalSlideUp {
+    0% {
+      opacity: 0;
+      transform: translateY(100%);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .modal-content::after {
+    content: '↓ Swipe down to close ↓' !important;
+    position: fixed !important;
+    top: 10px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    font-size: 11px !important;
+    color: rgba(30, 144, 255, 0.6) !important;
+    text-align: center !important;
+    width: 100% !important;
+    z-index: 10 !important;
+    pointer-events: none !important;
+    background: none !important;
+  }
+
+  .modal-content::-webkit-scrollbar {
+    width: 4px !important;
+  }
+
+  .modal-content::-webkit-scrollbar-track {
+    background: #050d18 !important;
+  }
+
+  .modal-content::-webkit-scrollbar-thumb {
+    background: #1e90ff !important;
+    border-radius: 10px !important;
+  }
+}
+
 /* ========== MOBILE RESPONSIVE ========== */
 @media (max-width: 768px) {
   .unified-container {
@@ -1156,9 +1391,18 @@ body {
   .hero-role-item { font-size: 0.7rem; }
   .hero-quote-split { font-size: 0.6rem; padding: 0.4rem 0.6rem; }
   
-  .solar-system {
-    transform: scale(0.65);
-    margin: -20px auto;
+  /* Photo grid mobile */
+  .photo-grid-home {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.6rem;
+  }
+  
+  .gallery-title-home {
+    font-size: 0.9rem;
+  }
+  
+  .facebook-card-home {
+    max-width: 240px;
   }
   
   .skills-grid,
@@ -1202,29 +1446,6 @@ body {
   .objective-text { font-size: 0.75rem; }
   .objective-title { font-size: 0.9rem; }
   .footer-3d { font-size: 0.55rem; }
-
-  /* Modal Mobile */
-  .modal-content {
-    width: 92%;
-    padding: 1.2rem;
-    max-height: 80vh;
-  }
-  
-  .modal-content h3 {
-    font-size: 1.1rem;
-  }
-  
-  .modal-content p {
-    font-size: 0.75rem;
-    padding: 0.6rem;
-  }
-  
-  .modal-close {
-    padding: 0.5rem 1.2rem;
-    font-size: 0.75rem;
-  }
-  
-  /* Page wrapper mobile */
   .page-wrapper {
     min-height: auto;
   }
@@ -1237,14 +1458,13 @@ body {
     grid-template-columns: 1fr;
   }
   
+  .photo-grid-home {
+    grid-template-columns: 1fr;
+  }
+  
   .hero-name { font-size: 1rem; }
   .hero-role-item { font-size: 0.6rem; }
   .hero-quote-split { font-size: 0.55rem; }
-  
-  .solar-system {
-    transform: scale(0.55);
-    margin: -30px auto;
-  }
   
   .nav-item { font-size: 0.5rem; padding: 0.25rem 0.1rem; }
   .flip-card-3d { height: 120px; }
@@ -1255,17 +1475,43 @@ body {
   .gate-title { font-size: 1.2rem; }
   .gate-container { padding: 1.2rem; }
   .gate-btn { padding: 0.5rem 1rem; font-size: 0.8rem; }
+  
+  .facebook-card-home {
+    max-width: 200px;
+  }
+  
+  .facebook-avatar-home {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .facebook-card-inner-home h3 {
+    font-size: 0.9rem;
+  }
+}
 
-  .modal-content {
-    width: 95%;
-    padding: 1rem;
-  }
-  
+/* Para sa sobrang liit na screen */
+@media (max-width: 480px) {
   .modal-content h3 {
-    font-size: 1rem;
+    font-size: 1.3rem !important;
+    margin-top: 1.5rem !important;
   }
-  
+
   .modal-content p {
-    font-size: 0.7rem;
+    font-size: 0.85rem !important;
+    padding: 0.8rem !important;
+  }
+
+  .modal-close {
+    bottom: 20px !important;
+    padding: 12px 16px !important;
+    font-size: 14px !important;
+    width: calc(100% - 30px) !important;
+    max-width: 280px !important;
+  }
+
+  .modal-content::after {
+    font-size: 10px !important;
+    top: 8px !important;
   }
 }
