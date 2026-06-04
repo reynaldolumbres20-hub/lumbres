@@ -1445,7 +1445,7 @@ body {
   flex-shrink: 0;
 }
 
-/* ========== MOBILE RESPONSIVE ========== */
+/* ========== MOBILE RESPONSIVE - GUMAGANA ANG FLIP ========== */
 @media (max-width: 768px) {
   .unified-container {
     width: 100%;
@@ -1512,10 +1512,70 @@ body {
     gap: 0.8rem;
   }
   
-  .flip-card-3d { height: 120px; }
-  .flip-card-3d-large { height: 150px; }
-  .flip-card-exp-large { height: 170px; }
-  .flip-card-exp-medium { height: 140px; }
+  .flip-card-3d { 
+    height: auto; 
+    min-height: 130px;
+    perspective: 600px;
+  }
+  
+  .flip-card-3d-large { 
+    height: auto; 
+    min-height: 160px;
+    perspective: 600px;
+  }
+  
+  .flip-card-exp-large { 
+    height: auto; 
+    min-height: 180px;
+    perspective: 600px;
+  }
+  
+  .flip-card-exp-medium { 
+    height: auto; 
+    min-height: 150px;
+    perspective: 600px;
+  }
+  
+  .flip-card-inner,
+  .flip-card-inner-large,
+  .flip-card-exp-inner-large,
+  .flip-card-exp-inner-medium {
+    transform-style: preserve-3d;
+    transition: transform 0.5s ease;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: inherit;
+  }
+  
+  /* I-enable ang hover flip sa mobile */
+  .flip-card-3d:hover .flip-card-inner,
+  .flip-card-3d-large:hover .flip-card-inner-large,
+  .flip-card-exp-large:hover .flip-card-exp-inner-large,
+  .flip-card-exp-medium:hover .flip-card-exp-inner-medium {
+    transform: rotateY(180deg);
+  }
+  
+  .flip-card-front,
+  .flip-card-front-large,
+  .flip-card-exp-front-large,
+  .flip-card-exp-front-medium {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+  }
+  
+  .flip-card-back,
+  .flip-card-back-large,
+  .flip-card-exp-back-large,
+  .flip-card-exp-back-medium {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    transform: rotateY(180deg);
+  }
   
   .flip-card-front h4,
   .flip-card-front-large h4 { font-size: 0.7rem; }
@@ -1580,10 +1640,11 @@ body {
   }
   
   .nav-item { font-size: 0.5rem; padding: 0.25rem 0.1rem; }
-  .flip-card-3d { height: 110px; }
-  .flip-card-3d-large { height: 130px; }
-  .flip-card-exp-large { height: 150px; }
-  .flip-card-exp-medium { height: 130px; }
+  
+  .flip-card-3d { min-height: 120px; }
+  .flip-card-3d-large { min-height: 140px; }
+  .flip-card-exp-large { min-height: 160px; }
+  .flip-card-exp-medium { min-height: 140px; }
   
   .flip-card-front i,
   .flip-card-front-large i { font-size: 1.1rem; }
@@ -1604,7 +1665,7 @@ body {
   .modal-content p { font-size: 0.85rem; }
 }
 
-/* ========== MOBILE MODAL FIX - PARA MAGANDA SA MOBILE ========== */
+/* ========== MOBILE MODAL FIX ========== */
 @media (max-width: 768px) {
   .modal-content-project {
     width: 95%;
@@ -1628,11 +1689,6 @@ body {
   .modal-header-project h3 {
     font-size: 0.8rem;
     word-break: break-word;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
   }
   
   .modal-close-project {
