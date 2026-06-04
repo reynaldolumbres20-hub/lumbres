@@ -643,7 +643,7 @@ body {
   width: 100%;
   margin-top: 0.5rem;
   align-content: flex-start;
-  min-height: 450px;
+  min-height: 480px;
   max-height: 450px;
   overflow-y: auto;
   padding-right: 6px;
