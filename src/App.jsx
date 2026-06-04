@@ -29,8 +29,6 @@ function Navbar({ page, setPage }) {
 function Home() {
   const facebookUrl = "https://web.facebook.com/joy.ormita.96"
   
-  const myPhotos = []
-  
   return (
     <div className="page-wrapper">
       <div className="premium-home-card animate-item animate-delay-1">
@@ -205,7 +203,7 @@ function Projects() {
     },
     { 
       title: 'Shane - AI Language Translator', 
-      desc: 'A powerful language translator application that supports 12+ languages including English, Tagalog, Spanish, Japanese, Korean, Chinese, and more. Uses MyMemory API for accurate translations with real-time processing.',
+      desc: 'A powerful language translator application that supports 12+ languages including English, Tagalog, Spanish. Uses MyMemory API for accurate translations with real-time processing.',
       link: 'https://shane-sigma.vercel.app/',
       icon: 'fas fa-language'
     },
@@ -267,7 +265,8 @@ function Projects() {
           <div key={i} className="flip-card-3d-large animate-item" style={{ animationDelay: `${0.1 + i * 0.08}s` }} onClick={() => openModal(p.title, p.desc, p.link, p.icon)}>
             <div className="flip-card-inner-large">
               <div className="flip-card-front-large">
-                <i className={p.icon} style={{ fontSize: '2.5rem', color: '#1e90ff', marginBottom: '0.8rem' }}></i>
+                {}
+                <i className={p.icon}></i>
                 <h4>{p.title}</h4>
               </div>
               <div className="flip-card-back-large">
@@ -283,7 +282,8 @@ function Projects() {
         <div className="modal-overlay active" onClick={() => setShowModal(false)}>
           <div className="modal-content-project" onClick={(e) => e.stopPropagation()}>
             <div className="modal-header-project">
-              <i className={modalData.icon} style={{ fontSize: '2rem', color: '#1e90ff' }}></i>
+              {/* INALIS NA RIN ANG INLINE STYLE DITO SA MODAL HEADER ICON */}
+              <i className={modalData.icon} style={{ fontSize: '1.2rem', color: '#1e90ff' }}></i>
               <h3>{modalData.title}</h3>
               <button className="modal-close-project" onClick={() => setShowModal(false)}>✕</button>
             </div>
