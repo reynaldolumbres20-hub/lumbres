@@ -354,7 +354,7 @@ body {
   min-height: 0;
 }
 
-/* ========== FIXED PAGE HEIGHT (DESKTOP) ========== */
+/* ========== FIXED PAGE HEIGHT (DESKTOP ONLY) ========== */
 .page-wrapper {
   min-height: 520px;
   height: 520px;
@@ -703,7 +703,6 @@ body {
   box-shadow: 0 0 12px rgba(30, 144, 255, 0.2);
 }
 
-/* SKILLS ICONS */
 .flip-card-front i { 
   font-size: 1.3rem; 
   color: var(--accent); 
@@ -779,7 +778,6 @@ body {
   box-shadow: 0 0 12px rgba(30, 144, 255, 0.2);
 }
 
-/* SERVICES & PROJECTS ICONS */
 .flip-card-front-large i { 
   font-size: 1.25rem; 
   color: var(--accent); 
@@ -804,7 +802,6 @@ body {
 
 .flip-card-back-large p { color: white; font-size: 0.65rem; font-weight: 500; }
 
-/* Experience & Education Cards */
 .flip-card-exp-large {
   background-color: transparent;
   height: 200px;
@@ -965,7 +962,6 @@ body {
   100% { transform: translateY(-3px); }
 }
 
-/* ========== PROJECTS ICON RAGE ANIMATION ========== */
 .projects-grid .flip-card-front-large i {
   animation: iconRage 1.5s ease-in-out infinite;
 }
@@ -975,7 +971,6 @@ body {
   50% { transform: translateY(-2px) scale(1); filter: drop-shadow(0 0 2px var(--accent)); }
 }
 
-/* Services grid pulse */
 .services-grid .flip-card-front-large i {
   animation: iconPulse 1.2s infinite alternate;
 }
@@ -999,7 +994,6 @@ body {
   position: relative;
 }
 
-/* Animated gradient border */
 .modal-content-project::before {
   content: '';
   position: absolute;
@@ -1072,7 +1066,6 @@ body {
   transform: rotate(90deg);
 }
 
-/* Preview Box - Premium Design */
 .preview-box {
   background: linear-gradient(135deg, rgba(0, 0, 0, 0.4), rgba(10, 22, 40, 0.6));
   margin: 1rem 1.5rem;
@@ -1109,7 +1102,6 @@ body {
   border-radius: 0.5rem;
 }
 
-/* Dark overlay para sa iframe */
 .preview-frame-container::after {
   content: '';
   position: absolute;
@@ -1197,7 +1189,6 @@ body {
   text-align: justify;
 }
 
-/* Premium Buttons */
 .modal-buttons-project {
   display: flex;
   gap: 1rem;
@@ -1258,7 +1249,6 @@ body {
   background: linear-gradient(135deg, var(--accent-light), var(--accent));
 }
 
-/* ========== PREMIUM MODAL ========== */
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -1445,16 +1435,23 @@ body {
   flex-shrink: 0;
 }
 
-/* ========== MOBILE RESPONSIVE - GUMAGANA ANG FLIP ========== */
+/* ========== MOBILE RESPONSIVE - HINDI GUMAGALAW ANG BOX ========== */
 @media (max-width: 768px) {
   .unified-container {
     width: 100%;
     padding: 0 0.5rem;
+    min-height: auto;
+    display: flex;
+    align-items: flex-start;
   }
   
   .main-glass-card-3d {
     padding: 0.8rem;
-    min-height: auto;
+    min-height: auto !important;
+    height: auto !important;
+    margin-top: 0;
+    margin-bottom: 0;
+    transform: none !important;
   }
   
   .premium-home-card {
@@ -1474,29 +1471,43 @@ body {
   .hero-quote-split { font-size: 0.6rem; padding: 0.4rem 0.6rem; }
   
   .page-wrapper {
-    height: auto;
-    min-height: auto;
-    max-height: none;
-    overflow-y: visible;
+    height: auto !important;
+    min-height: auto !important;
+    max-height: none !important;
+    overflow-y: visible !important;
+    margin: 0 !important;
+    padding: 0 !important;
   }
   
   .premium-home-card {
-    height: auto;
-    min-height: auto;
+    height: auto !important;
+    min-height: auto !important;
   }
   
   .objective-inside {
-    overflow-y: visible;
-    max-height: none;
+    overflow-y: visible !important;
+    max-height: none !important;
   }
   
-  .objective-text {
-    font-size: 0.8rem;
-    padding-right: 0;
+  .content-3d {
+    min-height: auto;
+    height: auto;
   }
   
   .facebook-card-home {
     max-width: 240px;
+  }
+  
+  .skills-grid,
+  .services-grid,
+  .projects-grid,
+  .three-column-grid,
+  .two-column-grid {
+    min-height: auto !important;
+    max-height: none !important;
+    overflow-y: visible !important;
+    margin-top: 0;
+    margin-bottom: 0;
   }
   
   .skills-grid,
@@ -1512,28 +1523,13 @@ body {
     gap: 0.8rem;
   }
   
-  .flip-card-3d { 
-    height: auto; 
+  .flip-card-3d,
+  .flip-card-3d-large,
+  .flip-card-exp-large,
+  .flip-card-exp-medium {
+    perspective: 600px;
+    height: auto;
     min-height: 130px;
-    perspective: 600px;
-  }
-  
-  .flip-card-3d-large { 
-    height: auto; 
-    min-height: 160px;
-    perspective: 600px;
-  }
-  
-  .flip-card-exp-large { 
-    height: auto; 
-    min-height: 180px;
-    perspective: 600px;
-  }
-  
-  .flip-card-exp-medium { 
-    height: auto; 
-    min-height: 150px;
-    perspective: 600px;
   }
   
   .flip-card-inner,
@@ -1545,10 +1541,9 @@ body {
     position: relative;
     width: 100%;
     height: 100%;
-    min-height: inherit;
+    min-height: 130px;
   }
   
-  /* I-enable ang hover flip sa mobile */
   .flip-card-3d:hover .flip-card-inner,
   .flip-card-3d-large:hover .flip-card-inner-large,
   .flip-card-exp-large:hover .flip-card-exp-inner-large,
@@ -1564,6 +1559,10 @@ body {
     width: 100%;
     height: 100%;
     backface-visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
   
   .flip-card-back,
@@ -1575,6 +1574,10 @@ body {
     height: 100%;
     backface-visibility: hidden;
     transform: rotateY(180deg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
   
   .flip-card-front h4,
@@ -1627,8 +1630,8 @@ body {
   .hero-quote-split { font-size: 0.55rem; }
   
   .page-wrapper {
-    height: auto;
-    min-height: auto;
+    height: auto !important;
+    min-height: auto !important;
   }
   
   .premium-home-card {
@@ -1641,10 +1644,12 @@ body {
   
   .nav-item { font-size: 0.5rem; padding: 0.25rem 0.1rem; }
   
-  .flip-card-3d { min-height: 120px; }
-  .flip-card-3d-large { min-height: 140px; }
-  .flip-card-exp-large { min-height: 160px; }
-  .flip-card-exp-medium { min-height: 140px; }
+  .flip-card-3d,
+  .flip-card-3d-large,
+  .flip-card-exp-large,
+  .flip-card-exp-medium {
+    min-height: 120px;
+  }
   
   .flip-card-front i,
   .flip-card-front-large i { font-size: 1.1rem; }
@@ -1665,123 +1670,181 @@ body {
   .modal-content p { font-size: 0.85rem; }
 }
 
-/* ========== MOBILE MODAL FIX ========== */
+/* ========== MOBILE FULL SCREEN MODAL FIX ========== */
 @media (max-width: 768px) {
-  .modal-content-project {
-    width: 95%;
-    max-width: 95%;
-    border-radius: 1rem;
-    max-height: 90vh;
+  /* Full screen overlay */
+  .modal-overlay {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: rgba(0, 0, 0, 0.95) !important;
+    backdrop-filter: blur(20px) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    z-index: 10000 !important;
+    padding: 0 !important;
+    margin: 0 !important;
   }
   
+  /* Full screen modal content - PROJECT MODAL */
+  .modal-content-project {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 100% !important;
+    max-height: 100% !important;
+    border-radius: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow-y: auto !important;
+    background: linear-gradient(135deg, #0f1825 0%, #0a1220 100%) !important;
+  }
+  
+  /* Full screen modal content - REGULAR MODAL */
+  .modal-content {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    min-height: 100% !important;
+    border-radius: 0 !important;
+    margin: 0 !important;
+    padding: 1.5rem !important;
+    overflow-y: auto !important;
+    background: linear-gradient(135deg, #0f1825 0%, #0a1220 100%) !important;
+  }
+  
+  /* Modal header - sticky */
   .modal-header-project {
-    padding: 0.8rem 1rem;
-    gap: 0.5rem;
-    display: grid;
-    grid-template-columns: auto 1fr auto;
+    padding: 1rem;
+    position: sticky;
+    top: 0;
+    background: linear-gradient(135deg, #0f1825, #0a1220);
+    z-index: 10;
+    border-bottom: 1px solid rgba(30, 144, 255, 0.2);
+    display: flex;
     align-items: center;
+    gap: 0.8rem;
   }
   
   .modal-header-project i {
-    font-size: 1.3rem;
+    font-size: 1.5rem;
   }
   
   .modal-header-project h3 {
-    font-size: 0.8rem;
-    word-break: break-word;
+    font-size: 0.85rem;
+    flex: 1;
   }
   
   .modal-close-project {
-    width: 28px;
-    height: 28px;
-    font-size: 0.9rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+  }
+  
+  /* Preview frame - mas mataas */
+  .preview-frame-container {
+    height: 40vh;
+    min-height: 250px;
+    margin: 1rem;
+  }
+  
+  .preview-iframe {
+    transform: scale(1);
+    width: 100%;
+    height: 100%;
   }
   
   .preview-box {
-    margin: 0.6rem;
-  }
-  
-  .preview-label {
-    font-size: 0.55rem;
-    padding: 0.25rem 0.5rem;
-  }
-  
-  .preview-frame-container {
-    height: 180px;
-  }
-  
-  .modal-desc-project {
-    padding: 0.6rem;
     margin: 0.5rem;
+  }
+  
+  /* Description - scrollable */
+  .modal-desc-project {
+    padding: 1rem;
+    margin: 0.5rem;
+    max-height: none;
+    overflow-y: visible;
+  }
+  
+  /* Buttons - sticky sa baba */
+  .modal-buttons-project {
+    position: sticky;
+    bottom: 0;
+    background: linear-gradient(135deg, #0f1825, #0a1220);
+    padding: 1rem;
+    margin-top: 1rem;
+    gap: 0.8rem;
+  }
+  
+  /* Para sa regular modal na walang header */
+  .modal-content h3 {
+    font-size: 1.2rem;
+  }
+  
+  .modal-content p {
+    font-size: 0.85rem;
+    max-height: 60vh;
+    overflow-y: auto;
+  }
+  
+  .modal-close {
+    margin-top: 1rem;
+  }
+}
+
+/* Para sa sobrang liit na phone */
+@media (max-width: 480px) {
+  .preview-frame-container {
+    height: 35vh;
+    min-height: 200px;
+  }
+  
+  .modal-header-project h3 {
+    font-size: 0.75rem;
+  }
+  
+  .modal-header-project i {
+    font-size: 1.2rem;
   }
   
   .modal-desc-project p {
     font-size: 0.7rem;
-    line-height: 1.5;
   }
   
   .modal-buttons-project {
-    flex-direction: column;
-    gap: 0.5rem;
-    padding: 0.6rem;
+    padding: 0.8rem;
   }
   
   .modal-close-btn-project,
   .modal-demo-btn-project {
-    padding: 0.5rem;
+    padding: 0.6rem;
     font-size: 0.7rem;
-    width: 100%;
-  }
-  
-  .click-hint {
-    padding: 0.3rem 0.8rem;
-    font-size: 0.6rem;
-    white-space: nowrap;
-  }
-}
-
-@media (max-width: 480px) {
-  .modal-content-project {
-    width: 98%;
-    border-radius: 0.8rem;
-  }
-  
-  .modal-header-project {
-    padding: 0.6rem 0.8rem;
-  }
-  
-  .modal-header-project i {
-    font-size: 1.1rem;
-  }
-  
-  .modal-header-project h3 {
-    font-size: 0.7rem;
-  }
-  
-  .preview-frame-container {
-    height: 140px;
-  }
-  
-  .modal-desc-project p {
-    font-size: 0.65rem;
   }
 }
 
 @media (max-width: 768px) and (orientation: landscape) {
   .modal-content-project {
-    max-height: 95vh;
+    max-height: 100vh;
   }
   
   .preview-frame-container {
-    height: 120px;
+    height: 50vh;
   }
   
   .modal-desc-project {
-    max-height: 100px;
+    max-height: 30vh;
     overflow-y: auto;
   }
   
   .modal-buttons-project {
     flex-direction: row;
+    position: relative;
   }
 }
