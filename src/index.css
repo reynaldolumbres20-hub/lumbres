@@ -644,7 +644,7 @@ body {
   margin-top: 0.5rem;
   align-content: flex-start;
   min-height: 480px;
-  max-height: 450px;
+  max-height: 100%;
   overflow-y: auto;
   padding-right: 6px;
   overflow-x: hidden;
