@@ -19,9 +19,16 @@
   --text-muted: #8a9bb5;
   --text-dark: #ffffff;
   --border: #1a2540;
-  --card-bg: #0f1825;
+  --card-bg: rgba(15, 24, 37, 0.5);
   --shadow: 0 5px 20px -5px rgba(0, 0, 0, 0.3);
   --shadow-hover: 0 10px 30px -8px rgba(0, 0, 0, 0.4);
+}
+
+/* PARA WALANG DOUBLE SCROLLBAR */
+html, body {
+  overflow-x: hidden;
+  overflow-y: auto;
+  max-width: 100%;
 }
 
 body {
@@ -29,7 +36,6 @@ body {
   background: #050d18;
   color: var(--text);
   line-height: 1.6;
-  overflow-x: hidden;
   min-height: 100vh;
 }
 
@@ -139,7 +145,7 @@ body {
   50% { transform: translate(50px, -40px) scale(1.3); opacity: 0.1; }
 }
 
-/* ========== GATE — GLITCH ENTRY (with background image) ========== */
+/* ========== GATE — GLITCH ENTRY ========== */
 .gate-overlay {
   position: fixed;
   top: 0;
@@ -360,48 +366,309 @@ body {
   display: flex;
   flex-direction: column;
   overflow-y: auto;
+  overflow-x: hidden;
 }
 
-/* ========== HOME CARD (with background image) ========== */
-.premium-home-card {
-  background: var(--card-bg);
+/* ========== LAHAT NG PINAKAMALAKING BOX NG BAWAT PAGE MAY BACKGROUND IMAGE AT GLOWING BORDER CORNERS ========== */
+.premium-home-card,
+.skills-grid,
+.services-grid,
+.projects-grid,
+.three-column-grid,
+.two-column-grid {
+  background: rgba(15, 24, 37, 0.5);
   background-image: url('https://images.pexels.com/photos/8721342/pexels-photo-8721342.jpeg?w=1920&h=1080');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   border-radius: 0.8rem;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Glowing corners effect */
+.premium-home-card::before,
+.skills-grid::before,
+.services-grid::before,
+.projects-grid::before,
+.three-column-grid::before,
+.two-column-grid::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 0.8rem;
+  padding: 2px;
+  background: linear-gradient(135deg, 
+    var(--accent) 0%, 
+    var(--neon-cyan) 25%, 
+    transparent 50%, 
+    var(--neon-purple) 75%, 
+    var(--accent) 100%);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+
+.premium-home-card:hover::before,
+.skills-grid:hover::before,
+.services-grid:hover::before,
+.projects-grid:hover::before,
+.three-column-grid:hover::before,
+.two-column-grid:hover::before {
+  opacity: 1;
+}
+
+/* Dark overlay para readable ang text */
+.premium-home-card::after,
+.skills-grid::after,
+.services-grid::after,
+.projects-grid::after,
+.three-column-grid::after,
+.two-column-grid::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(10, 22, 40, 0.6);
+  z-index: 0;
+  border-radius: 0.8rem;
+  pointer-events: none;
+}
+
+/* Para hindi matabunan ang content ng dark overlay */
+.premium-home-card > *,
+.skills-grid > *,
+.services-grid > *,
+.projects-grid > *,
+.three-column-grid > *,
+.two-column-grid > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* Specific styling para sa premium-home-card */
+.premium-home-card {
   padding: 1.5rem;
   margin: 0;
-  border: 1px solid var(--border);
+  border: none;
   transition: all 0.3s;
   width: 100%;
   display: flex;
   flex-direction: column;
   height: 100%;
   min-height: 480px;
-  position: relative;
-  overflow: hidden;
-}
-
-.premium-home-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(30, 144, 255, 0.05), transparent);
-  transition: left 0.5s;
-}
-
-.premium-home-card:hover::before {
-  left: 100%;
 }
 
 .premium-home-card:hover {
-  border-color: var(--accent);
-  box-shadow: var(--shadow-hover);
   transform: translateY(-2px);
+}
+
+/* Grid specific styles */
+.skills-grid,
+.services-grid,
+.projects-grid,
+.three-column-grid,
+.two-column-grid {
+  display: grid;
+  gap: 1rem;
+  width: 100%;
+  margin-top: 0.5rem;
+  align-content: flex-start;
+  min-height: 480px;
+  max-height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 1rem;
+  border: none;
+}
+
+.skills-grid { grid-template-columns: repeat(3, 1fr); }
+.services-grid { grid-template-columns: repeat(3, 1fr); }
+.projects-grid { grid-template-columns: repeat(3, 1fr); }
+.three-column-grid { grid-template-columns: repeat(3, 1fr); }
+.two-column-grid { grid-template-columns: repeat(2, 1fr); }
+
+/* ========== MGA MALILIIT NA BOX (FLIP CARDS) - MAS TRANSPARENT ========== */
+.flip-card-3d,
+.flip-card-3d-large,
+.flip-card-exp-large,
+.flip-card-exp-medium {
+  background-color: transparent;
+  perspective: 600px;
+  cursor: pointer;
+  width: 100%;
+  transition: transform 0.3s ease;
+}
+
+.flip-card-3d { height: 130px; }
+.flip-card-3d-large { height: 180px; }
+.flip-card-exp-large { height: 200px; }
+.flip-card-exp-medium { height: 170px; }
+
+.flip-card-3d:hover,
+.flip-card-3d-large:hover,
+.flip-card-exp-large:hover,
+.flip-card-exp-medium:hover {
+  transform: translateY(-6px) scale(1.01);
+}
+
+.flip-card-inner,
+.flip-card-inner-large,
+.flip-card-exp-inner-large,
+.flip-card-exp-inner-medium {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.5s ease;
+  transform-style: preserve-3d;
+  border-radius: 0.5rem;
+}
+
+.flip-card-3d:hover .flip-card-inner,
+.flip-card-3d-large:hover .flip-card-inner-large,
+.flip-card-exp-large:hover .flip-card-exp-inner-large,
+.flip-card-exp-medium:hover .flip-card-exp-inner-medium {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back,
+.flip-card-front-large,
+.flip-card-back-large,
+.flip-card-exp-front-large,
+.flip-card-exp-back-large,
+.flip-card-exp-front-medium,
+.flip-card-exp-back-medium {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0.8rem;
+  transition: all 0.3s ease;
+}
+
+/* GINAWANG MAS TRANSPARENT ANG MGA FLIP CARDS */
+.flip-card-front,
+.flip-card-front-large,
+.flip-card-exp-front-large,
+.flip-card-exp-front-medium {
+  background: rgba(15, 24, 37, 0.4);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(30, 144, 255, 0.3);
+}
+
+.flip-card-front:hover,
+.flip-card-front-large:hover,
+.flip-card-exp-front-large:hover,
+.flip-card-exp-front-medium:hover {
+  box-shadow: 0 0 15px rgba(30, 144, 255, 0.3);
+  border-color: var(--accent);
+  background: rgba(15, 24, 37, 0.5);
+}
+
+.flip-card-front i,
+.flip-card-front-large i,
+.flip-card-exp-front-large i,
+.flip-card-exp-front-medium i { 
+  font-size: 1.3rem; 
+  color: var(--accent); 
+  margin-bottom: 0.4rem;
+  animation: iconFloat 2s ease-in-out infinite;
+  filter: drop-shadow(0 0 2px var(--accent));
+}
+
+@keyframes iconFloat {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-3px); }
+}
+
+.flip-card-front h4,
+.flip-card-front-large h4,
+.flip-card-exp-front-large h4,
+.flip-card-exp-front-medium h4 { 
+  font-size: 0.8rem; 
+  font-weight: 600; 
+  color: var(--text-dark); 
+}
+
+/* Back side ng flip cards - gradient colors (hindi transparent) */
+.flip-card-back,
+.flip-card-back-large,
+.flip-card-exp-back-large,
+.flip-card-exp-back-medium {
+  background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+  transform: rotateY(180deg);
+  border: none;
+}
+
+.flip-card-back i,
+.flip-card-back-large i,
+.flip-card-exp-back-large i,
+.flip-card-exp-back-medium i { 
+  font-size: 1.6rem; 
+  color: white; 
+  margin-bottom: 0.3rem;
+  animation: backIconBounce 0.8s infinite alternate;
+}
+
+.flip-card-back p,
+.flip-card-back-large p,
+.flip-card-exp-back-large p,
+.flip-card-exp-back-medium p { 
+  color: white; 
+  font-size: 0.65rem; 
+  font-weight: 500; 
+}
+
+/* Experience cards */
+.flip-card-exp-front-large .card-icon-3d,
+.flip-card-exp-front-medium .card-icon-3d {
+  width: 45px;
+  height: 45px;
+  background: rgba(30, 144, 255, 0.15);
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.4rem;
+}
+
+@keyframes backIconBounce {
+  0% { transform: translateY(0px); }
+  100% { transform: translateY(-3px); }
+}
+
+.projects-grid .flip-card-front-large i {
+  animation: iconRage 1.5s ease-in-out infinite;
+}
+
+@keyframes iconRage {
+  0%, 100% { transform: translateY(0px) scale(1); filter: drop-shadow(0 0 1px var(--accent)); }
+  50% { transform: translateY(-2px) scale(1); filter: drop-shadow(0 0 2px var(--accent)); }
+}
+
+.services-grid .flip-card-front-large i {
+  animation: iconPulse 1.2s infinite alternate;
+}
+
+@keyframes iconPulse {
+  0% { transform: scale(1); filter: drop-shadow(0 0 1px var(--accent)); }
+  100% { transform: scale(1.05); filter: drop-shadow(0 0 5px var(--accent)); }
 }
 
 .hero-split-container {
@@ -495,6 +762,7 @@ body {
 .objective-inside {
   flex: 1;
   overflow-y: auto;
+  overflow-x: hidden;
   padding-right: 8px;
   margin-top: 0.5rem;
 }
@@ -521,7 +789,8 @@ body {
 
 /* ========== FACEBOOK CARD ========== */
 .facebook-card-home {
-  background: linear-gradient(135deg, #0a1628cb,);
+   background: #fdfafa00;
+  backdrop-filter: blur(8px);
   border-radius: 1rem;
   padding: 1rem;
   cursor: pointer;
@@ -634,360 +903,122 @@ body {
   transform: scale(1.02);
 }
 
-/* ========== GRIDS ========== */
-.skills-grid,
-.services-grid,
-.projects-grid,
-.three-column-grid,
-.two-column-grid {
-  display: grid;
-  gap: 1rem;
-  width: 100%;
-  margin-top: 0.5rem;
-  align-content: flex-start;
-  min-height: 480px;
-  max-height: 100%;
-  overflow-y: auto;
-  padding-right: 6px;
-  overflow-x: hidden;
-}
-
-.skills-grid { grid-template-columns: repeat(3, 1fr); }
-.services-grid { grid-template-columns: repeat(3, 1fr); }
-.projects-grid { grid-template-columns: repeat(3, 1fr); }
-.three-column-grid { grid-template-columns: repeat(3, 1fr); }
-.two-column-grid { grid-template-columns: repeat(2, 1fr); }
-
-/* ========== FLIP CARDS ========== */
-.flip-card-3d {
-  background-color: transparent;
-  height: 130px;
-  perspective: 600px;
-  cursor: pointer;
-  width: 100%;
-  transition: transform 0.3s ease;
-}
-
-.flip-card-3d:hover {
-  transform: translateY(-6px) scale(1.01);
-}
-
-.flip-card-inner {
-  position: relative;
+/* ========== MODAL OVERLAY - MAY BACKGROUND IMAGE AT GLOWING BORDER ========== */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  text-align: center;
-  transition: transform 0.5s ease;
-  transform-style: preserve-3d;
-  border-radius: 0.5rem;
-}
-
-.flip-card-3d:hover .flip-card-inner { transform: rotateY(180deg); }
-
-.flip-card-front,
-.flip-card-back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  backface-visibility: hidden;
-  border-radius: 0.5rem;
+  background-image: url('https://images.pexels.com/photos/8721342/pexels-photo-8721342.jpeg?w=1920&h=1080');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  backdrop-filter: blur(20px);
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 0.8rem;
-  background: var(--card-bg);
-  border: 1px solid var(--border);
+  z-index: 9999;
+  opacity: 0;
+  visibility: hidden;
   transition: all 0.3s ease;
+  overflow: hidden;
 }
 
-.flip-card-front:hover {
-  box-shadow: 0 0 12px rgba(30, 144, 255, 0.2);
+.modal-overlay.active { 
+  opacity: 1; 
+  visibility: visible; 
 }
 
-.flip-card-front i { 
-  font-size: 1.3rem; 
-  color: var(--accent); 
-  margin-bottom: 0.4rem;
-  animation: iconFloat 2s ease-in-out infinite;
-  filter: drop-shadow(0 0 1px var(--accent));
-}
-
-@keyframes iconFloat {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-3px); }
-}
-
-.flip-card-front h4 { font-size: 0.8rem; font-weight: 600; color: var(--text-dark); }
-
-.flip-card-back {
-  background: linear-gradient(135deg, var(--accent), var(--accent-dark));
-  transform: rotateY(180deg);
-}
-
-.flip-card-back i { 
-  font-size: 1.6rem; 
-  color: white; 
-  margin-bottom: 0.3rem;
-  animation: backIconBounce 0.8s infinite alternate;
-}
-
-.flip-card-back p { color: white; font-size: 0.65rem; font-weight: 500; }
-
-.flip-card-3d-large {
-  background-color: transparent;
-  height: 180px;
-  perspective: 600px;
-  cursor: pointer;
-  width: 100%;
-  transition: transform 0.3s ease;
-}
-
-.flip-card-3d-large:hover {
-  transform: translateY(-6px) scale(1.01);
-}
-
-.flip-card-inner-large {
+/* MODAL CONTENT - MALIIT NA BOX NA MAS TRANSPARENT MAY GLOWING BORDER */
+.modal-content {
   position: relative;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  transition: transform 0.5s ease;
-  transform-style: preserve-3d;
-  border-radius: 0.5rem;
-}
-
-.flip-card-3d-large:hover .flip-card-inner-large { transform: rotateY(180deg); }
-
-.flip-card-front-large,
-.flip-card-back-large {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  backface-visibility: hidden;
-  border-radius: 0.5rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 0.8rem;
-  background: var(--card-bg);
-  border: 1px solid var(--border);
-  transition: all 0.3s ease;
-}
-
-.flip-card-front-large:hover {
-  box-shadow: 0 0 12px rgba(30, 144, 255, 0.2);
-}
-
-.flip-card-front-large i { 
-  font-size: 1.25rem; 
-  color: var(--accent); 
-  margin-bottom: 0.3rem;
-  animation: iconFloat 2s ease-in-out infinite;
-  filter: drop-shadow(0 0 1px var(--accent));
-}
-
-.flip-card-front-large h4 { font-size: 0.85rem; font-weight: 600; color: var(--text-dark); text-align: center; }
-
-.flip-card-back-large {
-  background: linear-gradient(135deg, var(--accent), var(--accent-dark));
-  transform: rotateY(180deg);
-}
-
-.flip-card-back-large i { 
-  font-size: 1.6rem; 
-  color: white; 
-  margin-bottom: 0.3rem;
-  animation: backIconBounce 0.8s infinite alternate;
-}
-
-.flip-card-back-large p { color: white; font-size: 0.65rem; font-weight: 500; }
-
-.flip-card-exp-large {
-  background-color: transparent;
-  height: 200px;
-  perspective: 600px;
-  cursor: pointer;
-  width: 100%;
-  transition: transform 0.3s ease;
-}
-
-.flip-card-exp-large:hover {
-  transform: translateY(-6px) scale(1.01);
-}
-
-.flip-card-exp-inner-large {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  transition: transform 0.5s ease;
-  transform-style: preserve-3d;
-  border-radius: 0.5rem;
-}
-
-.flip-card-exp-large:hover .flip-card-exp-inner-large { transform: rotateY(180deg); }
-
-.flip-card-exp-front-large,
-.flip-card-exp-back-large {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  backface-visibility: hidden;
-  border-radius: 0.5rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 0.8rem;
-  background: var(--card-bg);
-  border: 1px solid var(--border);
-  transition: all 0.3s ease;
-}
-
-.flip-card-exp-front-large .card-icon-3d {
-  width: 45px;
-  height: 45px;
-  background: rgba(30, 144, 255, 0.08);
-  border-radius: 0.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 0.4rem;
-}
-
-.flip-card-exp-front-large .card-icon-3d i { 
-  font-size: 1.4rem; 
-  color: var(--accent);
-  animation: iconFloat 2s ease-in-out infinite;
-  filter: drop-shadow(0 0 1px var(--accent));
-}
-
-.flip-card-exp-front-large h4 { font-size: 0.85rem; font-weight: 600; color: var(--text-dark); margin-bottom: 0.2rem; text-align: center; }
-.flip-card-exp-front-large span { font-size: 0.6rem; color: var(--accent); }
-
-.flip-card-exp-back-large {
-  background: linear-gradient(135deg, var(--accent), var(--accent-dark));
-  transform: rotateY(180deg);
-}
-
-.flip-card-exp-back-large i { 
-  font-size: 1.6rem; 
-  color: white; 
-  margin-bottom: 0.3rem;
-  animation: backIconBounce 0.8s infinite alternate;
-}
-
-.flip-card-exp-back-large p { color: white; font-size: 0.65rem; font-weight: 500; }
-
-.flip-card-exp-medium {
-  background-color: transparent;
-  height: 170px;
-  perspective: 600px;
-  cursor: pointer;
-  width: 100%;
-  transition: transform 0.3s ease;
-}
-
-.flip-card-exp-medium:hover {
-  transform: translateY(-6px) scale(1.01);
-}
-
-.flip-card-exp-inner-medium {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  transition: transform 0.5s ease;
-  transform-style: preserve-3d;
-  border-radius: 0.5rem;
-}
-
-.flip-card-exp-medium:hover .flip-card-exp-inner-medium { transform: rotateY(180deg); }
-
-.flip-card-exp-front-medium,
-.flip-card-exp-back-medium {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  backface-visibility: hidden;
-  border-radius: 0.5rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 0.8rem;
-  background: var(--card-bg);
-  border: 1px solid var(--border);
-  transition: all 0.3s ease;
-}
-
-.flip-card-exp-front-medium .card-icon-3d {
-  width: 45px;
-  height: 45px;
-  background: rgba(30, 144, 255, 0.08);
-  border-radius: 0.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 0.4rem;
-}
-
-.flip-card-exp-front-medium .card-icon-3d i { 
-  font-size: 1.4rem; 
-  color: var(--accent);
-  animation: iconFloat 2s ease-in-out infinite;
-  filter: drop-shadow(0 0 1px var(--accent));
-}
-
-.flip-card-exp-front-medium h4 { font-size: 0.85rem; font-weight: 600; color: var(--text-dark); margin-bottom: 0.2rem; text-align: center; }
-.flip-card-exp-front-medium span { font-size: 0.6rem; color: var(--accent); }
-.contact-value { font-size: 0.65rem; font-weight: 600; color: var(--accent); margin: 0.2rem 0; }
-
-.flip-card-exp-back-medium {
-  background: linear-gradient(135deg, var(--accent), var(--accent-dark));
-  transform: rotateY(180deg);
-}
-
-.flip-card-exp-back-medium i { 
-  font-size: 1.6rem; 
-  color: white; 
-  margin-bottom: 0.3rem;
-  animation: backIconBounce 0.8s infinite alternate;
-}
-
-.flip-card-exp-back-medium p { color: white; font-size: 0.65rem; font-weight: 500; }
-
-@keyframes backIconBounce {
-  0% { transform: translateY(0px); }
-  100% { transform: translateY(-3px); }
-}
-
-.projects-grid .flip-card-front-large i {
-  animation: iconRage 1.5s ease-in-out infinite;
-}
-
-@keyframes iconRage {
-  0%, 100% { transform: translateY(0px) scale(1); filter: drop-shadow(0 0 1px var(--accent)); }
-  50% { transform: translateY(-2px) scale(1); filter: drop-shadow(0 0 2px var(--accent)); }
-}
-
-.services-grid .flip-card-front-large i {
-  animation: iconPulse 1.2s infinite alternate;
-}
-
-@keyframes iconPulse {
-  0% { transform: scale(1); filter: drop-shadow(0 0 1px var(--accent)); }
-  100% { transform: scale(1.05); filter: drop-shadow(0 0 5px var(--accent)); }
-}
-
-/* ========== PREMIUM MODAL ========== */
-.modal-content-project {
-  background: linear-gradient(135deg, #0f1825 0%, #0a1220 100%);
+  background: rgba(15, 24, 37, 0.5);
+  backdrop-filter: blur(12px);
   border-radius: 1.5rem;
-  border: 1px solid rgba(30, 144, 255, 0.3);
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(30, 144, 255, 0.1);
+  padding: 1.8rem;
+  max-width: 500px;
+  width: 90%;
+  margin: 0 auto;
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-height: 85vh;
+}
+
+/* Glowing border corners para sa modal content */
+.modal-content::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+ background: #fdfafa00;
+  border-radius: 1.6rem;
+  z-index: -1;
+  opacity: 0.7;
+  animation: borderGlow 3s ease-in-out infinite;
+}
+
+@keyframes borderGlow {
+  0%, 100% { opacity: 0.5; filter: blur(0px); }
+  50% { opacity: 1; filter: blur(1px); }
+}
+
+.modal-content h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #4db8ff, #1e90ff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin-bottom: 1rem;
+  text-align: center;
+  padding-bottom: 0.8rem;
+}
+
+.modal-content p {
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: #c8d0e0;
+  text-align: justify;
+  margin: 1.2rem 0;
+  padding: 0.8rem;
+  background: rgba(10, 22, 40, 0.4);
+  border-radius: 0.8rem;
+  border-left: 3px solid #1e90ff;
+  white-space: pre-wrap;
+}
+
+.modal-close {
+  background: linear-gradient(135deg, #1e90ff, #0a5f8a);
+  color: white;
+  border: none;
+  padding: 0.6rem 1.8rem;
+  border-radius: 2rem;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 0.85rem;
+  display: block;
+  margin: 0.5rem auto 0;
+  transition: all 0.3s ease;
+}
+
+.modal-close:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 25px rgba(30, 144, 255, 0.5);
+}
+
+/* PROJECT MODAL */
+.modal-content-project {
+  background: rgba(15, 24, 37, 0.5);
+  background-image: url('https://images.pexels.com/photos/8721342/pexels-photo-8721342.jpeg?w=1920&h=1080');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 1.5rem;
+  border: none;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
   max-width: 650px;
   width: 90%;
   max-height: 85vh;
@@ -996,29 +1027,47 @@ body {
   position: relative;
 }
 
+/* Dark overlay sa modal project */
 .modal-content-project::before {
   content: '';
   position: absolute;
-  top: -2px;
-  left: -2px;
-  right: -2px;
-  bottom: -2px;
-  background: linear-gradient(45deg, var(--accent), var(--neon-cyan), var(--neon-purple), var(--accent));
-  border-radius: 1.6rem;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(10, 22, 40, 0.6);
+  z-index: 0;
+  border-radius: 1.5rem;
+}
+
+/* Glowing border corners sa modal project */
+.modal-content-project::after {
+  content: '';
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  right: -3px;
+  bottom: -3px;
+  background: linear-gradient(135deg, 
+    var(--accent) 0%, 
+    var(--neon-cyan) 25%, 
+    var(--neon-purple) 50%, 
+    var(--neon-cyan) 75%, 
+    var(--accent) 100%);
+  border-radius: 1.7rem;
   z-index: -1;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  animation: borderRotate 3s linear infinite;
-  background-size: 200% 200%;
-}
-
-@keyframes borderRotate {
-  0% { background-position: 0% 50%; }
-  100% { background-position: 200% 50%; }
-}
-
-.modal-content-project:hover::before {
   opacity: 0.6;
+  animation: borderGlowProject 3s ease-in-out infinite;
+}
+
+@keyframes borderGlowProject {
+  0%, 100% { opacity: 0.4; filter: blur(0px); }
+  50% { opacity: 0.8; filter: blur(1px); }
+}
+
+.modal-content-project > * {
+  position: relative;
+  z-index: 2;
 }
 
 .modal-header-project {
@@ -1069,13 +1118,15 @@ body {
   transform: rotate(90deg);
 }
 
+/* PREVIEW BOX - MALIIT NA BOX SA LOOB NG MODAL - MAS TRANSPARENT */
 .preview-box {
-  background: linear-gradient(135deg, rgba(0, 0, 0, 0.4), rgba(10, 22, 40, 0.6));
+  background: rgba(15, 24, 37, 0.4);
+  backdrop-filter: blur(8px);
   margin: 1rem 1.5rem;
   border-radius: 1rem;
   overflow: hidden;
   cursor: pointer;
-  border: 1px solid rgba(30, 144, 255, 0.2);
+  border: 1px solid rgba(30, 144, 255, 0.3);
   transition: all 0.3s ease;
   position: relative;
 }
@@ -1179,7 +1230,8 @@ body {
 
 .modal-desc-project {
   padding: 1.2rem 1.5rem;
-  background: rgba(10, 22, 40, 0.3);
+  background: rgba(3, 8, 15, 0.3);
+  backdrop-filter: blur(4px);
   margin: 0.5rem 1rem;
   border-radius: 0.8rem;
   border-left: 3px solid var(--accent);
@@ -1250,87 +1302,6 @@ body {
   transform: translateY(-2px);
   box-shadow: 0 8px 25px rgba(30, 144, 255, 0.4);
   background: linear-gradient(135deg, var(--accent-light), var(--accent));
-}
-
-.modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.95);
-  backdrop-filter: blur(20px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 9999;
-  opacity: 0;
-  visibility: hidden;
-  transition: all 0.3s ease;
-  overflow: hidden;
-}
-
-.modal-overlay.active { 
-  opacity: 1; 
-  visibility: visible; 
-}
-
-.modal-content {
-  position: relative;
-  background: linear-gradient(135deg, #0f1825 0%, #0a1220 100%);
-  border-radius: 1.5rem;
-  border: 2px solid rgba(30, 144, 255, 0.4);
-  box-shadow: 0 0 50px rgba(30, 144, 255, 0.2), 0 20px 40px rgba(0, 0, 0, 0.4);
-  padding: 1.8rem;
-  max-width: 500px;
-  width: 90%;
-  margin: 0 auto;
-  overflow-y: auto;
-  max-height: 85vh;
-}
-
-.modal-content h3 {
-  font-size: 1.3rem;
-  font-weight: 700;
-  background: linear-gradient(135deg, #4db8ff, #1e90ff);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  margin-bottom: 1rem;
-  text-align: center;
-  padding-bottom: 0.8rem;
-}
-
-.modal-content p {
-  font-size: 0.9rem;
-  line-height: 1.7;
-  color: #c8d0e0;
-  text-align: justify;
-  margin: 1.2rem 0;
-  padding: 0.8rem;
-  background: rgba(10, 22, 40, 0.5);
-  border-radius: 0.8rem;
-  border-left: 3px solid #1e90ff;
-  white-space: pre-wrap;
-}
-
-.modal-close {
-  background: linear-gradient(135deg, #1e90ff, #0a5f8a);
-  color: white;
-  border: none;
-  padding: 0.6rem 1.8rem;
-  border-radius: 2rem;
-  cursor: pointer;
-  font-weight: 700;
-  font-size: 0.85rem;
-  display: block;
-  margin: 0.5rem auto 0;
-  transition: all 0.3s ease;
-}
-
-.modal-close:hover {
-  transform: scale(1.05);
-  box-shadow: 0 8px 25px rgba(30, 144, 255, 0.5);
 }
 
 /* ========== PREMIUM ADDED EFFECTS ========== */
