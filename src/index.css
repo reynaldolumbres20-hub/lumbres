@@ -1019,9 +1019,7 @@ body {
   border-radius: 1.5rem;
   border: none;
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
- 
   width: 90%;
-  max-height: 85vh;
   overflow-y: auto;
   overflow-x: hidden;
   position: relative;
