@@ -789,7 +789,7 @@ body {
 
 /* ========== FACEBOOK CARD ========== */
 .facebook-card-home {
-   background: #fdfafa00;
+  background: rgba(10, 22, 40, 0.7);
   backdrop-filter: blur(8px);
   border-radius: 1rem;
   padding: 1rem;
@@ -1019,9 +1019,9 @@ body {
   border-radius: 1.5rem;
   border: none;
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-  max-width: 650px;
+ 
   width: 90%;
-  max-height: 85vh;
+  
   overflow-y: auto;
   overflow-x: hidden;
   position: relative;
@@ -1048,12 +1048,6 @@ body {
   left: -3px;
   right: -3px;
   bottom: -3px;
-  background: linear-gradient(135deg, 
-    var(--accent) 0%, 
-    var(--neon-cyan) 25%, 
-    var(--neon-purple) 50%, 
-    var(--neon-cyan) 75%, 
-    var(--accent) 100%);
   border-radius: 1.7rem;
   z-index: -1;
   opacity: 0.6;
