@@ -61,14 +61,10 @@ function Home() {
           
           {/* RIGHT SIDE - Name, Roles, Quote */}
           <div className="hero-right">
-       <h1 className="hero-name"><span className="hero-highlight"></span>"Stay focused"</h1>
+       <h1 className="hero-name"><span className="hero-highlight"></span>"nEw eRa CoDe"</h1>
             <div className="hero-roles-container">
-              <span className="hero-role-item">    Hardworking Developer</span>
-              <span className="hero-role-sep"></span>
-              <span className="hero-role-item"></span>
-              <span className="hero-role-sep"></span>
+              <span className="hero-role-item">Hardworking</span>
               <span className="hero-role-item">Problem Solver</span>
-              <span className="hero-role-sep"></span>
               <span className="hero-role-item">Positive Thinker</span>
             </div>
             <div className="hero-quote-split">
@@ -78,7 +74,7 @@ function Home() {
         </div>
         <div className="card-divider"></div>
         <div className="objective-inside">
-          <h3 className="objective-title">Professional Objective</h3>
+          <h3 className="objective-title"></h3>
           <p className="objective-text">
             <strong>Web and Software Developer</strong> who builds web-based systems using PHP, MySQL, JavaScript, and React for Payroll, Gym, Inventory, Library, E-Commerce, Online Booking, and Billing System, as well as standalone desktop software using C#, VB.NET, and MySQL for Registration with Gmail Integration, POS, and Inventory. Knows how to create complete thesis documentation from Chapter 1 to Chapter 5, including system architecture, flowcharts, algorithms, pseudocode, and unlimited revisions. Also proficient in graphic design and websites.
 </p>
