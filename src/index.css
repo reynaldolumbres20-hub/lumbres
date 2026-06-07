@@ -54,7 +54,6 @@ body::before {
   z-index: -1;
 }
 
-/* GLOBAL SCROLL BAR - KULAY ACCENT */
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
@@ -78,7 +77,6 @@ body::before {
   display: none;
 }
 
-/* GATE OVERLAY - FIXED FULL BACKGROUND SA MOBILE */
 .gate-overlay {
   position: fixed;
   top: 0;
@@ -140,7 +138,6 @@ body::before {
   50% { transform: translateY(-8px) scale(1.01); }
 }
 
-/* GATE TITLE - STRAIGHT LINE, HINDI MAGHIHIWALAY */
 .gate-title {
   font-size: 1.8rem;
   font-weight: 700;
@@ -284,7 +281,6 @@ body::before {
   min-height: 0;
 }
 
-/* ========== LAHAT NG PAGE - SAME SIZE SA MOBILE AT DESKTOP ========== */
 .page-wrapper {
   min-height: 520px;
   height: 520px;
@@ -295,7 +291,6 @@ body::before {
   overflow-x: hidden;
 }
 
-/* SCROLL BAR SA PAGE WRAPPER - KULAY ACCENT */
 .page-wrapper::-webkit-scrollbar {
   width: 4px;
 }
@@ -316,7 +311,7 @@ body::before {
 .projects-grid,
 .three-column-grid,
 .two-column-grid {
-  background: rgba(10, 22, 40, 0.25);
+   background-image: url('https://images.pexels.com/photos/8721342/pexels-photo-8721342.jpeg?w=1920&h=1080');
   backdrop-filter: blur(5px);
   border-radius: 0.8rem;
   position: relative;
@@ -329,7 +324,6 @@ body::before {
   display: block;
 }
 
-/* SCROLL BAR SA MGA GRID CONTAINERS - KULAY ACCENT */
 .premium-home-card::-webkit-scrollbar,
 .skills-grid::-webkit-scrollbar,
 .services-grid::-webkit-scrollbar,
@@ -542,7 +536,7 @@ body::before {
   100% { transform: translateY(-3px); }
 }
 
-/* ========== HOME PAGE LAYOUT IMPROVED ========== */
+/* ========== HOME PAGE STYLES ========== */
 .hero-split-container {
   display: flex;
   align-items: center;
@@ -588,7 +582,6 @@ body::before {
   max-width: 90%;
 }
 
-/* IMPROVED HERO NAME WITH GLOW */
 .hero-name {
   font-size: 1.6rem;
   font-weight: 700;
@@ -617,7 +610,6 @@ body::before {
   }
 }
 
-/* IMPROVED HERO ROLES WITH BADGE STYLE */
 .hero-roles-container {
   display: flex;
   align-items: center;
@@ -655,7 +647,6 @@ body::before {
   50% { opacity: 1; text-shadow: 0 0 5px var(--neon-cyan); }
 }
 
-/* IMPROVED QUOTE SECTION - STRAIGHT FONT (HINDI ITALIC) */
 .hero-quote-split {
   padding: 0.8rem 1.2rem;
   background: rgba(30, 144, 255, 0.08);
@@ -728,15 +719,15 @@ body::before {
   color: var(--accent);
 }
 
-/* IMPROVED FACEBOOK CARD */
+/* ========== FACEBOOK CARD - WALANG BORDER COLOR ========== */
 .facebook-card-home {
-  background: rgba(10, 22, 40, 0.4);
+  background: transparent;
   backdrop-filter: blur(8px);
   border-radius: 1.2rem;
   padding: 1.2rem;
   cursor: pointer;
   transition: all 0.3s ease;
-  border: 1px solid rgba(30, 144, 255, 0.2);
+  border: none;
   text-align: center;
   width: 100%;
   max-width: 352px;
@@ -764,7 +755,6 @@ body::before {
 
 .facebook-card-home:hover {
   transform: translateY(-10px) scale(1.02);
-  border-color: #1877f2;
   box-shadow: 0 10px 30px rgba(24, 119, 242, 0.2);
   background: rgba(10, 22, 40, 0.6);
 }
@@ -956,7 +946,6 @@ body::before {
   box-shadow: 0 8px 25px rgba(30, 144, 255, 0.5);
 }
 
-/* ========== PROJECT MODAL ========== */
 .modal-content-project {
   background: rgba(15, 24, 37, 0.95);
   backdrop-filter: blur(12px);
@@ -1243,14 +1232,12 @@ body::before {
     grid-template-columns: 1fr;
   }
   
-  /* GATE TITLE - STRAIGHT LINE SA MOBILE */
   .gate-title {
     font-size: 1.2rem;
     white-space: normal;
     word-break: keep-all;
   }
   
-  /* GATE OVERLAY - BUONG IMAGE MAKIKITA */
   .gate-overlay {
     background-size: cover;
     background-position: center;
@@ -1262,7 +1249,6 @@ body::before {
     padding: 1.5rem;
   }
   
-  /* SAME SIZE SA MOBILE - LAHAT 500px */
   .page-wrapper {
     min-height: 500px !important;
     height: 500px !important;
@@ -1312,7 +1298,6 @@ body::before {
     margin: 0 auto;
   }
   
-  /* Mobile hero text adjustments */
   .hero-name .hero-highlight {
     font-size: 1.3rem;
   }
@@ -1404,7 +1389,6 @@ body::before {
   }
 }
 
-/* SMALL MOBILE (below 480px) - GATE TITLE ADJUSTMENT */
 @media (max-width: 480px) {
   .gate-title {
     font-size: 1rem;
@@ -1456,7 +1440,6 @@ body::before {
   }
 }
 
-/* DESKTOP LARGE SCREEN */
 @media (min-width: 1024px) {
   .hero-left {
     flex: 1 !important;
@@ -1564,7 +1547,6 @@ body::before {
     padding: 0.4rem 0.6rem;
   }
   
-  /* GATE TITLE SA LANDSCAPE MODE */
   .gate-title {
     font-size: 1rem;
     white-space: normal;
