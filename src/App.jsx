@@ -4,7 +4,7 @@ function Gate({ onEnter }) {
   return (
     <div className="gate-overlay">
       <div className="gate-container">
-        <h1 className="gate-title">REYNALDO <span>LUMBRES</span></h1>
+        <h1 className="gate-title">REYNALDO LUMBRES</h1>
         <p className="gate-subtitle">PROVERBS 21:5</p>
         <p className="gate-subtitle"> Code. Create. Conquer. Repeat.</p>
         <button onClick={onEnter} className="gate-btn">ENTER PORTFOLIO</button>
