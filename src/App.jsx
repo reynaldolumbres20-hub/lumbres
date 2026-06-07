@@ -1,4 +1,4 @@
-2import { useState } from 'react'
+import { useState } from 'react'
 
 function Gate({ onEnter }) {
   return (
