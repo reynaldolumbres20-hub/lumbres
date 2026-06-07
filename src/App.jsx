@@ -80,8 +80,8 @@ function Home() {
         <div className="objective-inside">
           <h3 className="objective-title">Professional Objective</h3>
           <p className="objective-text">
-            <strong>Web at Software Developer</strong> na gumagawa ng web-based systems gamit ang PHP, MySQL, at JavaScript para sa Payroll, Gym, Inventory, Library, at E-Commerce, at standalone desktop software gamit ang C#, VB.NET, at MySQL para sa Registration na may Gmail Integration, POS, at Inventory. Marunong gumawa ng kumpletong thesis documentation mula Kabanata 1 hanggang 5 kasama ang lahat ng diagrams at unlimited revision. Marunong din sa graphic design, mobile apps gamit ang React Native, at mga website.
-          </p>
+            <strong>Web and Software Developer</strong> who builds web-based systems using PHP, MySQL, JavaScript, and React for Payroll, Gym, Inventory, Library, E-Commerce, Online Booking, and Billing System, as well as standalone desktop software using C#, VB.NET, and MySQL for Registration with Gmail Integration, POS, and Inventory. Knows how to create complete thesis documentation from Chapter 1 to Chapter 5, including system architecture, flowcharts, algorithms, pseudocode, and unlimited revisions. Also proficient in graphic design and websites.
+</p>
         </div>
       </div>
     </div>
