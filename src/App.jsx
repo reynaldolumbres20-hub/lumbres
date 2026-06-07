@@ -1,4 +1,4 @@
-import { useState } from 'react'
+2import { useState } from 'react'
 
 function Gate({ onEnter }) {
   return (
@@ -80,7 +80,7 @@ function Home() {
         <div className="objective-inside">
           <h3 className="objective-title">Professional Objective</h3>
           <p className="objective-text">
-            <strong>WWeb at Software Developer</strong> na gumagawa ng web-based systems gamit ang PHP, MySQL, at JavaScript para sa Payroll, Gym, Inventory, Library, at E-Commerce, at standalone desktop software gamit ang C#, VB.NET, at MySQL para sa Registration na may Gmail Integration, POS, at Inventory. Marunong gumawa ng kumpletong thesis documentation mula Kabanata 1 hanggang 5 kasama ang lahat ng diagrams at unlimited revision. Marunong din sa graphic design, mobile apps gamit ang React Native, at mga website.
+            <strong>Web at Software Developer</strong> na gumagawa ng web-based systems gamit ang PHP, MySQL, at JavaScript para sa Payroll, Gym, Inventory, Library, at E-Commerce, at standalone desktop software gamit ang C#, VB.NET, at MySQL para sa Registration na may Gmail Integration, POS, at Inventory. Marunong gumawa ng kumpletong thesis documentation mula Kabanata 1 hanggang 5 kasama ang lahat ng diagrams at unlimited revision. Marunong din sa graphic design, mobile apps gamit ang React Native, at mga website.
           </p>
         </div>
       </div>
