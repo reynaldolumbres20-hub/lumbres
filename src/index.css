@@ -768,6 +768,13 @@ body::before {
   gap: 0.5rem;
 }
 
+.facebook-avatar-home img {
+  content: url('https://drive.google.com/thumbnail?id=1Gpq4_Y-YobGt6-_qlEO4KFPfXjbwlOPH&sz=w1920');
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .facebook-avatar-home {
   position: relative;
   width: 100px;
@@ -872,7 +879,7 @@ body::before {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(3, 8, 18, 0.85);
+   background-image: url('https://images.pexels.com/photos/8721342/pexels-photo-8721342.jpeg?w=1920&h=1080');
   backdrop-filter: blur(20px);
   display: flex;
   align-items: center;
