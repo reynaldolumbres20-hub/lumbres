@@ -94,12 +94,14 @@ body::before {
   z-index: 10000;
   transition: opacity 0.5s ease;
 }
-
 .gate-container {
   text-align: center;
   padding: 2.5rem;
   border: 2px solid var(--accent);
-  background: rgba(10, 22, 40, 0.8);
+  background-image: url('https://drive.google.com/thumbnail?id=1Ar_en3lUra_yuyJodruWzfliGWwTxYKC&sz=w1920');
+  background-size: 33%;
+  background-position: right 10%;
+  background-repeat: no-repeat;
   border-radius: 1rem;
   animation: gateThrob 1.2s ease-in-out infinite alternate, gateFloat 3s ease-in-out infinite;
   max-width: 480px;
@@ -109,6 +111,7 @@ body::before {
   box-shadow: 0 0 30px rgba(30, 144, 255, 0.3);
   backdrop-filter: blur(10px);
 }
+
 
 .gate-container::before {
   content: '';
