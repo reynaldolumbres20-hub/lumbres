@@ -5,7 +5,7 @@ function Gate({ onEnter }) {
     <div className="gate-overlay">
       <div className="gate-container">
         <h1 className="gate-title">REYNALDO LUMBRES</h1>
-        <p className="gate-subtitle">PROVERBS 21:5</p>
+        <p className="gate-subtitle"></p>
         <p className="gate-subtitle"> Code. Create. Conquer. Repeat.</p>
         <button onClick={onEnter} className="gate-btn">ENTER PORTFOLIO</button>
       </div>
@@ -47,7 +47,7 @@ function Home() {
                   </div>
                 </div>
                 <h3>Reynaldo Lumbres</h3>
-                <p>Hardworking Dev | Creative Designer</p>
+                <p>Web Developer | Software Developer</p>
                 <div className="facebook-stats">
                   <span><i className="fas fa-trophy"></i> Challenges Accepted</span>
                   <span><i className="fas fa-heart"></i> Happy Worker</span>
