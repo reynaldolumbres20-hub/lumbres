@@ -367,7 +367,7 @@ body::before {
 
 .premium-home-card:hover {
   transform: translateY(-2px);
-  background: rgba(10, 22, 40, 0.35);
+  background: rgba(0, 6, 15, 0);
 }
 
 .skills-grid,
